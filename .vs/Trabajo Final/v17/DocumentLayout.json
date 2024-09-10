@@ -1,0 +1,271 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\jnico\\source\\repos\\TPFinal\\WindowsFormsWithServices\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C708C5A5-1C3B-4D7E-A625-8BED5FDA23B6}|Domain\\Domain.csproj|c:\\users\\jnico\\source\\repos\\tpfinal\\windowsformswithservices\\domain\\services\\usuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C708C5A5-1C3B-4D7E-A625-8BED5FDA23B6}|Domain\\Domain.csproj|solutionrelative:domain\\services\\usuarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C708C5A5-1C3B-4D7E-A625-8BED5FDA23B6}|Domain\\Domain.csproj|c:\\users\\jnico\\source\\repos\\tpfinal\\windowsformswithservices\\domain\\services\\personaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C708C5A5-1C3B-4D7E-A625-8BED5FDA23B6}|Domain\\Domain.csproj|solutionrelative:domain\\services\\personaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C708C5A5-1C3B-4D7E-A625-8BED5FDA23B6}|Domain\\Domain.csproj|c:\\users\\jnico\\source\\repos\\tpfinal\\windowsformswithservices\\domain\\model\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C708C5A5-1C3B-4D7E-A625-8BED5FDA23B6}|Domain\\Domain.csproj|solutionrelative:domain\\model\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C708C5A5-1C3B-4D7E-A625-8BED5FDA23B6}|Domain\\Domain.csproj|c:\\users\\jnico\\source\\repos\\tpfinal\\windowsformswithservices\\domain\\services\\materiaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C708C5A5-1C3B-4D7E-A625-8BED5FDA23B6}|Domain\\Domain.csproj|solutionrelative:domain\\services\\materiaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3151D219-3717-4261-9238-E0AA8ADA2E4D}|WindowsForms\\WindowsForms.csproj|c:\\users\\jnico\\source\\repos\\tpfinal\\windowsformswithservices\\windowsforms\\materialista.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{3151D219-3717-4261-9238-E0AA8ADA2E4D}|WindowsForms\\WindowsForms.csproj|solutionrelative:windowsforms\\materialista.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12E47EC2-8DB0-4B10-BF50-814B7047B468}|WebAPI\\WebAPI.csproj|c:\\users\\jnico\\source\\repos\\tpfinal\\windowsformswithservices\\webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12E47EC2-8DB0-4B10-BF50-814B7047B468}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3151D219-3717-4261-9238-E0AA8ADA2E4D}|WindowsForms\\WindowsForms.csproj|c:\\users\\jnico\\source\\repos\\tpfinal\\windowsformswithservices\\windowsforms\\materiadetalle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{3151D219-3717-4261-9238-E0AA8ADA2E4D}|WindowsForms\\WindowsForms.csproj|solutionrelative:windowsforms\\materiadetalle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C708C5A5-1C3B-4D7E-A625-8BED5FDA23B6}|Domain\\Domain.csproj|c:\\users\\jnico\\source\\repos\\tpfinal\\windowsformswithservices\\domain\\model\\persona.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C708C5A5-1C3B-4D7E-A625-8BED5FDA23B6}|Domain\\Domain.csproj|solutionrelative:domain\\model\\persona.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C708C5A5-1C3B-4D7E-A625-8BED5FDA23B6}|Domain\\Domain.csproj|c:\\users\\jnico\\source\\repos\\tpfinal\\windowsformswithservices\\domain\\model\\materia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C708C5A5-1C3B-4D7E-A625-8BED5FDA23B6}|Domain\\Domain.csproj|solutionrelative:domain\\model\\materia.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3151D219-3717-4261-9238-E0AA8ADA2E4D}|WindowsForms\\WindowsForms.csproj|c:\\users\\jnico\\source\\repos\\tpfinal\\windowsformswithservices\\windowsforms\\personadetalle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3151D219-3717-4261-9238-E0AA8ADA2E4D}|WindowsForms\\WindowsForms.csproj|solutionrelative:windowsforms\\personadetalle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3151D219-3717-4261-9238-E0AA8ADA2E4D}|WindowsForms\\WindowsForms.csproj|c:\\users\\jnico\\source\\repos\\tpfinal\\windowsformswithservices\\windowsforms\\personadetalle.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3151D219-3717-4261-9238-E0AA8ADA2E4D}|WindowsForms\\WindowsForms.csproj|solutionrelative:windowsforms\\personadetalle.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3151D219-3717-4261-9238-E0AA8ADA2E4D}|WindowsForms\\WindowsForms.csproj|c:\\users\\jnico\\source\\repos\\tpfinal\\windowsformswithservices\\windowsforms\\personadetalle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{3151D219-3717-4261-9238-E0AA8ADA2E4D}|WindowsForms\\WindowsForms.csproj|solutionrelative:windowsforms\\personadetalle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3151D219-3717-4261-9238-E0AA8ADA2E4D}|WindowsForms\\WindowsForms.csproj|c:\\users\\jnico\\source\\repos\\tpfinal\\windowsformswithservices\\windowsforms\\personaslista.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3151D219-3717-4261-9238-E0AA8ADA2E4D}|WindowsForms\\WindowsForms.csproj|solutionrelative:windowsforms\\personaslista.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3151D219-3717-4261-9238-E0AA8ADA2E4D}|WindowsForms\\WindowsForms.csproj|c:\\users\\jnico\\source\\repos\\tpfinal\\windowsformswithservices\\windowsforms\\personaslista.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3151D219-3717-4261-9238-E0AA8ADA2E4D}|WindowsForms\\WindowsForms.csproj|solutionrelative:windowsforms\\personaslista.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3151D219-3717-4261-9238-E0AA8ADA2E4D}|WindowsForms\\WindowsForms.csproj|c:\\users\\jnico\\source\\repos\\tpfinal\\windowsformswithservices\\windowsforms\\personaslista.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{3151D219-3717-4261-9238-E0AA8ADA2E4D}|WindowsForms\\WindowsForms.csproj|solutionrelative:windowsforms\\personaslista.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PersonaService.cs",
+              "DocumentMoniker": "C:\\Users\\jnico\\source\\repos\\TPFinal\\WindowsFormsWithServices\\Domain\\Services\\PersonaService.cs",
+              "RelativeDocumentMoniker": "Domain\\Services\\PersonaService.cs",
+              "ToolTip": "C:\\Users\\jnico\\source\\repos\\TPFinal\\WindowsFormsWithServices\\Domain\\Services\\PersonaService.cs",
+              "RelativeToolTip": "Domain\\Services\\PersonaService.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAQwBgAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-09T23:59:00.969Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UsuarioService.cs",
+              "DocumentMoniker": "C:\\Users\\jnico\\source\\repos\\TPFinal\\WindowsFormsWithServices\\Domain\\Services\\UsuarioService.cs",
+              "RelativeDocumentMoniker": "Domain\\Services\\UsuarioService.cs",
+              "ToolTip": "C:\\Users\\jnico\\source\\repos\\TPFinal\\WindowsFormsWithServices\\Domain\\Services\\UsuarioService.cs",
+              "RelativeToolTip": "Domain\\Services\\UsuarioService.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAQwBoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-09T23:52:41.958Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\jnico\\source\\repos\\TPFinal\\WindowsFormsWithServices\\WebAPI\\Program.cs",
+              "RelativeDocumentMoniker": "WebAPI\\Program.cs",
+              "ToolTip": "C:\\Users\\jnico\\source\\repos\\TPFinal\\WindowsFormsWithServices\\WebAPI\\Program.cs",
+              "RelativeToolTip": "WebAPI\\Program.cs",
+              "ViewState": "AQIAACoAAAAAAAAAAAAAAE0AAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-09T23:50:21.569Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MateriaDetalle.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\jnico\\source\\repos\\TPFinal\\WindowsFormsWithServices\\WindowsForms\\MateriaDetalle.cs",
+              "RelativeDocumentMoniker": "WindowsForms\\MateriaDetalle.cs",
+              "ToolTip": "C:\\Users\\jnico\\source\\repos\\TPFinal\\WindowsFormsWithServices\\WindowsForms\\MateriaDetalle.cs [Dise\u00F1o]",
+              "RelativeToolTip": "WindowsForms\\MateriaDetalle.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-09T23:49:58.702Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MateriaLista.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\jnico\\source\\repos\\TPFinal\\WindowsFormsWithServices\\WindowsForms\\MateriaLista.cs",
+              "RelativeDocumentMoniker": "WindowsForms\\MateriaLista.cs",
+              "ToolTip": "C:\\Users\\jnico\\source\\repos\\TPFinal\\WindowsFormsWithServices\\WindowsForms\\MateriaLista.cs [Dise\u00F1o]",
+              "RelativeToolTip": "WindowsForms\\MateriaLista.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-09T23:49:41.5Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MateriaService.cs",
+              "DocumentMoniker": "C:\\Users\\jnico\\source\\repos\\TPFinal\\WindowsFormsWithServices\\Domain\\Services\\MateriaService.cs",
+              "RelativeDocumentMoniker": "Domain\\Services\\MateriaService.cs",
+              "ToolTip": "C:\\Users\\jnico\\source\\repos\\TPFinal\\WindowsFormsWithServices\\Domain\\Services\\MateriaService.cs",
+              "RelativeToolTip": "Domain\\Services\\MateriaService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-09T23:39:33.845Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Materia.cs",
+              "DocumentMoniker": "C:\\Users\\jnico\\source\\repos\\TPFinal\\WindowsFormsWithServices\\Domain\\Model\\Materia.cs",
+              "RelativeDocumentMoniker": "Domain\\Model\\Materia.cs",
+              "ToolTip": "C:\\Users\\jnico\\source\\repos\\TPFinal\\WindowsFormsWithServices\\Domain\\Model\\Materia.cs",
+              "RelativeToolTip": "Domain\\Model\\Materia.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-09T23:39:25.773Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Persona.cs",
+              "DocumentMoniker": "C:\\Users\\jnico\\source\\repos\\TPFinal\\WindowsFormsWithServices\\Domain\\Model\\Persona.cs",
+              "RelativeDocumentMoniker": "Domain\\Model\\Persona.cs",
+              "ToolTip": "C:\\Users\\jnico\\source\\repos\\TPFinal\\WindowsFormsWithServices\\Domain\\Model\\Persona.cs",
+              "RelativeToolTip": "Domain\\Model\\Persona.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-09T23:29:51.653Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "C:\\Users\\jnico\\source\\repos\\TPFinal\\WindowsFormsWithServices\\Domain\\Model\\Usuario.cs",
+              "RelativeDocumentMoniker": "Domain\\Model\\Usuario.cs",
+              "ToolTip": "C:\\Users\\jnico\\source\\repos\\TPFinal\\WindowsFormsWithServices\\Domain\\Model\\Usuario.cs",
+              "RelativeToolTip": "Domain\\Model\\Usuario.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-09T23:29:36.649Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "PersonaDetalle.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\jnico\\source\\repos\\TPFinal\\WindowsFormsWithServices\\WindowsForms\\PersonaDetalle.Designer.cs",
+              "RelativeDocumentMoniker": "WindowsForms\\PersonaDetalle.Designer.cs",
+              "ToolTip": "C:\\Users\\jnico\\source\\repos\\TPFinal\\WindowsFormsWithServices\\WindowsForms\\PersonaDetalle.Designer.cs",
+              "RelativeToolTip": "WindowsForms\\PersonaDetalle.Designer.cs",
+              "ViewState": "AQIAAIYAAAAAAAAAAADwv6kAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-09T23:07:55.724Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "PersonaDetalle.cs",
+              "DocumentMoniker": "C:\\Users\\jnico\\source\\repos\\TPFinal\\WindowsFormsWithServices\\WindowsForms\\PersonaDetalle.cs",
+              "RelativeDocumentMoniker": "WindowsForms\\PersonaDetalle.cs",
+              "ToolTip": "C:\\Users\\jnico\\source\\repos\\TPFinal\\WindowsFormsWithServices\\WindowsForms\\PersonaDetalle.cs",
+              "RelativeToolTip": "WindowsForms\\PersonaDetalle.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-09T22:46:53.016Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "PersonaDetalle.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\jnico\\source\\repos\\TPFinal\\WindowsFormsWithServices\\WindowsForms\\PersonaDetalle.cs",
+              "RelativeDocumentMoniker": "WindowsForms\\PersonaDetalle.cs",
+              "ToolTip": "C:\\Users\\jnico\\source\\repos\\TPFinal\\WindowsFormsWithServices\\WindowsForms\\PersonaDetalle.cs [Dise\u00F1o]",
+              "RelativeToolTip": "WindowsForms\\PersonaDetalle.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-09T22:46:45.979Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "PersonasLista.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\jnico\\source\\repos\\TPFinal\\WindowsFormsWithServices\\WindowsForms\\PersonasLista.cs",
+              "RelativeDocumentMoniker": "WindowsForms\\PersonasLista.cs",
+              "ToolTip": "C:\\Users\\jnico\\source\\repos\\TPFinal\\WindowsFormsWithServices\\WindowsForms\\PersonasLista.cs [Dise\u00F1o]",
+              "RelativeToolTip": "WindowsForms\\PersonasLista.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-09T22:43:41.481Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "PersonasLista.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\jnico\\source\\repos\\TPFinal\\WindowsFormsWithServices\\WindowsForms\\PersonasLista.Designer.cs",
+              "RelativeDocumentMoniker": "WindowsForms\\PersonasLista.Designer.cs",
+              "ToolTip": "C:\\Users\\jnico\\source\\repos\\TPFinal\\WindowsFormsWithServices\\WindowsForms\\PersonasLista.Designer.cs",
+              "RelativeToolTip": "WindowsForms\\PersonasLista.Designer.cs",
+              "ViewState": "AQIAAC0AAAAAAAAAAAAjwEoAAAA0AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-09T22:33:59.844Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "PersonasLista.cs",
+              "DocumentMoniker": "C:\\Users\\jnico\\source\\repos\\TPFinal\\WindowsFormsWithServices\\WindowsForms\\PersonasLista.cs",
+              "RelativeDocumentMoniker": "WindowsForms\\PersonasLista.cs",
+              "ToolTip": "C:\\Users\\jnico\\source\\repos\\TPFinal\\WindowsFormsWithServices\\WindowsForms\\PersonasLista.cs",
+              "RelativeToolTip": "WindowsForms\\PersonasLista.cs",
+              "ViewState": "AQIAACcAAAAAAAAAAAArwDkAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-09T22:33:00.608Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
