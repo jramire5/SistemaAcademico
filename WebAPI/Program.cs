@@ -79,7 +79,7 @@ app.MapGet("/materia/{id}", (int id) =>
 {
     MateriaService materiaService = new MateriaService();
 
-    return materiaService.Get(id);
+    //return materiaService.Get(id);
 })
 .WithName("GetMateria")
 .WithOpenApi();

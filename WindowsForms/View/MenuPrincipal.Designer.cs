@@ -30,12 +30,13 @@
         {
             menuStrip1 = new MenuStrip();
             personasToolStripMenuItem = new ToolStripMenuItem();
+            usuariosToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { personasToolStripMenuItem, materiasToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { personasToolStripMenuItem, usuariosToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(800, 24);
@@ -49,12 +50,11 @@
             personasToolStripMenuItem.Text = "Personas";
             personasToolStripMenuItem.Click += personasToolStripMenuItem_Click;
             // 
-            // materiasToolStripMenuItem
+            // usuariosToolStripMenuItem
             // 
-            materiasToolStripMenuItem.Name = "materiasToolStripMenuItem";
-            materiasToolStripMenuItem.Size = new Size(66, 20);
-            materiasToolStripMenuItem.Text = "Materias";
-            materiasToolStripMenuItem.Click += materiasToolStripMenuItem_Click;
+            usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
+            usuariosToolStripMenuItem.Size = new Size(64, 20);
+            usuariosToolStripMenuItem.Text = "Usuarios";
             // 
             // MenuPrincipal
             // 
@@ -78,5 +78,6 @@
         private MenuStrip menuStrip1;
         private ToolStripMenuItem personasToolStripMenuItem;
         private ToolStripMenuItem materiasToolStripMenuItem;
+        private ToolStripMenuItem usuariosToolStripMenuItem;
     }
 }

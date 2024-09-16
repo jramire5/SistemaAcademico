@@ -160,3 +160,5 @@ C:\Users\jnico\source\repos\TPFinal\WindowsFormsWithServices\WindowsForms\obj\De
 C:\Users\jnico\source\repos\TPFinal\WindowsFormsWithServices\WindowsForms\obj\Debug\net8.0-windows\WindowsForms.MateriaDetalle.resources
 C:\Users\jnico\source\repos\TPFinal\WindowsFormsWithServices\WindowsForms\obj\Debug\net8.0-windows\WindowsForms.MateriaLista.resources
 C:\Users\jnico\source\repos\TPFinal\WindowsFormsWithServices\WindowsForms\obj\Debug\net8.0-windows\WindowsForms.sourcelink.json
+C:\Users\jnico\source\repos\TPFinal\WindowsFormsWithServices\WindowsForms\obj\Debug\net8.0-windows\WindowsForms.View.Usuario.UsuarioDetalle.resources
+C:\Users\jnico\source\repos\TPFinal\WindowsFormsWithServices\WindowsForms\obj\Debug\net8.0-windows\WindowsForms.View.Usuario.UsuarioLista.resources
