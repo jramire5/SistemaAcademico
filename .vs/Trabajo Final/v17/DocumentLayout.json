@@ -34,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -45,13 +45,17 @@
               "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 4,
               "Title": "UsuarioDetalle.cs",
               "DocumentMoniker": "C:\\Users\\jnico\\source\\repos\\TPFinal\\WindowsFormsWithServices\\WindowsForms\\View\\Usuario\\UsuarioDetalle.cs",
               "RelativeDocumentMoniker": "WindowsForms\\View\\Usuario\\UsuarioDetalle.cs",
-              "ToolTip": "C:\\Users\\jnico\\source\\repos\\TPFinal\\WindowsFormsWithServices\\WindowsForms\\View\\Usuario\\UsuarioDetalle.cs*",
-              "RelativeToolTip": "WindowsForms\\View\\Usuario\\UsuarioDetalle.cs*",
+              "ToolTip": "C:\\Users\\jnico\\source\\repos\\TPFinal\\WindowsFormsWithServices\\WindowsForms\\View\\Usuario\\UsuarioDetalle.cs",
+              "RelativeToolTip": "WindowsForms\\View\\Usuario\\UsuarioDetalle.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-16T22:58:15.151Z",
@@ -63,8 +67,8 @@
               "Title": "UsuarioDetalle.Designer.cs",
               "DocumentMoniker": "C:\\Users\\jnico\\source\\repos\\TPFinal\\WindowsFormsWithServices\\WindowsForms\\View\\Usuario\\UsuarioDetalle.Designer.cs",
               "RelativeDocumentMoniker": "WindowsForms\\View\\Usuario\\UsuarioDetalle.Designer.cs",
-              "ToolTip": "C:\\Users\\jnico\\source\\repos\\TPFinal\\WindowsFormsWithServices\\WindowsForms\\View\\Usuario\\UsuarioDetalle.Designer.cs*",
-              "RelativeToolTip": "WindowsForms\\View\\Usuario\\UsuarioDetalle.Designer.cs*",
+              "ToolTip": "C:\\Users\\jnico\\source\\repos\\TPFinal\\WindowsFormsWithServices\\WindowsForms\\View\\Usuario\\UsuarioDetalle.Designer.cs",
+              "RelativeToolTip": "WindowsForms\\View\\Usuario\\UsuarioDetalle.Designer.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-16T22:54:35.098Z",
@@ -76,8 +80,8 @@
               "Title": "MenuPrincipal.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\jnico\\source\\repos\\TPFinal\\WindowsFormsWithServices\\WindowsForms\\View\\MenuPrincipal.cs",
               "RelativeDocumentMoniker": "WindowsForms\\View\\MenuPrincipal.cs",
-              "ToolTip": "C:\\Users\\jnico\\source\\repos\\TPFinal\\WindowsFormsWithServices\\WindowsForms\\View\\MenuPrincipal.cs [Dise\u00F1o]*",
-              "RelativeToolTip": "WindowsForms\\View\\MenuPrincipal.cs [Dise\u00F1o]*",
+              "ToolTip": "C:\\Users\\jnico\\source\\repos\\TPFinal\\WindowsFormsWithServices\\WindowsForms\\View\\MenuPrincipal.cs [Dise\u00F1o]",
+              "RelativeToolTip": "WindowsForms\\View\\MenuPrincipal.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-16T22:50:07.006Z",
               "EditorCaption": " [Dise\u00F1o]"
@@ -100,8 +104,8 @@
               "Title": "UsuarioDetalle.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\jnico\\source\\repos\\TPFinal\\WindowsFormsWithServices\\WindowsForms\\View\\Usuario\\UsuarioDetalle.cs",
               "RelativeDocumentMoniker": "WindowsForms\\View\\Usuario\\UsuarioDetalle.cs",
-              "ToolTip": "C:\\Users\\jnico\\source\\repos\\TPFinal\\WindowsFormsWithServices\\WindowsForms\\View\\Usuario\\UsuarioDetalle.cs [Dise\u00F1o]*",
-              "RelativeToolTip": "WindowsForms\\View\\Usuario\\UsuarioDetalle.cs [Dise\u00F1o]*",
+              "ToolTip": "C:\\Users\\jnico\\source\\repos\\TPFinal\\WindowsFormsWithServices\\WindowsForms\\View\\Usuario\\UsuarioDetalle.cs [Dise\u00F1o]",
+              "RelativeToolTip": "WindowsForms\\View\\Usuario\\UsuarioDetalle.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-16T22:48:08.28Z",
               "EditorCaption": " [Dise\u00F1o]"
