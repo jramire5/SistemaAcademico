@@ -25,12 +25,12 @@ public class MateriaService
         }
     }
 
-    /*public Persona? Get(int id)
+    public Materia? Get(int id)
     {
         using var context = new AcademiaContext();
 
         return context.Materia.Find(id);
-    }*/
+    }
 
     public IEnumerable<Materia> GetAll()
     {
