@@ -6,14 +6,14 @@ using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
 
-namespace WindowsForms
+namespace WindowsForms.APIServices
 {
     //Revisar si no seria mejor usar metodos estaticos        
-   
+
     public class PersonaApiClient
     {
         private static HttpClient client = new HttpClient();
-        static PersonaApiClient() 
+        static PersonaApiClient()
         {
             client.BaseAddress = new Uri("http://localhost:5183/");
             client.DefaultRequestHeaders.Accept.Clear();
@@ -25,7 +25,7 @@ namespace WindowsForms
         public static async Task<Persona> GetAsync(int id)
         {
             Persona persona = null;
-            HttpResponseMessage response = await client.GetAsync("personas/"+id);
+            HttpResponseMessage response = await client.GetAsync("personas/" + id);
             if (response.IsSuccessStatusCode)
             {
                 persona = await response.Content.ReadAsAsync<Persona>();

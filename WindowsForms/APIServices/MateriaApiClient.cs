@@ -1,5 +1,4 @@
-﻿
-namespace WindowsForms;
+﻿namespace WindowsForms.APIServices;
 
 public class MateriaApiClient
 {

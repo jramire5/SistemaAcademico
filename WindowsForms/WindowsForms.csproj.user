@@ -2,19 +2,19 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
-    <Compile Update="MateriaDetalle.cs">
+    <Compile Update="View\Materia\MateriaDetalle.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="MateriaLista.cs">
+    <Compile Update="View\Materia\MateriaLista.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="MenuPrincipal.cs">
+    <Compile Update="View\MenuPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="PersonaDetalle.cs">
+    <Compile Update="View\Persona\PersonaDetalle.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="PersonasLista.cs">
+    <Compile Update="View\Persona\PersonasLista.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
