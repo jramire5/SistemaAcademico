@@ -17,6 +17,7 @@ namespace Domain
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Persona>().HasKey(p => p.id_persona);
+            modelBuilder.Entity<Usuario>().HasKey(p => p.id_usuario);
 
             modelBuilder.Entity<Materia>().HasKey(p => p.IdMateria);
             modelBuilder.Entity<Materia>().Property("DescMateria").HasMaxLength(50);
@@ -28,7 +29,7 @@ namespace Domain
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) =>
             
-            //optionsBuilder.UseMySQL(connectionString);
-                optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Initial Catalog=AcademiaDb");
+            optionsBuilder.UseMySQL(connectionString);
+            //optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Initial Catalog=AcademiaDb");
     }
 }

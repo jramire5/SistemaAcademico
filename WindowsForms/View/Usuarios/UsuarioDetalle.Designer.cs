@@ -164,17 +164,7 @@
             comboPersona.TabIndex = 36;
             comboPersona.ValueMember = "id_persona";
             comboPersona.SelectedIndexChanged += comboPersona_SelectedIndexChanged;
-            // 
-            // personaApiClientBindingSource
-            // 
-            personaApiClientBindingSource.DataSource = typeof(WindowsForms.PersonaApiClient);
-            // 
-            // personaBindingSource
-            // 
-            personaBindingSource.DataSource = typeof(Domain.Model.Persona);
-            // 
-            // UsuarioDetalle
-            // 
+
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);

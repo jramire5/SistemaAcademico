@@ -17,7 +17,7 @@ namespace WindowsForms
 
         public Materia Materia
         {
-            get { return persona; }
+            get { return materia; }
             set
             {
                 materia = value;
