@@ -159,3 +159,4 @@ C:\Users\jnico\source\repos\TPFinal\WindowsFormsWithServices\WebAPI\bin\Debug\ne
 C:\Users\jnico\source\repos\TPFinal\WindowsFormsWithServices\WebAPI\bin\Debug\net8.0\runtimes\win-x64\native\k5sprt64.dll
 C:\Users\jnico\source\repos\TPFinal\WindowsFormsWithServices\WebAPI\bin\Debug\net8.0\runtimes\win-x64\native\krb5_64.dll
 C:\Users\jnico\source\repos\TPFinal\WindowsFormsWithServices\WebAPI\bin\Debug\net8.0\runtimes\win-x64\native\krbcc64.dll
+C:\Users\jnico\source\repos\TPFinal\WindowsFormsWithServices\WebAPI\obj\Debug\net8.0\WebAPI.sourcelink.json

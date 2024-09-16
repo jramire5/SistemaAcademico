@@ -157,3 +157,6 @@ C:\Users\jnico\source\repos\TPFinal\WindowsFormsWithServices\WindowsForms\bin\De
 C:\Users\jnico\source\repos\TPFinal\WindowsFormsWithServices\WindowsForms\bin\Debug\net8.0-windows\runtimes\win-x64\native\krb5_64.dll
 C:\Users\jnico\source\repos\TPFinal\WindowsFormsWithServices\WindowsForms\bin\Debug\net8.0-windows\runtimes\win-x64\native\krbcc64.dll
 C:\Users\jnico\source\repos\TPFinal\WindowsFormsWithServices\WindowsForms\obj\Debug\net8.0-windows\WindowsForms.PersonaDetalle.resources
+C:\Users\jnico\source\repos\TPFinal\WindowsFormsWithServices\WindowsForms\obj\Debug\net8.0-windows\WindowsForms.MateriaDetalle.resources
+C:\Users\jnico\source\repos\TPFinal\WindowsFormsWithServices\WindowsForms\obj\Debug\net8.0-windows\WindowsForms.MateriaLista.resources
+C:\Users\jnico\source\repos\TPFinal\WindowsFormsWithServices\WindowsForms\obj\Debug\net8.0-windows\WindowsForms.sourcelink.json

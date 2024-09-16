@@ -1,4 +1,4 @@
-﻿using namespace Domain.Model;
+﻿using Domain.Model;
 
 namespace Domain.Services;
 
@@ -25,12 +25,12 @@ public class MateriaService
         }
     }
 
-    public Persona? Get(int id)
+    /*public Persona? Get(int id)
     {
         using var context = new AcademiaContext();
 
         return context.Materia.Find(id);
-    }
+    }*/
 
     public IEnumerable<Materia> GetAll()
     {

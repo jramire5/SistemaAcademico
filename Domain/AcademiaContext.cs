@@ -28,7 +28,7 @@ namespace Domain
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) =>
             
-            optionsBuilder.UseMySQL(connectionString);
-            //    optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Initial Catalog=AcademiaDb");
+            //optionsBuilder.UseMySQL(connectionString);
+                optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Initial Catalog=AcademiaDb");
     }
 }
