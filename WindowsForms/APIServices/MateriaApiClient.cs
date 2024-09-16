@@ -1,4 +1,7 @@
-﻿namespace WindowsForms.APIServices;
+﻿using Domain.Model;
+using System.Net.Http.Headers;
+using System.Net.Http.Json;
+namespace WindowsForms.APIServices;
 
 public class MateriaApiClient
 {
@@ -12,43 +15,43 @@ public class MateriaApiClient
     }
 
 
-    public static async Task<Persona> GetAsync(int id)
+    public static async Task<Materia> GetAsync(int id)
     {
-        Persona persona = null;
-        HttpResponseMessage response = await client.GetAsync("personas/" + id);
+        Materia materia = null;
+        HttpResponseMessage response = await client.GetAsync("materias/" + id);
         if (response.IsSuccessStatusCode)
         {
-            persona = await response.Content.ReadAsAsync<Persona>();
+            materia = await response.Content.ReadAsAsync<Materia>();
         }
-        return persona;
+        return materia;
     }
 
-    public static async Task<IEnumerable<Persona>> GetAllAsync()
+    public static async Task<IEnumerable<Materia>> GetAllAsync()
     {
-        IEnumerable<Persona> personas = null;
-        HttpResponseMessage response = await client.GetAsync("personas");
+        IEnumerable<Materia> materias = null;
+        HttpResponseMessage response = await client.GetAsync("materias");
         if (response.IsSuccessStatusCode)
         {
-            personas = await response.Content.ReadAsAsync<IEnumerable<Persona>>();
+            materias = await response.Content.ReadAsAsync<IEnumerable<Materia>>();
         }
-        return personas;
+        return materias;
     }
 
-    public async static Task AddAsync(Persona persona)
+    public async static Task AddAsync(Materia persona)
     {
-        HttpResponseMessage response = await client.PostAsJsonAsync("personas", persona);
+        HttpResponseMessage response = await client.PostAsJsonAsync("materias", persona);
         response.EnsureSuccessStatusCode();
     }
 
     public static async Task DeleteAsync(int id)
     {
-        HttpResponseMessage response = await client.DeleteAsync("personas/" + id);
+        HttpResponseMessage response = await client.DeleteAsync("materias/" + id);
         response.EnsureSuccessStatusCode();
     }
 
-    public static async Task UpdateAsync(Persona persona)
+    public static async Task UpdateAsync(Materia persona)
     {
-        HttpResponseMessage response = await client.PutAsJsonAsync("personas", persona);
+        HttpResponseMessage response = await client.PutAsJsonAsync("materias", persona);
         response.EnsureSuccessStatusCode();
     }
 }
