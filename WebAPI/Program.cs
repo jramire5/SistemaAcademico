@@ -122,4 +122,35 @@ app.MapDelete("/materias/{id}", (int id) =>
 
 /*Fin Materia*/
 
+/* Usuarios */
+app.MapGet("/usuarios", () =>
+{
+    UsuarioService usuarioService = new UsuarioService();
+    return usuarioService.GetAll();
+}).WithName("GetUsuarios").WithOpenApi();
+
+app.MapGet("/usuarios", (int id) =>
+{
+    UsuarioService usuarioService = new UsuarioService();
+    return usuarioService.Get(id);
+});
+
+app.MapPost("/usuarios", (Usuario usuario) =>
+{
+    UsuarioService usuarioService = new UsuarioService();
+    usuarioService.Add(usuario);
+});
+
+app.MapPut("/usuarios", (Usuario usuario) =>
+{
+    UsuarioService usuarioService = new UsuarioService();
+    usuarioService.Update(usuario);
+});
+
+app.MapDelete("/usuarios", (int id) =>
+{
+    UsuarioService usuarioService = new UsuarioService();
+    usuarioService.Delete(id);
+});
+
 app.Run();

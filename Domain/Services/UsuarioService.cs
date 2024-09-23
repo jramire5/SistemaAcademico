@@ -25,36 +25,32 @@ public class UsuarioService
         }
     }
 
-    public Persona? Get(int id)
+    public Usuario? Get(int id)
     {
         using var context = new AcademiaContext();
 
-        return context.Personas.Find(id);
+        return context.Usuarios.Find(id);
     }
 
-    public IEnumerable<Persona> GetAll()
+    public IEnumerable<Usuario> GetAll()
     {
         using var context = new AcademiaContext();
 
-        return context.Personas.ToList();
+        return context.Usuarios.ToList();
     }
 
-    public void Update(Persona persona)
+    public void Update(Usuario usuario)
     {
         using var context = new AcademiaContext();
 
-        Persona? personaToUpdate = context.Personas.Find(persona.id_persona);
+        Usuario? usuarioToUpdate = context.Usuarios.Find(usuario.id_usuario);
 
-        if (personaToUpdate != null)
+        if (usuarioToUpdate != null)
         {
-            personaToUpdate.nombre = persona.nombre;
-            personaToUpdate.apellido = persona.apellido;
-            personaToUpdate.direccion = persona.direccion;
-            personaToUpdate.legajo = persona.legajo;
-            personaToUpdate.tipo_persona = persona.tipo_persona;
-            personaToUpdate.email = persona.email;
-            personaToUpdate.id_plan = persona.id_plan;
-            personaToUpdate.fecha_nacimiento = persona.fecha_nacimiento;
+            usuarioToUpdate.nombre_usuario = usuario.nombre_usuario;
+            usuarioToUpdate.id_persona = usuario.id_persona;
+            usuarioToUpdate.clave = usuario.clave;
+            usuarioToUpdate.cambia_clave = usuario.cambia_clave;
             context.SaveChanges();
         }
     }
