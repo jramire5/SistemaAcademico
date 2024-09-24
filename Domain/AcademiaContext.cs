@@ -13,7 +13,9 @@ namespace Domain
 
         internal DbSet<Materia> Materia { get; set; }
         
+        internal DbSet<Modulo> Modulos { get; set; }
 
+        internal DbSet<ModuloUsuario> moduloUsuarios { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Persona>().HasKey(p => p.id_persona);
@@ -21,6 +23,9 @@ namespace Domain
 
             modelBuilder.Entity<Materia>().HasKey(p => p.IdMateria);
             modelBuilder.Entity<Materia>().Property("DescMateria").HasMaxLength(50);
+            
+            modelBuilder.Entity<Modulo>().HasKey(p => p.Id_modulo);
+            modelBuilder.Entity<ModuloUsuario>().HasKey(p => p.IdModuloUsuario);
         }
         internal AcademiaContext()
         {
