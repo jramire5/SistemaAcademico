@@ -10,9 +10,12 @@ namespace Domain
         String connectionString = "server=localhost;port=3306;user=root;password=root;database=academia;";
         internal DbSet<Persona> Personas { get; set; }
         internal DbSet<Usuario> Usuarios { get; set; }
-
         internal DbSet<Materia> Materia { get; set; }
-        
+        public DbSet<Curso> Cursos { get; set; }
+        public DbSet<Comision> Comisiones { get; set; }
+        public DbSet<Plan> Planes { get; set; }
+        public DbSet<AlumnoInscripcion> AlumnosInscripciones { get; set; }
+        public DbSet<Especialidad> Especialidades { get; set; }
         internal DbSet<Modulo> Modulos { get; set; }
 
         internal DbSet<ModuloUsuario> moduloUsuarios { get; set; }
