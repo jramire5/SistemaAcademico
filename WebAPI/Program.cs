@@ -1,5 +1,6 @@
 using Domain.Services;
 using Domain.Model;
+using WebAPI.EndPoints;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +9,13 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddHttpLogging(o => { });
+
+builder.Services.AddScoped<CursoService>();
+builder.Services.AddScoped<ComisionService>();
+builder.Services.AddScoped<EspecialidadService>();
+builder.Services.AddScoped<AlumnoInscripcionService>();
+builder.Services.AddScoped<MateriaService>();
+builder.Services.AddScoped<ModuloUsuarioService>();
 
 var app = builder.Build();
 
@@ -23,6 +31,13 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 //Actualmente estamos usando los objetos del Domain Model, deberiamos usar ViewModels o DTOs         
+
+app.MapCursoEndpoints();
+app.MapComisionEndpoints();
+app.MapEspecialidadEndpoints();
+app.MapAlumnoInscripcionEndpoints();
+app.MapMateriaEndpoints();
+
 
 //PERSONAS
 app.MapGet("/personas/{id}", (int id) =>
@@ -73,54 +88,6 @@ app.MapDelete("/personas/{id}", (int id) =>
 //Persona
 
 
-
-/*Materia*/
-app.MapGet("/materia/{id}", (int id) =>
-{
-    MateriaService materiaService = new MateriaService();
-
-    //return materiaService.Get(id);
-})
-.WithName("GetMateria")
-.WithOpenApi();
-
-app.MapGet("/materias", () =>
-{
-    MateriaService materiaService = new MateriaService();
-
-    return materiaService.GetAll();
-})
-.WithName("GetAllMaterias")
-.WithOpenApi();
-
-app.MapPost("/materias", (Materia materia) =>
-{
-    MateriaService materiaService = new MateriaService();
-
-    materiaService.Add(materia);
-})
-.WithName("AddMateria")
-.WithOpenApi();
-
-app.MapPut("/materias", (Materia materia) =>
-{
-    MateriaService materiaService = new MateriaService();
-
-    materiaService.Update(materia);
-})
-.WithName("UpdateMaterias")
-.WithOpenApi();
-
-app.MapDelete("/materias/{id}", (int id) =>
-{
-    MateriaService materiaService = new MateriaService();
-
-    materiaService.Delete(id);
-})
-.WithName("DeleteMateria")
-.WithOpenApi();
-
-/*Fin Materia*/
 
 /* Usuarios */
 app.MapGet("/usuarios/{id}", (int id) =>

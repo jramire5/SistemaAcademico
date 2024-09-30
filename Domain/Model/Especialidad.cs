@@ -10,8 +10,8 @@ namespace Domain.Model;
 public class Especialidad
 {
     [Key]
-    public int IdEspecialidad { get; set; }
+    public int id_especialidad { get; set; }
 
     [MaxLength(50)]
-    public string DescEspecialidad { get; set; }
+    public string desc_especialidad { get; set; }
 }

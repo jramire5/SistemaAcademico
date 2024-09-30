@@ -6,17 +6,17 @@ namespace Domain.Model;
 public class AlumnoInscripcion
 {
     [Key]
-    public int IdInscripcion { get; set; }
+    public int id_inscripcion { get; set; }
 
     [ForeignKey("Persona")]
-    public int IdAlumno { get; set; }
+    public int id_alumno { get; set; }
 
     [ForeignKey("Curso")]
-    public int IdCurso { get; set; }
+    public int id_curso { get; set; }
 
     [MaxLength(50)]
-    public string Condicion { get; set; }
-    public int Nota { get; set; }
+    public string condicion { get; set; }
+    public int nota { get; set; }
 
     // Navegación
     public virtual Persona Persona { get; set; }

@@ -24,7 +24,7 @@ namespace Domain
             modelBuilder.Entity<Persona>().HasKey(p => p.id_persona);
             modelBuilder.Entity<Usuario>().HasKey(p => p.id_usuario);
 
-            modelBuilder.Entity<Materia>().HasKey(p => p.IdMateria);
+            modelBuilder.Entity<Materia>().HasKey(p => p.id_materia);
             modelBuilder.Entity<Materia>().Property("DescMateria").HasMaxLength(50);
             
             modelBuilder.Entity<Modulo>().HasKey(p => p.Id_modulo);
