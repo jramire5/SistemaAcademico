@@ -13,13 +13,19 @@ namespace Domain
 
         internal DbSet<Materia> Materia { get; set; }
         
+        internal DbSet<Modulo> Modulos { get; set; }
 
+        internal DbSet<ModuloUsuario> moduloUsuarios { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Persona>().HasKey(p => p.id_persona);
+            modelBuilder.Entity<Usuario>().HasKey(p => p.id_usuario);
 
             modelBuilder.Entity<Materia>().HasKey(p => p.IdMateria);
             modelBuilder.Entity<Materia>().Property("DescMateria").HasMaxLength(50);
+            
+            modelBuilder.Entity<Modulo>().HasKey(p => p.Id_modulo);
+            modelBuilder.Entity<ModuloUsuario>().HasKey(p => p.IdModuloUsuario);
         }
         internal AcademiaContext()
         {
@@ -29,6 +35,6 @@ namespace Domain
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) =>
             
             optionsBuilder.UseMySQL(connectionString);
-        //        optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Initial Catalog=AcademiaDb");
+            //optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Initial Catalog=AcademiaDb");
     }
 }

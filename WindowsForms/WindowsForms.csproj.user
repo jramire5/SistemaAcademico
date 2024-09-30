@@ -17,5 +17,11 @@
     <Compile Update="View\Persona\PersonasLista.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="View\Usuarios\UsuarioDetalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Usuarios\UsuarioLista.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>
