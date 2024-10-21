@@ -7,7 +7,7 @@ namespace Domain
     
     internal class AcademiaContext : DbContext
     {
-        String connectionString = "server=localhost;port=3306;user=root;password=root;database=academia;";
+        String connectionString = "server=localhost;port=3306;user=root;password=root2;database=academia;";
         internal DbSet<Persona> Personas { get; set; }
         internal DbSet<Usuario> Usuarios { get; set; }
         internal DbSet<Materia> Materia { get; set; }
@@ -25,7 +25,7 @@ namespace Domain
             modelBuilder.Entity<Usuario>().HasKey(p => p.id_usuario);
 
             modelBuilder.Entity<Materia>().HasKey(p => p.id_materia);
-            modelBuilder.Entity<Materia>().Property("DescMateria").HasMaxLength(50);
+            modelBuilder.Entity<Materia>().Property("desc_materia").HasMaxLength(50);
             
             modelBuilder.Entity<Modulo>().HasKey(p => p.Id_modulo);
             modelBuilder.Entity<ModuloUsuario>().HasKey(p => p.IdModuloUsuario);

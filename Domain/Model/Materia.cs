@@ -3,7 +3,6 @@ namespace Domain.Model;
 
 public class Materia
 {
-
     public int id_materia { get; set; }
 
     public string desc_materia { get; set; }
