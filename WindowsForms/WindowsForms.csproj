@@ -20,4 +20,25 @@
     <ProjectReference Include="..\Domain\Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="View\Especialidad\EspecialidadDetalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Especialidad\EspecialidadLista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Comision\ComisionDetalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Comision\ComisionLista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Plan\PlanLista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Plan\PlanDetalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+
 </Project>

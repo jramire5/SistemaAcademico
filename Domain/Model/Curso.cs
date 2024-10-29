@@ -23,6 +23,6 @@ public class Curso
     public int cupo { get; set; }
 
     // Navegación
-    public virtual Materia Materia { get; set; }
+    public virtual Plan Materia { get; set; }
     public virtual Comision Comision { get; set; }
 }

@@ -33,11 +33,25 @@ public class MateriaService
         return await context.Materia.FindAsync(id);
     }
 
-    public async Task<IEnumerable<Materia>> GetAll()
+    public async Task<IEnumerable<MateriaDto>> GetAll()
     {
         using var context = new AcademiaContext();
 
-        return await context.Materia.ToListAsync();
+        List<Materia> materias= await context.Materia.Include(m=>m.Plan).ToListAsync();
+
+        List<MateriaDto> listadto = new List<MateriaDto>();
+        foreach (var item in materias)
+        {
+            listadto.Add(new MateriaDto()
+            {
+                id_materia=item.id_materia,
+                desc_materia=item.desc_materia,
+                hs_semanales=item.hs_semanales,
+                hs_totales = item.hs_totales,
+                plan=item.Plan.desc_plan
+            });
+        }
+        return listadto;
     }
 
     public async Task Update(Materia materia)

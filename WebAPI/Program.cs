@@ -16,6 +16,7 @@ builder.Services.AddScoped<EspecialidadService>();
 builder.Services.AddScoped<AlumnoInscripcionService>();
 builder.Services.AddScoped<MateriaService>();
 builder.Services.AddScoped<ModuloUsuarioService>();
+builder.Services.AddScoped<PlanService>();
 
 var app = builder.Build();
 
@@ -37,7 +38,7 @@ app.MapComisionEndpoints();
 app.MapEspecialidadEndpoints();
 app.MapAlumnoInscripcionEndpoints();
 app.MapMateriaEndpoints();
-
+app.MapPlanEndpoints();
 
 //PERSONAS
 app.MapGet("/personas/{id}", (int id) =>

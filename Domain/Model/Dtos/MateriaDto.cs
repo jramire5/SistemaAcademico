@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Domain.Model;
 
-public class Materia
+public class MateriaDto
 {
     public int id_materia { get; set; }
 
@@ -12,8 +12,6 @@ public class Materia
     public int hs_semanales { get; set; }
 
     public int hs_totales { get; set; }
-    [ForeignKey("Planes")]
-    public int id_plan { get; set; }
-       // Navegación
-    public virtual Plan Plan { get; set; }
+
+    public string plan { get; set; }
 }

@@ -8,25 +8,28 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WindowsForms
-{
-    public partial class MenuPrincipal : Form
-    {
-        public MenuPrincipal()
-        {
-            InitializeComponent();
-        }
+namespace WindowsForms;
 
-        private void personasToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            PersonasLista personasLista = new PersonasLista();
-            personasLista.ShowDialog();
-        }
-        private void materiasToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MateriaLista materiaLista = new MateriaLista();
-            materiaLista.ShowDialog();
-        }
-        
+public partial class MenuPrincipal : Form
+{
+    public MenuPrincipal()
+    {
+        InitializeComponent();
+    }
+
+    private void personasToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+        PersonasLista personasLista = new PersonasLista();
+        personasLista.ShowDialog();
+    }
+    private void materiasToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+        MateriaLista listado = new MateriaLista();
+        listado.ShowDialog();
+    }
+    private void planesToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+        PlanLista listado = new PlanLista();
+        listado.ShowDialog();
     }
 }
