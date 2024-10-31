@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace Domain.Services;
 
 using Domain.Model;
+using Domain.Model.Dtos;
 using Microsoft.EntityFrameworkCore;
 using Org.BouncyCastle.Crypto;
 using System.Collections.Generic;
@@ -42,11 +43,26 @@ public class ComisionService
         return await context.Comisiones.FindAsync(id);
     }
 
-    public async Task<IEnumerable<Comision>> GetAll()
+    public async Task<IEnumerable<ComisionDto>> GetAll()
     {
         using var context = new AcademiaContext();
 
-        return await context.Comisiones.ToListAsync();
+        List<Comision> lista = await context.Comisiones.Include(c=>c.Plan).ThenInclude(p=>p.Especialidad).ToListAsync();
+
+        List<ComisionDto> listadto = new List<ComisionDto>();
+        foreach (var item in lista)
+        {
+            listadto.Add(new ComisionDto()
+            {
+                id_comision = item.id_comision,
+                desc_comision = item.desc_comision,
+                anio_especialidad = item.anio_especialidad,
+                desc_plan = $"{item.Plan.desc_plan}-{item.Plan.Especialidad.desc_especialidad}"
+            });
+        }
+        return listadto;
+
+        
     }
 
     public async Task Update(Comision comision)

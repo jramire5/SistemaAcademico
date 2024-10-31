@@ -50,7 +50,7 @@ partial class PlanLista
         btnAceptar.Name = "btnAceptar";
         btnAceptar.Size = new Size(94, 29);
         btnAceptar.TabIndex = 1;
-        btnAceptar.Text = "Aceptar";
+        btnAceptar.Text = "Agregar";
         btnAceptar.UseVisualStyleBackColor = true;
         btnAceptar.Click += btn_agregar_Click;
         // 
@@ -78,13 +78,14 @@ partial class PlanLista
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(914, 600);
+        ClientSize = new Size(942, 503);
         Controls.Add(btnEliminar);
         Controls.Add(btnModificar);
         Controls.Add(btnAceptar);
         Controls.Add(PlanGrid);
         Margin = new Padding(3, 4, 3, 4);
         Name = "PlanLista";
+        StartPosition = FormStartPosition.CenterParent;
         Text = "Plan Lista";
         Load += MateriaLista_Load;
         ((System.ComponentModel.ISupportInitialize)PlanGrid).EndInit();

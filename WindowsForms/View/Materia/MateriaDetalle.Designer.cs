@@ -53,6 +53,7 @@
             // 
             // txtId
             // 
+            txtId.Enabled = false;
             txtId.Location = new Point(135, 44);
             txtId.Name = "txtId";
             txtId.Size = new Size(289, 27);
@@ -66,6 +67,7 @@
             btnAceptar.TabIndex = 2;
             btnAceptar.Text = "Aceptar";
             btnAceptar.UseVisualStyleBackColor = true;
+            btnAceptar.Click += Aceptar_Click;
             // 
             // btnCancelar
             // 
@@ -75,6 +77,7 @@
             btnCancelar.TabIndex = 3;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // txtdesc_materia
             // 

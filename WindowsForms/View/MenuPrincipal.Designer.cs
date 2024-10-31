@@ -34,8 +34,8 @@
             materiasToolStripMenuItem1 = new ToolStripMenuItem();
             planToolStripMenuItem = new ToolStripMenuItem();
             especialidadToolStripMenuItem = new ToolStripMenuItem();
-            materiasToolStripMenuItem = new ToolStripMenuItem();
             comisionToolStripMenuItem = new ToolStripMenuItem();
+            materiasToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -84,17 +84,17 @@
             especialidadToolStripMenuItem.Text = "Especialidad";
             especialidadToolStripMenuItem.Click += especialidadToolStripMenuItem_Click;
             // 
-            // materiasToolStripMenuItem
-            // 
-            materiasToolStripMenuItem.Name = "materiasToolStripMenuItem";
-            materiasToolStripMenuItem.Size = new Size(32, 19);
-            // 
             // comisionToolStripMenuItem
             // 
             comisionToolStripMenuItem.Name = "comisionToolStripMenuItem";
             comisionToolStripMenuItem.Size = new Size(85, 24);
             comisionToolStripMenuItem.Text = "Comision";
             comisionToolStripMenuItem.Click += comisionToolStripMenuItem_Click;
+            // 
+            // materiasToolStripMenuItem
+            // 
+            materiasToolStripMenuItem.Name = "materiasToolStripMenuItem";
+            materiasToolStripMenuItem.Size = new Size(32, 19);
             // 
             // MenuPrincipal
             // 
@@ -106,7 +106,7 @@
             MainMenuStrip = menuStrip1;
             Margin = new Padding(3, 4, 3, 4);
             Name = "MenuPrincipal";
-            Text = "MenuPrincipal";
+            Text = "Gestión Académica (SGA)";
             WindowState = FormWindowState.Maximized;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();

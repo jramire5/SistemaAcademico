@@ -50,7 +50,7 @@ partial class EspecialidadLista
         btnAceptar.Name = "btnAceptar";
         btnAceptar.Size = new Size(94, 29);
         btnAceptar.TabIndex = 1;
-        btnAceptar.Text = "Aceptar";
+        btnAceptar.Text = "Agregar";
         btnAceptar.UseVisualStyleBackColor = true;
         btnAceptar.Click += btn_agregar_Click;
         // 
@@ -85,6 +85,7 @@ partial class EspecialidadLista
         Controls.Add(EspecialidadGrid);
         Margin = new Padding(3, 4, 3, 4);
         Name = "EspecialidadLista";
+        StartPosition = FormStartPosition.CenterParent;
         Text = "Especialidad Lista";
         Load += EspecialidadLista_Load;
         ((System.ComponentModel.ISupportInitialize)EspecialidadGrid).EndInit();

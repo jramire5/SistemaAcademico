@@ -51,6 +51,7 @@
             // 
             // txtid_comision
             // 
+            txtid_comision.Enabled = false;
             txtid_comision.Location = new Point(135, 44);
             txtid_comision.Name = "txtid_comision";
             txtid_comision.Size = new Size(289, 27);
@@ -61,7 +62,7 @@
             btnAceptar.Location = new Point(102, 221);
             btnAceptar.Name = "btnAceptar";
             btnAceptar.Size = new Size(94, 29);
-            btnAceptar.TabIndex = 2;
+            btnAceptar.TabIndex = 5;
             btnAceptar.Text = "Aceptar";
             btnAceptar.UseVisualStyleBackColor = true;
             btnAceptar.Click += Aceptar_Click;
@@ -71,7 +72,7 @@
             btnCancelar.Location = new Point(309, 221);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(94, 29);
-            btnCancelar.TabIndex = 3;
+            btnCancelar.TabIndex = 6;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
             btnCancelar.Click += btnCancelar_Click;
@@ -81,7 +82,7 @@
             txtdesc_comision.Location = new Point(135, 87);
             txtdesc_comision.Name = "txtdesc_comision";
             txtdesc_comision.Size = new Size(289, 27);
-            txtdesc_comision.TabIndex = 5;
+            txtdesc_comision.TabIndex = 2;
             // 
             // label2
             // 
@@ -107,14 +108,14 @@
             cmbid_plan.Location = new Point(133, 172);
             cmbid_plan.Name = "cmbid_plan";
             cmbid_plan.Size = new Size(289, 28);
-            cmbid_plan.TabIndex = 11;
+            cmbid_plan.TabIndex = 4;
             // 
             // txtanio_especialidad
             // 
             txtanio_especialidad.Location = new Point(135, 131);
             txtanio_especialidad.Name = "txtanio_especialidad";
             txtanio_especialidad.Size = new Size(289, 27);
-            txtanio_especialidad.TabIndex = 13;
+            txtanio_especialidad.TabIndex = 3;
             // 
             // label3
             // 
@@ -141,6 +142,7 @@
             Controls.Add(txtid_comision);
             Controls.Add(label1);
             Name = "ComisionDetalle";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "Comision Detalle";
             ResumeLayout(false);
             PerformLayout();

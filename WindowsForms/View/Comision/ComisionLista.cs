@@ -1,5 +1,5 @@
 ﻿using Domain.Model;
-
+using Domain.Model.Dtos;
 using WindowsForms.APIServices;
 
 namespace WindowsForms;
@@ -59,10 +59,10 @@ public partial class ComisionLista : Form
 
     private async void GetAllAndLoad()
     {
-        PlanApiClient clienteApi = new PlanApiClient();
+        ComisionApiClient clienteApi = new ComisionApiClient();
 
         this.Grid.DataSource = null;
-        this.Grid.DataSource = await PlanApiClient.GetAllAsync();
+        this.Grid.DataSource = await ComisionApiClient.GetAllAsync();
 
         if (this.Grid.Rows.Count > 0)
         {
@@ -77,11 +77,11 @@ public partial class ComisionLista : Form
         }
     }
 
-    private Comision SelectedItem()
+    private ComisionDto SelectedItem()
     {
-        Comision registro;
+        ComisionDto registro;
 
-        registro = (Comision)Grid.SelectedRows[0].DataBoundItem;
+        registro = (ComisionDto)Grid.SelectedRows[0].DataBoundItem;
 
         return registro;
     }

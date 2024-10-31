@@ -50,7 +50,7 @@ partial class ComisionLista
         btnAceptar.Name = "btnAceptar";
         btnAceptar.Size = new Size(94, 29);
         btnAceptar.TabIndex = 1;
-        btnAceptar.Text = "Aceptar";
+        btnAceptar.Text = "Agregar";
         btnAceptar.UseVisualStyleBackColor = true;
         btnAceptar.Click += btn_agregar_Click;
         // 
@@ -85,6 +85,7 @@ partial class ComisionLista
         Controls.Add(Grid);
         Margin = new Padding(3, 4, 3, 4);
         Name = "ComisionLista";
+        StartPosition = FormStartPosition.CenterParent;
         Text = "Comisión Lista";
         Load += Lista_Load;
         ((System.ComponentModel.ISupportInitialize)Grid).EndInit();

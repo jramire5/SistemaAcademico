@@ -1,4 +1,5 @@
 ﻿using Domain.Model;
+using Domain.Model.Dtos;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
 namespace WindowsForms.APIServices;
@@ -25,14 +26,29 @@ public class PlanApiClient
         }
         return comision;
     }
-
-    public static async Task<IEnumerable<Plan>> GetAllAsync()
+    public static async Task<IEnumerable<PlanDropdownDto>> GetDropDownValuesAsync()
     {
-        IEnumerable<Plan> planes = null;
+        List<PlanDropdownDto> planesDropDown = null;
         HttpResponseMessage response = await client.GetAsync("planes");
         if (response.IsSuccessStatusCode)
         {
-            planes = await response.Content.ReadAsAsync<IEnumerable<Plan>>();
+            planesDropDown=new List<PlanDropdownDto>();
+            IEnumerable<PlanDto> planes = await response.Content.ReadAsAsync<IEnumerable<PlanDto>>();
+            foreach (var item in planes)
+            {
+                planesDropDown.Add(new PlanDropdownDto() { id_plan = item.id_plan, desc_plan_especialidad = $"{item.desc_plan}-{item.desc_especialidad}" });
+            }
+        }
+        return planesDropDown;
+    }
+
+    public static async Task<IEnumerable<PlanDto>> GetAllAsync()
+    {
+        IEnumerable<PlanDto> planes = null;
+        HttpResponseMessage response = await client.GetAsync("planes");
+        if (response.IsSuccessStatusCode)
+        {
+            planes = await response.Content.ReadAsAsync<IEnumerable<PlanDto>>();
         }
         return planes;
     }

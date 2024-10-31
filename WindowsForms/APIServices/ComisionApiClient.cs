@@ -1,4 +1,5 @@
 ﻿using Domain.Model;
+using Domain.Model.Dtos;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
 namespace WindowsForms.APIServices;
@@ -26,13 +27,13 @@ public class ComisionApiClient
         return comision;
     }
 
-    public static async Task<IEnumerable<Comision>> GetAllAsync()
+    public static async Task<IEnumerable<ComisionDto>> GetAllAsync()
     {
-        IEnumerable<Comision> comisiones = null;
+        IEnumerable<ComisionDto> comisiones = null;
         HttpResponseMessage response = await client.GetAsync("comisiones");
         if (response.IsSuccessStatusCode)
         {
-            comisiones = await response.Content.ReadAsAsync<IEnumerable<Comision>>();
+            comisiones = await response.Content.ReadAsAsync<IEnumerable<ComisionDto>>();
         }
         return comisiones;
     }

@@ -28,8 +28,8 @@ public partial class MateriaDetalle : Form
         this.txths_semanales.Text = this.Materia.hs_semanales.ToString();
         this.txths_totales.Text=this.Materia.hs_totales.ToString();
 
-        this.cmbplan.DataSource = await PlanApiClient.GetAllAsync();
-        this.cmbplan.DisplayMember = "desc_plan";
+        this.cmbplan.DataSource = await PlanApiClient.GetDropDownValuesAsync();
+        this.cmbplan.DisplayMember = "desc_plan_especialidad";
         this.cmbplan.ValueMember = "id_plan";
 
         this.cmbplan.SelectedValue = this.Materia.id_plan;

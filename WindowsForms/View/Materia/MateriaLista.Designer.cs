@@ -50,7 +50,7 @@
             btnAceptar.Name = "btnAceptar";
             btnAceptar.Size = new Size(94, 29);
             btnAceptar.TabIndex = 1;
-            btnAceptar.Text = "Aceptar";
+            btnAceptar.Text = "Agregar";
             btnAceptar.UseVisualStyleBackColor = true;
             btnAceptar.Click += btn_agregar_Click;
             // 

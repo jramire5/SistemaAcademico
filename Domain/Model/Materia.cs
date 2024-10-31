@@ -12,7 +12,7 @@ public class Materia
     public int hs_semanales { get; set; }
 
     public int hs_totales { get; set; }
-    [ForeignKey("Planes")]
+    [ForeignKey("Plan")]
     public int id_plan { get; set; }
        // Navegación
     public virtual Plan Plan { get; set; }

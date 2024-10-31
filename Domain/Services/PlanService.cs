@@ -1,5 +1,7 @@
 ﻿using Domain.Model;
+using Domain.Model.Dtos;
 using Microsoft.EntityFrameworkCore;
+using System.Numerics;
 
 namespace Domain.Services;
 
@@ -33,11 +35,23 @@ public class PlanService
         return await context.Planes.FindAsync(id);
     }
 
-    public async  Task<IEnumerable<Plan>> GetAll()
+    public async  Task<IEnumerable<PlanDto>> GetAll()
     {
         using var context = new AcademiaContext();
 
-        return await context.Planes.ToListAsync();
+        List<Plan> lista = await context.Planes.Include(p=>p.Especialidad).ToListAsync();
+
+        List<PlanDto> listadto = new List<PlanDto>();
+        foreach (var item in lista)
+        {
+            listadto.Add(new PlanDto()
+            {
+                id_plan = item.id_plan,
+                desc_plan = item.desc_plan,
+                desc_especialidad = item.Especialidad.desc_especialidad               
+            });
+        }
+        return listadto;
     }
 
     public async Task Update(Plan plan)

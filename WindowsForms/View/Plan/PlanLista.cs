@@ -1,5 +1,5 @@
 ﻿using Domain.Model;
-
+using Domain.Model.Dtos;
 using WindowsForms.APIServices;
 
 namespace WindowsForms;
@@ -77,11 +77,11 @@ public partial class PlanLista : Form
         }
     }
 
-    private Plan SelectedItem()
+    private PlanDto SelectedItem()
     {
-        Plan plan;
+        PlanDto plan;
 
-        plan = (Plan)PlanGrid.SelectedRows[0].DataBoundItem;
+        plan = (PlanDto)PlanGrid.SelectedRows[0].DataBoundItem;
 
         return plan;
     }

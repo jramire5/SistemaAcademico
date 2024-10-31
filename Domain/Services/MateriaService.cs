@@ -10,7 +10,7 @@ public class MateriaService
         using var context = new AcademiaContext();
 
         context.Materia.Add(materia);
-        context.SaveChangesAsync();
+        await context.SaveChangesAsync();
     }
 
     public async Task Delete(int id)

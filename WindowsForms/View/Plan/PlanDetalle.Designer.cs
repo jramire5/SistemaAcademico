@@ -49,6 +49,7 @@
             // 
             // txtid_plan
             // 
+            txtid_plan.Enabled = false;
             txtid_plan.Location = new Point(135, 44);
             txtid_plan.Name = "txtid_plan";
             txtid_plan.Size = new Size(289, 27);

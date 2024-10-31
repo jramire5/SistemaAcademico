@@ -77,11 +77,11 @@ public partial class MateriaLista : Form
         }
     }
 
-    private Materia SelectedItem()
+    private MateriaDto SelectedItem()
     {
-        Materia materia;
+        MateriaDto materia;
 
-        materia = (Materia)MateriasGrid.SelectedRows[0].DataBoundItem;
+        materia = (MateriaDto)MateriasGrid.SelectedRows[0].DataBoundItem;
 
         return materia;
     }

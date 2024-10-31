@@ -27,8 +27,8 @@ public partial class ComisionDetalle : Form
         this.txtdesc_comision.Text = this.Entidad.desc_comision;
         this.txtanio_especialidad.Text = this.Entidad.anio_especialidad.ToString();
 
-        this.cmbid_plan.DataSource = await PlanApiClient.GetAllAsync();
-        this.cmbid_plan.DisplayMember = "desc_plan";
+        this.cmbid_plan.DataSource = await PlanApiClient.GetDropDownValuesAsync();
+        this.cmbid_plan.DisplayMember = "desc_plan_especialidad";
         this.cmbid_plan.ValueMember = "id_plan";
 
         this.cmbid_plan.SelectedValue = this.Entidad.id_plan;
