@@ -8,7 +8,7 @@ public static class MateriaEndpoints
 {
     public static void MapMateriaEndpoints(this IEndpointRouteBuilder routes)
     {
-        routes.MapPost("/materias", async (Plan materia, MateriaService materiaService) =>
+        routes.MapPost("/materias", async (Materia materia, MateriaService materiaService) =>
         {
             await materiaService.Add(materia);
             return Results.Created($"/materias/{materia.id_materia}", materia);
@@ -26,7 +26,7 @@ public static class MateriaEndpoints
             return Results.Ok(materias);
         });
 
-        routes.MapPut("/materias", async (Plan materia, MateriaService materiaService) =>
+        routes.MapPut("/materias", async (Materia materia, MateriaService materiaService) =>
         {
             await materiaService.Update(materia);
             return Results.NoContent();

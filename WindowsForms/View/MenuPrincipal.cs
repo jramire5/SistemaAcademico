@@ -32,4 +32,16 @@ public partial class MenuPrincipal : Form
         PlanLista listado = new PlanLista();
         listado.ShowDialog();
     }
+
+    private void especialidadToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+        EspecialidadLista listado = new EspecialidadLista();
+        listado.ShowDialog();
+    }
+
+    private void comisionToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+        ComisionLista listado = new ComisionLista();
+        listado.ShowDialog();
+    }
 }

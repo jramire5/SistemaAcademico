@@ -33,14 +33,16 @@
             usuariosToolStripMenuItem = new ToolStripMenuItem();
             materiasToolStripMenuItem1 = new ToolStripMenuItem();
             planToolStripMenuItem = new ToolStripMenuItem();
+            especialidadToolStripMenuItem = new ToolStripMenuItem();
             materiasToolStripMenuItem = new ToolStripMenuItem();
+            comisionToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { personasToolStripMenuItem, usuariosToolStripMenuItem, materiasToolStripMenuItem1, planToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { personasToolStripMenuItem, usuariosToolStripMenuItem, materiasToolStripMenuItem1, planToolStripMenuItem, especialidadToolStripMenuItem, comisionToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(7, 3, 0, 3);
@@ -75,10 +77,24 @@
             planToolStripMenuItem.Text = "Plan";
             planToolStripMenuItem.Click += planesToolStripMenuItem_Click;
             // 
+            // especialidadToolStripMenuItem
+            // 
+            especialidadToolStripMenuItem.Name = "especialidadToolStripMenuItem";
+            especialidadToolStripMenuItem.Size = new Size(107, 24);
+            especialidadToolStripMenuItem.Text = "Especialidad";
+            especialidadToolStripMenuItem.Click += especialidadToolStripMenuItem_Click;
+            // 
             // materiasToolStripMenuItem
             // 
             materiasToolStripMenuItem.Name = "materiasToolStripMenuItem";
             materiasToolStripMenuItem.Size = new Size(32, 19);
+            // 
+            // comisionToolStripMenuItem
+            // 
+            comisionToolStripMenuItem.Name = "comisionToolStripMenuItem";
+            comisionToolStripMenuItem.Size = new Size(85, 24);
+            comisionToolStripMenuItem.Text = "Comision";
+            comisionToolStripMenuItem.Click += comisionToolStripMenuItem_Click;
             // 
             // MenuPrincipal
             // 
@@ -106,5 +122,7 @@
         private ToolStripMenuItem usuariosToolStripMenuItem;
         private ToolStripMenuItem materiasToolStripMenuItem1;
         private ToolStripMenuItem planToolStripMenuItem;
+        private ToolStripMenuItem especialidadToolStripMenuItem;
+        private ToolStripMenuItem comisionToolStripMenuItem;
     }
 }
