@@ -48,114 +48,122 @@
             // 
             // txtid_persona
             // 
-            txtid_persona.Location = new Point(194, 43);
+            txtid_persona.Enabled = false;
+            txtid_persona.Location = new Point(222, 57);
+            txtid_persona.Margin = new Padding(3, 4, 3, 4);
             txtid_persona.Name = "txtid_persona";
-            txtid_persona.Size = new Size(100, 23);
+            txtid_persona.Size = new Size(114, 27);
             txtid_persona.TabIndex = 0;
             // 
             // lblid_persona
             // 
             lblid_persona.AutoSize = true;
-            lblid_persona.Location = new Point(61, 51);
+            lblid_persona.Location = new Point(70, 68);
             lblid_persona.Name = "lblid_persona";
-            lblid_persona.Size = new Size(62, 15);
+            lblid_persona.Size = new Size(77, 20);
             lblid_persona.TabIndex = 1;
             lblid_persona.Text = "Id Persona";
             // 
             // lblnombre
             // 
             lblnombre.AutoSize = true;
-            lblnombre.Location = new Point(61, 92);
+            lblnombre.Location = new Point(70, 123);
             lblnombre.Name = "lblnombre";
-            lblnombre.Size = new Size(51, 15);
+            lblnombre.Size = new Size(64, 20);
             lblnombre.TabIndex = 3;
             lblnombre.Text = "Nombre";
             // 
             // txtnombre
             // 
-            txtnombre.Location = new Point(194, 84);
+            txtnombre.Location = new Point(222, 112);
+            txtnombre.Margin = new Padding(3, 4, 3, 4);
             txtnombre.Name = "txtnombre";
-            txtnombre.Size = new Size(100, 23);
+            txtnombre.Size = new Size(114, 27);
             txtnombre.TabIndex = 2;
             // 
             // lblapellido
             // 
             lblapellido.AutoSize = true;
-            lblapellido.Location = new Point(61, 133);
+            lblapellido.Location = new Point(70, 177);
             lblapellido.Name = "lblapellido";
-            lblapellido.Size = new Size(51, 15);
+            lblapellido.Size = new Size(66, 20);
             lblapellido.TabIndex = 5;
             lblapellido.Text = "Apellido";
             // 
             // txtapellido
             // 
-            txtapellido.Location = new Point(194, 125);
+            txtapellido.Location = new Point(222, 167);
+            txtapellido.Margin = new Padding(3, 4, 3, 4);
             txtapellido.Name = "txtapellido";
-            txtapellido.Size = new Size(100, 23);
+            txtapellido.Size = new Size(114, 27);
             txtapellido.TabIndex = 4;
             // 
             // lbldireccion
             // 
             lbldireccion.AutoSize = true;
-            lbldireccion.Location = new Point(61, 168);
+            lbldireccion.Location = new Point(70, 224);
             lbldireccion.Name = "lbldireccion";
-            lbldireccion.Size = new Size(57, 15);
+            lbldireccion.Size = new Size(72, 20);
             lbldireccion.TabIndex = 7;
             lbldireccion.Text = "Direccion";
             // 
             // txtdireccion
             // 
-            txtdireccion.Location = new Point(194, 165);
+            txtdireccion.Location = new Point(222, 220);
+            txtdireccion.Margin = new Padding(3, 4, 3, 4);
             txtdireccion.Name = "txtdireccion";
-            txtdireccion.Size = new Size(100, 23);
+            txtdireccion.Size = new Size(114, 27);
             txtdireccion.TabIndex = 6;
             // 
             // lblemail
             // 
             lblemail.AutoSize = true;
-            lblemail.Location = new Point(61, 209);
+            lblemail.Location = new Point(70, 279);
             lblemail.Name = "lblemail";
-            lblemail.Size = new Size(36, 15);
+            lblemail.Size = new Size(46, 20);
             lblemail.TabIndex = 9;
             lblemail.Text = "Email";
             // 
             // txtemail
             // 
-            txtemail.Location = new Point(194, 206);
+            txtemail.Location = new Point(222, 275);
+            txtemail.Margin = new Padding(3, 4, 3, 4);
             txtemail.Name = "txtemail";
-            txtemail.Size = new Size(100, 23);
+            txtemail.Size = new Size(114, 27);
             txtemail.TabIndex = 8;
             // 
             // lblTelefono
             // 
             lblTelefono.AutoSize = true;
-            lblTelefono.Location = new Point(61, 250);
+            lblTelefono.Location = new Point(70, 333);
             lblTelefono.Name = "lblTelefono";
-            lblTelefono.Size = new Size(52, 15);
+            lblTelefono.Size = new Size(67, 20);
             lblTelefono.TabIndex = 11;
             lblTelefono.Text = "Telefono";
             // 
             // txtTelefono
             // 
-            txtTelefono.Location = new Point(194, 247);
+            txtTelefono.Location = new Point(222, 329);
+            txtTelefono.Margin = new Padding(3, 4, 3, 4);
             txtTelefono.Name = "txtTelefono";
-            txtTelefono.Size = new Size(100, 23);
+            txtTelefono.Size = new Size(114, 27);
             txtTelefono.TabIndex = 10;
             // 
             // lblFecha_Nacimiento
             // 
             lblFecha_Nacimiento.AutoSize = true;
-            lblFecha_Nacimiento.Location = new Point(61, 290);
+            lblFecha_Nacimiento.Location = new Point(70, 387);
             lblFecha_Nacimiento.Name = "lblFecha_Nacimiento";
-            lblFecha_Nacimiento.Size = new Size(117, 15);
+            lblFecha_Nacimiento.Size = new Size(146, 20);
             lblFecha_Nacimiento.TabIndex = 13;
             lblFecha_Nacimiento.Text = "Fecha de nacimiento";
             // 
             // Aceptar
             // 
-            Aceptar.Location = new Point(103, 371);
+            Aceptar.Location = new Point(118, 495);
+            Aceptar.Margin = new Padding(3, 4, 3, 4);
             Aceptar.Name = "Aceptar";
-            Aceptar.Size = new Size(75, 23);
+            Aceptar.Size = new Size(86, 31);
             Aceptar.TabIndex = 14;
             Aceptar.Text = "Aceptar";
             Aceptar.UseVisualStyleBackColor = true;
@@ -163,25 +171,28 @@
             // 
             // Cancelar
             // 
-            Cancelar.Location = new Point(194, 371);
+            Cancelar.Location = new Point(222, 495);
+            Cancelar.Margin = new Padding(3, 4, 3, 4);
             Cancelar.Name = "Cancelar";
-            Cancelar.Size = new Size(75, 23);
+            Cancelar.Size = new Size(86, 31);
             Cancelar.TabIndex = 15;
             Cancelar.Text = "Cancelar";
             Cancelar.UseVisualStyleBackColor = true;
+            Cancelar.Click += btnCancelar_Click;
             // 
             // datetimeFechaNacimiento
             // 
-            datetimeFechaNacimiento.Location = new Point(194, 290);
+            datetimeFechaNacimiento.Location = new Point(222, 387);
+            datetimeFechaNacimiento.Margin = new Padding(3, 4, 3, 4);
             datetimeFechaNacimiento.Name = "datetimeFechaNacimiento";
-            datetimeFechaNacimiento.Size = new Size(238, 23);
+            datetimeFechaNacimiento.Size = new Size(271, 27);
             datetimeFechaNacimiento.TabIndex = 16;
             // 
             // PersonaDetalle
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(914, 600);
             Controls.Add(datetimeFechaNacimiento);
             Controls.Add(Cancelar);
             Controls.Add(Aceptar);
@@ -198,6 +209,7 @@
             Controls.Add(txtnombre);
             Controls.Add(lblid_persona);
             Controls.Add(txtid_persona);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "PersonaDetalle";
             Text = "Detalle de Persona";
             ResumeLayout(false);

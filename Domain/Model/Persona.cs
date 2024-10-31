@@ -17,7 +17,7 @@ public class Persona
 
     public string email { get; set; }
 
-    public int telefono { get; set; }
+    public string telefono { get; set; }
 
     public DateTime fecha_nacimiento { get; set; }
 

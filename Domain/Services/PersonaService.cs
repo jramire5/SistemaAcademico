@@ -1,49 +1,50 @@
 ﻿using Domain.Model;
+using Microsoft.EntityFrameworkCore;
 
 namespace Domain.Services;
 
 public class PersonaService 
 {
-    public void Add(Persona persona)
+    public async Task Add(Persona persona)
     {
         using var context = new AcademiaContext();
 
         context.Personas.Add(persona);
-        context.SaveChanges();
+        await context.SaveChangesAsync();
     }
 
-    public void Delete(int id)
+    public async Task Delete(int id)
     {
         using var context = new AcademiaContext();
 
-        Persona? personaToDelete = context.Personas.Find(id);
+        Persona? personaToDelete = await context.Personas.FindAsync(id);
 
         if (personaToDelete != null)
         {
             context.Personas.Remove(personaToDelete);
-            context.SaveChanges();
+            await context.SaveChangesAsync();
         }
     }
 
-    public Persona? Get(int id)
+    public async Task<Persona?> Get(int id)
     {
         using var context = new AcademiaContext();
 
-        return context.Personas.Find(id);
+        return await context.Personas.FindAsync(id);
     }
 
-    public IEnumerable<Persona> GetAll()
+    public async Task<IEnumerable<Persona>> GetAll()
     {
         using var context = new AcademiaContext();
 
-        return context.Personas.ToList();
+        return await context.Personas.ToListAsync();
     }
 
-    public void Update(Persona persona)
+    public async Task Update(Persona persona)
     {
         using var context = new AcademiaContext();
 
-        Persona? personaToUpdate = context.Personas.Find(persona.id_persona);
+        Persona? personaToUpdate =await context.Personas.FindAsync(persona.id_persona);
 
         if (personaToUpdate != null)
         {
@@ -55,7 +56,7 @@ public class PersonaService
             personaToUpdate.email = persona.email;
             personaToUpdate.id_plan = persona.id_plan;
             personaToUpdate.fecha_nacimiento = persona.fecha_nacimiento;
-            context.SaveChanges();
+            await context.SaveChangesAsync();
         }
     }
 }

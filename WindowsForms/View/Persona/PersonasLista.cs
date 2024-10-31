@@ -95,11 +95,5 @@ namespace WindowsForms
             this.GetAllAndLoad();
         }
 
-        private void personaDataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-
     }
 }

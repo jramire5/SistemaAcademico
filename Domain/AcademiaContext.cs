@@ -22,6 +22,11 @@ namespace Domain
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Persona>().HasKey(p => p.id_persona);
+            modelBuilder.Entity<Persona>().Property("nombre").HasMaxLength(50);
+            modelBuilder.Entity<Persona>().Property("apellido").HasMaxLength(50);
+            modelBuilder.Entity<Persona>().Property("direccion").HasMaxLength(50);
+            modelBuilder.Entity<Persona>().Property("email").HasMaxLength(50);
+            modelBuilder.Entity<Persona>().Property("telefono").HasMaxLength(50);
             modelBuilder.Entity<Usuario>().HasKey(p => p.id_usuario);
             
             modelBuilder.Entity<Materia>().HasKey(p => p.id_plan);

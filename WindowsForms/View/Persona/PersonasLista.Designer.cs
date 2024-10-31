@@ -42,7 +42,6 @@
             personaDataGrid.Name = "personaDataGrid";
             personaDataGrid.Size = new Size(754, 290);
             personaDataGrid.TabIndex = 0;
-            personaDataGrid.CellContentClick += personaDataGrid_CellContentClick;
             // 
             // btn_agregar
             // 
