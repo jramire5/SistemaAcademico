@@ -35,6 +35,7 @@
             planToolStripMenuItem = new ToolStripMenuItem();
             especialidadToolStripMenuItem = new ToolStripMenuItem();
             comisionToolStripMenuItem = new ToolStripMenuItem();
+            cursosToolStripMenuItem = new ToolStripMenuItem();
             materiasToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -42,7 +43,7 @@
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { personasToolStripMenuItem, usuariosToolStripMenuItem, materiasToolStripMenuItem1, planToolStripMenuItem, especialidadToolStripMenuItem, comisionToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { personasToolStripMenuItem, usuariosToolStripMenuItem, materiasToolStripMenuItem1, planToolStripMenuItem, especialidadToolStripMenuItem, comisionToolStripMenuItem, cursosToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(7, 3, 0, 3);
@@ -62,6 +63,7 @@
             usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
             usuariosToolStripMenuItem.Size = new Size(79, 24);
             usuariosToolStripMenuItem.Text = "Usuarios";
+            usuariosToolStripMenuItem.Click += usuariosToolStripMenuItem_Click;
             // 
             // materiasToolStripMenuItem1
             // 
@@ -90,6 +92,13 @@
             comisionToolStripMenuItem.Size = new Size(85, 24);
             comisionToolStripMenuItem.Text = "Comision";
             comisionToolStripMenuItem.Click += comisionToolStripMenuItem_Click;
+            // 
+            // cursosToolStripMenuItem
+            // 
+            cursosToolStripMenuItem.Name = "cursosToolStripMenuItem";
+            cursosToolStripMenuItem.Size = new Size(66, 24);
+            cursosToolStripMenuItem.Text = "Cursos";
+            cursosToolStripMenuItem.Click += cursosToolStripMenuItem_Click;
             // 
             // materiasToolStripMenuItem
             // 
@@ -124,5 +133,6 @@
         private ToolStripMenuItem planToolStripMenuItem;
         private ToolStripMenuItem especialidadToolStripMenuItem;
         private ToolStripMenuItem comisionToolStripMenuItem;
+        private ToolStripMenuItem cursosToolStripMenuItem;
     }
 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsForms.View.Usuarios;
 
 namespace WindowsForms;
 
@@ -21,6 +22,11 @@ public partial class MenuPrincipal : Form
     {
         PersonasLista personasLista = new PersonasLista();
         personasLista.ShowDialog();
+    }
+    private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+        UsuarioLista listado = new UsuarioLista();
+        listado.ShowDialog();
     }
     private void materiasToolStripMenuItem_Click(object sender, EventArgs e)
     {
@@ -44,4 +50,12 @@ public partial class MenuPrincipal : Form
         ComisionLista listado = new ComisionLista();
         listado.ShowDialog();
     }
+
+    private void cursosToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+        CursosLista listado = new CursosLista();
+        listado.ShowDialog();
+    }
+
+   
 }

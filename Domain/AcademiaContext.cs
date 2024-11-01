@@ -1,4 +1,5 @@
-﻿using Domain.Model;
+﻿using Domain.EfConfigs;
+using Domain.Model;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection.Metadata;
 
@@ -17,23 +18,27 @@ namespace Domain
         public DbSet<AlumnoInscripcion> AlumnosInscripciones { get; set; }
         public DbSet<Especialidad> Especialidades { get; set; }
         internal DbSet<Modulo> Modulos { get; set; }
-
         internal DbSet<ModuloUsuario> moduloUsuarios { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Persona>().HasKey(p => p.id_persona);
-            modelBuilder.Entity<Persona>().Property("nombre").HasMaxLength(50);
-            modelBuilder.Entity<Persona>().Property("apellido").HasMaxLength(50);
-            modelBuilder.Entity<Persona>().Property("direccion").HasMaxLength(50);
-            modelBuilder.Entity<Persona>().Property("email").HasMaxLength(50);
-            modelBuilder.Entity<Persona>().Property("telefono").HasMaxLength(50);
-            modelBuilder.Entity<Usuario>().HasKey(p => p.id_usuario);
+       
+           // modelBuilder.Entity<Usuario>().HasKey(p => p.id_usuario);           
+      
             
-            modelBuilder.Entity<Materia>().HasKey(p => p.id_plan);
-            modelBuilder.Entity<Materia>().Property("desc_materia").HasMaxLength(50);
-            
-            modelBuilder.Entity<Modulo>().HasKey(p => p.Id_modulo);
-            modelBuilder.Entity<ModuloUsuario>().HasKey(p => p.IdModuloUsuario);
+            //modelBuilder.Entity<Modulo>().HasKey(p => p.Id_modulo);
+          //  modelBuilder.Entity<ModuloUsuario>().HasKey(p => p.IdModuloUsuario);
+
+            modelBuilder.ApplyConfiguration(new AlumnoInscripcionConfig());
+            modelBuilder.ApplyConfiguration(new ComisionConfig());
+            modelBuilder.ApplyConfiguration(new CursoConfig());
+            modelBuilder.ApplyConfiguration(new EspecialidadConfig());
+            modelBuilder.ApplyConfiguration(new MateriaConfig());
+            modelBuilder.ApplyConfiguration(new ModuloConfig());
+            modelBuilder.ApplyConfiguration(new ModuloUsuarioConfig());
+            modelBuilder.ApplyConfiguration(new PersonaConfig());
+            modelBuilder.ApplyConfiguration(new PlanConfig());
+            modelBuilder.ApplyConfiguration(new UsuarioConfig());           
+
         }
         internal AcademiaContext()
         {

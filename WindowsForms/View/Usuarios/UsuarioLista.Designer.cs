@@ -29,129 +29,84 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            dataGridView1 = new DataGridView();
             usuarioBindingSource = new BindingSource(components);
-            idusuarioDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            nombreusuarioDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            claveDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            cambiaclaveDataGridViewCheckBoxColumn = new DataGridViewCheckBoxColumn();
-            idpersonaDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            personaDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             btn_eliminar = new Button();
             btn_modificar = new Button();
             btn_agregar = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            Grid = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)usuarioBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Grid).BeginInit();
             SuspendLayout();
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.AutoGenerateColumns = false;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { idusuarioDataGridViewTextBoxColumn, nombreusuarioDataGridViewTextBoxColumn, claveDataGridViewTextBoxColumn, cambiaclaveDataGridViewCheckBoxColumn, idpersonaDataGridViewTextBoxColumn, personaDataGridViewTextBoxColumn });
-            dataGridView1.DataSource = usuarioBindingSource;
-            dataGridView1.Location = new Point(57, 12);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(661, 204);
-            dataGridView1.TabIndex = 0;
             // 
             // usuarioBindingSource
             // 
             usuarioBindingSource.DataSource = typeof(Domain.Model.Usuario);
             // 
-            // idusuarioDataGridViewTextBoxColumn
-            // 
-            idusuarioDataGridViewTextBoxColumn.DataPropertyName = "id_usuario";
-            idusuarioDataGridViewTextBoxColumn.HeaderText = "id_usuario";
-            idusuarioDataGridViewTextBoxColumn.Name = "idusuarioDataGridViewTextBoxColumn";
-            // 
-            // nombreusuarioDataGridViewTextBoxColumn
-            // 
-            nombreusuarioDataGridViewTextBoxColumn.DataPropertyName = "nombre_usuario";
-            nombreusuarioDataGridViewTextBoxColumn.HeaderText = "nombre_usuario";
-            nombreusuarioDataGridViewTextBoxColumn.Name = "nombreusuarioDataGridViewTextBoxColumn";
-            // 
-            // claveDataGridViewTextBoxColumn
-            // 
-            claveDataGridViewTextBoxColumn.DataPropertyName = "clave";
-            claveDataGridViewTextBoxColumn.HeaderText = "clave";
-            claveDataGridViewTextBoxColumn.Name = "claveDataGridViewTextBoxColumn";
-            // 
-            // cambiaclaveDataGridViewCheckBoxColumn
-            // 
-            cambiaclaveDataGridViewCheckBoxColumn.DataPropertyName = "cambia_clave";
-            cambiaclaveDataGridViewCheckBoxColumn.HeaderText = "cambia_clave";
-            cambiaclaveDataGridViewCheckBoxColumn.Name = "cambiaclaveDataGridViewCheckBoxColumn";
-            // 
-            // idpersonaDataGridViewTextBoxColumn
-            // 
-            idpersonaDataGridViewTextBoxColumn.DataPropertyName = "id_persona";
-            idpersonaDataGridViewTextBoxColumn.HeaderText = "id_persona";
-            idpersonaDataGridViewTextBoxColumn.Name = "idpersonaDataGridViewTextBoxColumn";
-            // 
-            // personaDataGridViewTextBoxColumn
-            // 
-            personaDataGridViewTextBoxColumn.DataPropertyName = "persona";
-            personaDataGridViewTextBoxColumn.HeaderText = "persona";
-            personaDataGridViewTextBoxColumn.Name = "personaDataGridViewTextBoxColumn";
-            // 
             // btn_eliminar
             // 
-            btn_eliminar.Location = new Point(643, 247);
+            btn_eliminar.Location = new Point(735, 329);
+            btn_eliminar.Margin = new Padding(3, 4, 3, 4);
             btn_eliminar.Name = "btn_eliminar";
-            btn_eliminar.Size = new Size(75, 23);
+            btn_eliminar.Size = new Size(86, 31);
             btn_eliminar.TabIndex = 6;
             btn_eliminar.Text = "Eliminar";
             btn_eliminar.UseVisualStyleBackColor = true;
+            btn_eliminar.Click += btn_eliminar_click;
             // 
             // btn_modificar
             // 
-            btn_modificar.Location = new Point(549, 247);
+            btn_modificar.Location = new Point(627, 329);
+            btn_modificar.Margin = new Padding(3, 4, 3, 4);
             btn_modificar.Name = "btn_modificar";
-            btn_modificar.Size = new Size(75, 23);
+            btn_modificar.Size = new Size(86, 31);
             btn_modificar.TabIndex = 5;
             btn_modificar.Text = "Modificar";
             btn_modificar.UseVisualStyleBackColor = true;
+            btn_modificar.Click += btn_modificar_click;
             // 
             // btn_agregar
             // 
-            btn_agregar.Location = new Point(448, 247);
+            btn_agregar.Location = new Point(512, 329);
+            btn_agregar.Margin = new Padding(3, 4, 3, 4);
             btn_agregar.Name = "btn_agregar";
-            btn_agregar.Size = new Size(75, 23);
+            btn_agregar.Size = new Size(86, 31);
             btn_agregar.TabIndex = 4;
             btn_agregar.Text = "Agregar";
             btn_agregar.UseVisualStyleBackColor = true;
             btn_agregar.Click += btn_agregar_Click;
             // 
+            // Grid
+            // 
+            Grid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            Grid.Location = new Point(27, 30);
+            Grid.Name = "Grid";
+            Grid.RowHeadersWidth = 51;
+            Grid.Size = new Size(828, 281);
+            Grid.TabIndex = 7;
+            // 
             // UsuarioLista
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(914, 600);
+            Controls.Add(Grid);
             Controls.Add(btn_eliminar);
             Controls.Add(btn_modificar);
             Controls.Add(btn_agregar);
-            Controls.Add(dataGridView1);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "UsuarioLista";
-            Text = "UsuarioLista";
-            Load += UsuarioLista_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            Text = "Usuario Lista";
+            Load += Lista_Load;
             ((System.ComponentModel.ISupportInitialize)usuarioBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Grid).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
-
-        private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn idusuarioDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn nombreusuarioDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn claveDataGridViewTextBoxColumn;
-        private DataGridViewCheckBoxColumn cambiaclaveDataGridViewCheckBoxColumn;
-        private DataGridViewTextBoxColumn idpersonaDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn personaDataGridViewTextBoxColumn;
         private BindingSource usuarioBindingSource;
         private Button btn_eliminar;
         private Button btn_modificar;
         private Button btn_agregar;
+        private DataGridView Grid;
     }
 }

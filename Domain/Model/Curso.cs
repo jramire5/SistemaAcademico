@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Domain.Model;
 
 public class Curso
 {
-    [Key]
     public int id_curso { get; set; }
 
     [ForeignKey("Materia")]
@@ -23,6 +16,6 @@ public class Curso
     public int cupo { get; set; }
 
     // Navegación
-    public virtual Plan Materia { get; set; }
+    public virtual Materia Materia { get; set; }
     public virtual Comision Comision { get; set; }
 }

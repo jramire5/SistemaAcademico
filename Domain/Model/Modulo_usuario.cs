@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,8 +11,9 @@ namespace Domain.Model
     {
         public int IdModuloUsuario { get; set; } // Primary Key
 
-        // Foreign Keys
+        [ForeignKey("Modulo")]
         public int IdModulo { get; set; } // Foreign key to Modulo
+        [ForeignKey("Usuario")]
         public int IdUsuario { get; set; } // Foreign key to Usuario
 
         // Permisos

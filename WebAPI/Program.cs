@@ -18,6 +18,7 @@ builder.Services.AddScoped<MateriaService>();
 builder.Services.AddScoped<ModuloUsuarioService>();
 builder.Services.AddScoped<PlanService>();
 builder.Services.AddScoped<PersonaService>();
+builder.Services.AddScoped<UsuarioService>();
 
 var app = builder.Build();
 
@@ -41,55 +42,7 @@ app.MapAlumnoInscripcionEndpoints();
 app.MapMateriaEndpoints();
 app.MapPlanEndpoints();
 app.MapPersonaEndpoints();
-
-
-/* Usuarios */
-app.MapGet("/usuarios/{id}", (int id) =>
-{
-    UsuarioService usuarioService = new UsuarioService();
-
-    return usuarioService.Get(id);
-})
-.WithName("GetUsuario")
-.WithOpenApi();
-
-app.MapGet("/usuarios", () =>
-{
-    UsuarioService usuarioService = new UsuarioService();
-
-    return usuarioService.GetAll();
-})
-.WithName("GetAllUsuarios")
-.WithOpenApi();
-
-app.MapPost("/usuarios", (Usuario usuario) =>
-{
-    UsuarioService usuarioService = new UsuarioService();
-
-    usuarioService.Add(usuario);
-})
-.WithName("AddUsuario")
-.WithOpenApi();
-
-app.MapPut("/usuarios", (Usuario usuario) =>
-{
-    UsuarioService usuarioService = new UsuarioService();
-
-    usuarioService.Update(usuario);
-})
-.WithName("UpdateUsuario")
-.WithOpenApi();
-
-app.MapDelete("/usuarios/{id}", (int id) =>
-{
-    UsuarioService usuarioService = new UsuarioService();
-
-    usuarioService.Delete(id);
-})
-.WithName("DeleteUsuario")
-.WithOpenApi();
-
-//Fin Usuarios
+app.MapUsuarioEndpoints();
 
 //Modulos 
 
