@@ -4,9 +4,9 @@ using WindowsForms.APIServices;
 
 namespace WindowsForms;
 
-public partial class ComisionLista : Form
+public partial class AlumnoInscripcionLista : Form
 {
-    public ComisionLista()
+    public AlumnoInscripcionLista()
     {
         InitializeComponent();
     }
@@ -17,11 +17,9 @@ public partial class ComisionLista : Form
     }
     private void btn_agregar_Click(object sender, EventArgs e)
     {
-        ComisionDetalle detalle = new ComisionDetalle();
+        AlumnoInscripcionDetalle detalle = new AlumnoInscripcionDetalle();
 
-        Comision registroNuevo = new Comision();
-
-        detalle.Entidad  = registroNuevo;
+        detalle.Entidad  = new AlumnoInscripcion();
 
         detalle.ShowDialog();
 
@@ -31,13 +29,13 @@ public partial class ComisionLista : Form
     private async void btn_modificar_click(object sender, EventArgs e)
     {
 
-        ComisionDetalle detalle = new ComisionDetalle();
+        AlumnoInscripcionDetalle detalle = new AlumnoInscripcionDetalle();
 
         int id;
 
-        id = this.SelectedItem().id_comision;
+        id = this.SelectedItem().id_inscripcion;
 
-        Comision registroModifica = await ComisionApiClient.GetAsync(id);
+        AlumnoInscripcion registroModifica = await AlumnoInscripcionApiClient.GetAsync(id);
 
         // personaDetalle.editMode = true;
         detalle.Entidad = registroModifica;
@@ -51,8 +49,8 @@ public partial class ComisionLista : Form
     {
         int id;
 
-        id = this.SelectedItem().id_comision;
-        await ComisionApiClient.DeleteAsync(id);
+        id = this.SelectedItem().id_inscripcion;
+        await AlumnoInscripcionApiClient.DeleteAsync(id);
 
         this.GetAllAndLoad();
     }
@@ -60,7 +58,7 @@ public partial class ComisionLista : Form
     private async void GetAllAndLoad()
     {
         this.Grid.DataSource = null;
-        this.Grid.DataSource = await ComisionApiClient.GetAllAsync();
+        this.Grid.DataSource = await AlumnoInscripcionApiClient.GetAllAsync();
 
         if (this.Grid.Rows.Count > 0)
         {
@@ -75,11 +73,11 @@ public partial class ComisionLista : Form
         }
     }
 
-    private ComisionDto SelectedItem()
+    private AlumnoInscripcionDto SelectedItem()
     {
-        ComisionDto registro;
+        AlumnoInscripcionDto registro;
 
-        registro = (ComisionDto)Grid.SelectedRows[0].DataBoundItem;
+        registro = (AlumnoInscripcionDto)Grid.SelectedRows[0].DataBoundItem;
 
         return registro;
     }

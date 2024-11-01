@@ -21,6 +21,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="View\AlumnoInscripcion\AlumnoInscripcionDetalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\AlumnoInscripcion\AlumnoInscripcionLista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\DocenteCurso\DocenteCursoDetalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\DocenteCurso\DocenteCursoLista.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="View\Cursos\CursosDetalle.cs">
       <SubType>Form</SubType>
     </Compile>

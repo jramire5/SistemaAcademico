@@ -19,6 +19,7 @@ builder.Services.AddScoped<ModuloUsuarioService>();
 builder.Services.AddScoped<PlanService>();
 builder.Services.AddScoped<PersonaService>();
 builder.Services.AddScoped<UsuarioService>();
+builder.Services.AddScoped<DocenteCursoService>();
 
 var app = builder.Build();
 
@@ -43,7 +44,7 @@ app.MapMateriaEndpoints();
 app.MapPlanEndpoints();
 app.MapPersonaEndpoints();
 app.MapUsuarioEndpoints();
-
+app.MapDocenteCursoEndpoints();
 //Modulos 
 
 app.MapGet("/modulos/{id}", (int id) =>

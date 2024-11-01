@@ -36,14 +36,16 @@
             especialidadToolStripMenuItem = new ToolStripMenuItem();
             comisionToolStripMenuItem = new ToolStripMenuItem();
             cursosToolStripMenuItem = new ToolStripMenuItem();
+            docenteCursosToolStripMenuItem = new ToolStripMenuItem();
             materiasToolStripMenuItem = new ToolStripMenuItem();
+            alumnoInscripciónToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { personasToolStripMenuItem, usuariosToolStripMenuItem, materiasToolStripMenuItem1, planToolStripMenuItem, especialidadToolStripMenuItem, comisionToolStripMenuItem, cursosToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { personasToolStripMenuItem, usuariosToolStripMenuItem, materiasToolStripMenuItem1, planToolStripMenuItem, especialidadToolStripMenuItem, comisionToolStripMenuItem, cursosToolStripMenuItem, docenteCursosToolStripMenuItem, alumnoInscripciónToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(7, 3, 0, 3);
@@ -100,10 +102,24 @@
             cursosToolStripMenuItem.Text = "Cursos";
             cursosToolStripMenuItem.Click += cursosToolStripMenuItem_Click;
             // 
+            // docenteCursosToolStripMenuItem
+            // 
+            docenteCursosToolStripMenuItem.Name = "docenteCursosToolStripMenuItem";
+            docenteCursosToolStripMenuItem.Size = new Size(126, 24);
+            docenteCursosToolStripMenuItem.Text = "Docente Cursos";
+            docenteCursosToolStripMenuItem.Click += docenteCursosToolStripMenuItem_Click;
+            // 
             // materiasToolStripMenuItem
             // 
             materiasToolStripMenuItem.Name = "materiasToolStripMenuItem";
             materiasToolStripMenuItem.Size = new Size(32, 19);
+            // 
+            // alumnoInscripciónToolStripMenuItem
+            // 
+            alumnoInscripciónToolStripMenuItem.Name = "alumnoInscripciónToolStripMenuItem";
+            alumnoInscripciónToolStripMenuItem.Size = new Size(150, 24);
+            alumnoInscripciónToolStripMenuItem.Text = "Alumno Inscripción";
+            alumnoInscripciónToolStripMenuItem.Click += alumnoInscripciónToolStripMenuItem_Click;
             // 
             // MenuPrincipal
             // 
@@ -134,5 +150,7 @@
         private ToolStripMenuItem especialidadToolStripMenuItem;
         private ToolStripMenuItem comisionToolStripMenuItem;
         private ToolStripMenuItem cursosToolStripMenuItem;
+        private ToolStripMenuItem docenteCursosToolStripMenuItem;
+        private ToolStripMenuItem alumnoInscripciónToolStripMenuItem;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Domain.Model;
+using Domain.Model.Dtos;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
 namespace WindowsForms.APIServices;
@@ -26,13 +27,13 @@ public class AlumnoInscripcionApiClient
         return alumnoInscripcion;
     }
 
-    public static async Task<IEnumerable<AlumnoInscripcion>> GetAllAsync()
+    public static async Task<IEnumerable<AlumnoInscripcionDto>> GetAllAsync()
     {
-        IEnumerable<AlumnoInscripcion> alumnoInscripciones = null;
+        IEnumerable<AlumnoInscripcionDto> alumnoInscripciones = null;
         HttpResponseMessage response = await client.GetAsync("alumnos-inscripciones");
         if (response.IsSuccessStatusCode)
         {
-            alumnoInscripciones = await response.Content.ReadAsAsync<IEnumerable<AlumnoInscripcion>>();
+            alumnoInscripciones = await response.Content.ReadAsAsync<IEnumerable<AlumnoInscripcionDto>>();
         }
         return alumnoInscripciones;
     }

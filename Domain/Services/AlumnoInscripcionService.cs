@@ -1,4 +1,5 @@
 ﻿using Domain.Model;
+using Domain.Model.Dtos;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -38,11 +39,25 @@ public class AlumnoInscripcionService
         return await context.AlumnosInscripciones.FindAsync(id);
     }
 
-    public async Task<IEnumerable<AlumnoInscripcion>> GetAll()
+    public async Task<IEnumerable<AlumnoInscripcionDto>> GetAll()
     {
         using var context = new AcademiaContext();
 
-        return await context.AlumnosInscripciones.ToListAsync();
+        List<AlumnoInscripcion> lista = await context.AlumnosInscripciones.Include(d => d.Curso).ThenInclude(d => d.Comision).Include(d => d.Curso).ThenInclude(d => d.Materia).Include(d => d.Persona).ToListAsync();
+
+        List<AlumnoInscripcionDto> listadto = new List<AlumnoInscripcionDto>();
+        foreach (var item in lista)
+        {
+            listadto.Add(new AlumnoInscripcionDto()
+            {
+                id_inscripcion = item.id_inscripcion,
+                desc_materia = item.Curso.Materia.desc_materia,
+                desc_comision = item.Curso.Comision.desc_comision,
+                anio_calendario = item.Curso.anio_calendario,
+                alumno = item.Persona.nombre
+            });
+        }
+        return listadto;
     }
 
     public async Task Update(AlumnoInscripcion alumnoInscripcion)

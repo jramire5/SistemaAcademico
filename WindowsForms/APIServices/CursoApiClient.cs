@@ -37,7 +37,21 @@ public class CursoApiClient
         }
         return cursos;
     }
-
+     public static async Task<IEnumerable<CursoDropdownDto>> GetDropDownValuesAsync()
+     {
+      List<CursoDropdownDto> cursosDropDown = null;
+      HttpResponseMessage response = await client.GetAsync("cursos");
+      if (response.IsSuccessStatusCode)
+      {
+            cursosDropDown = new List<CursoDropdownDto>();
+          IEnumerable<CursoDto> cursos = await response.Content.ReadAsAsync<IEnumerable<CursoDto>>();
+          foreach (var item in cursos)
+          {
+                cursosDropDown.Add(new CursoDropdownDto() { id_curso = item.id_curso, desc_materia_comi_anio = $"{item.materia_desc}-{item.comision_desc}-{item.anio_calendario}" });
+          }
+      }
+      return cursosDropDown;
+     }
     public async static Task AddAsync(Curso curso)
     {
         HttpResponseMessage response = await client.PostAsJsonAsync("cursos", curso);

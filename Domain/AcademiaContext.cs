@@ -19,12 +19,11 @@ namespace Domain
         public DbSet<Especialidad> Especialidades { get; set; }
         internal DbSet<Modulo> Modulos { get; set; }
         internal DbSet<ModuloUsuario> moduloUsuarios { get; set; }
+        public DbSet<DocenteCurso> DocenteCurso { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
        
-           // modelBuilder.Entity<Usuario>().HasKey(p => p.id_usuario);           
-      
-            
+           // modelBuilder.Entity<Usuario>().HasKey(p => p.id_usuario);    
             //modelBuilder.Entity<Modulo>().HasKey(p => p.Id_modulo);
           //  modelBuilder.Entity<ModuloUsuario>().HasKey(p => p.IdModuloUsuario);
 
@@ -37,7 +36,9 @@ namespace Domain
             modelBuilder.ApplyConfiguration(new ModuloUsuarioConfig());
             modelBuilder.ApplyConfiguration(new PersonaConfig());
             modelBuilder.ApplyConfiguration(new PlanConfig());
-            modelBuilder.ApplyConfiguration(new UsuarioConfig());           
+            modelBuilder.ApplyConfiguration(new UsuarioConfig());
+            modelBuilder.ApplyConfiguration(new DocenteCursoConfig());
+            
 
         }
         internal AcademiaContext()

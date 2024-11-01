@@ -4,9 +4,9 @@ using WindowsForms.APIServices;
 
 namespace WindowsForms;
 
-public partial class ComisionLista : Form
+public partial class DocenteCursoLista : Form
 {
-    public ComisionLista()
+    public DocenteCursoLista()
     {
         InitializeComponent();
     }
@@ -17,11 +17,9 @@ public partial class ComisionLista : Form
     }
     private void btn_agregar_Click(object sender, EventArgs e)
     {
-        ComisionDetalle detalle = new ComisionDetalle();
+        DocenteCursoDetalle detalle = new DocenteCursoDetalle();
 
-        Comision registroNuevo = new Comision();
-
-        detalle.Entidad  = registroNuevo;
+        detalle.Entidad = new DocenteCurso();
 
         detalle.ShowDialog();
 
@@ -31,13 +29,13 @@ public partial class ComisionLista : Form
     private async void btn_modificar_click(object sender, EventArgs e)
     {
 
-        ComisionDetalle detalle = new ComisionDetalle();
+        DocenteCursoDetalle detalle = new DocenteCursoDetalle();
 
         int id;
 
-        id = this.SelectedItem().id_comision;
+        id = this.SelectedItem().id_dictado;
 
-        Comision registroModifica = await ComisionApiClient.GetAsync(id);
+        DocenteCurso registroModifica = await DocenteCursoApiClient.GetAsync(id);
 
         // personaDetalle.editMode = true;
         detalle.Entidad = registroModifica;
@@ -51,16 +49,16 @@ public partial class ComisionLista : Form
     {
         int id;
 
-        id = this.SelectedItem().id_comision;
-        await ComisionApiClient.DeleteAsync(id);
+        id = this.SelectedItem().id_dictado;
+        await DocenteCursoApiClient.DeleteAsync(id);
 
         this.GetAllAndLoad();
     }
 
     private async void GetAllAndLoad()
-    {
+    {    
         this.Grid.DataSource = null;
-        this.Grid.DataSource = await ComisionApiClient.GetAllAsync();
+        this.Grid.DataSource = await DocenteCursoApiClient.GetAllAsync();
 
         if (this.Grid.Rows.Count > 0)
         {
@@ -75,11 +73,11 @@ public partial class ComisionLista : Form
         }
     }
 
-    private ComisionDto SelectedItem()
+    private DocenteCursoDto SelectedItem()
     {
-        ComisionDto registro;
+        DocenteCursoDto registro;
 
-        registro = (ComisionDto)Grid.SelectedRows[0].DataBoundItem;
+        registro = (DocenteCursoDto)Grid.SelectedRows[0].DataBoundItem;
 
         return registro;
     }

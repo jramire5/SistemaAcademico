@@ -57,5 +57,15 @@ public partial class MenuPrincipal : Form
         listado.ShowDialog();
     }
 
-   
+    private void docenteCursosToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+        DocenteCursoLista listado = new DocenteCursoLista();
+        listado.ShowDialog();
+    }
+
+    private void alumnoInscripciónToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+        AlumnoInscripcionLista listado = new AlumnoInscripcionLista();
+        listado.ShowDialog();
+    }
 }
