@@ -24,6 +24,11 @@ public static class PersonaEndpoints
             var persona = await personaService.GetAll();
             return Results.Ok(persona);
         });
+        routes.MapGet("/personas-tipo", async (int tipo_persona, PersonaService personaService) =>
+        {
+            var persona = await personaService.GetAll(tipo_persona);
+            return Results.Ok(persona);
+        });
 
         routes.MapPut("/personas", async (Persona persona, PersonaService personaService) =>
         {

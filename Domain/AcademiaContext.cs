@@ -1,7 +1,6 @@
 ﻿using Domain.EfConfigs;
 using Domain.Model;
 using Microsoft.EntityFrameworkCore;
-using System.Reflection.Metadata;
 
 namespace Domain
 {
@@ -20,6 +19,8 @@ namespace Domain
         internal DbSet<Modulo> Modulos { get; set; }
         internal DbSet<ModuloUsuario> moduloUsuarios { get; set; }
         public DbSet<DocenteCurso> DocenteCurso { get; set; }
+        public DbSet<TipoPersona> TipoPersona { get; set; }
+        
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
        
@@ -38,8 +39,7 @@ namespace Domain
             modelBuilder.ApplyConfiguration(new PlanConfig());
             modelBuilder.ApplyConfiguration(new UsuarioConfig());
             modelBuilder.ApplyConfiguration(new DocenteCursoConfig());
-            
-
+            modelBuilder.ApplyConfiguration(new TipoPersonaConfig());
         }
         internal AcademiaContext()
         {

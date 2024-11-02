@@ -13,14 +13,14 @@ public partial class AlumnoInscripcionDetalle : Form
         set
         {
             entidad = value;
-            this.SetPlan();
+            this.SetAlumnoInscripcion();
         }
     }
     public AlumnoInscripcionDetalle()
     {
         InitializeComponent();
     }
-    private async void SetPlan()
+    private async void SetAlumnoInscripcion()
     {
 
         this.txtid_inscripcion.Text=this.Entidad.id_inscripcion.ToString();

@@ -44,6 +44,10 @@
             Aceptar = new Button();
             Cancelar = new Button();
             datetimeFechaNacimiento = new DateTimePicker();
+            cmbtipo_persona = new ComboBox();
+            label1 = new Label();
+            cmbPlan = new ComboBox();
+            label2 = new Label();
             SuspendLayout();
             // 
             // txtid_persona
@@ -188,11 +192,49 @@
             datetimeFechaNacimiento.Size = new Size(271, 27);
             datetimeFechaNacimiento.TabIndex = 16;
             // 
+            // cmbtipo_persona
+            // 
+            cmbtipo_persona.FormattingEnabled = true;
+            cmbtipo_persona.Location = new Point(618, 65);
+            cmbtipo_persona.Name = "cmbtipo_persona";
+            cmbtipo_persona.Size = new Size(227, 28);
+            cmbtipo_persona.TabIndex = 11;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(491, 73);
+            label1.Name = "label1";
+            label1.Size = new Size(94, 20);
+            label1.TabIndex = 18;
+            label1.Text = "Tipo Persona";
+            // 
+            // cmbPlan
+            // 
+            cmbPlan.FormattingEnabled = true;
+            cmbPlan.Location = new Point(618, 115);
+            cmbPlan.Name = "cmbPlan";
+            cmbPlan.Size = new Size(227, 28);
+            cmbPlan.TabIndex = 12;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(491, 119);
+            label2.Name = "label2";
+            label2.Size = new Size(37, 20);
+            label2.TabIndex = 20;
+            label2.Text = "Plan";
+            // 
             // PersonaDetalle
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(914, 600);
+            Controls.Add(label2);
+            Controls.Add(cmbPlan);
+            Controls.Add(label1);
+            Controls.Add(cmbtipo_persona);
             Controls.Add(datetimeFechaNacimiento);
             Controls.Add(Cancelar);
             Controls.Add(Aceptar);
@@ -234,5 +276,9 @@
         private Button Aceptar;
         private Button Cancelar;
         private DateTimePicker datetimeFechaNacimiento;
+        private ComboBox cmbtipo_persona;
+        private Label label1;
+        private ComboBox cmbPlan;
+        private Label label2;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Domain.Model;
+using Domain.Model.Dtos;
 using System;
 using System.Net;
 using System.Net.Http;
@@ -33,13 +34,13 @@ namespace WindowsForms.APIServices
             return persona;
         }
 
-        public static async Task<IEnumerable<Persona>> GetAllAsync()
+        public static async Task<IEnumerable<PersonaDto>> GetAllAsync()
         {
-            IEnumerable<Persona> personas = null;
+            IEnumerable<PersonaDto> personas = null;
             HttpResponseMessage response = await client.GetAsync("personas");
             if (response.IsSuccessStatusCode)
             {
-                personas = await response.Content.ReadAsAsync<IEnumerable<Persona>>();
+                personas = await response.Content.ReadAsAsync<IEnumerable<PersonaDto>>();
             }
             return personas;
         }

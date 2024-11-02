@@ -20,6 +20,7 @@ builder.Services.AddScoped<PlanService>();
 builder.Services.AddScoped<PersonaService>();
 builder.Services.AddScoped<UsuarioService>();
 builder.Services.AddScoped<DocenteCursoService>();
+builder.Services.AddScoped<TipoPersonaService>();
 
 var app = builder.Build();
 
@@ -34,7 +35,6 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-//Actualmente estamos usando los objetos del Domain Model, deberiamos usar ViewModels o DTOs         
 
 app.MapCursoEndpoints();
 app.MapComisionEndpoints();
@@ -45,6 +45,7 @@ app.MapPlanEndpoints();
 app.MapPersonaEndpoints();
 app.MapUsuarioEndpoints();
 app.MapDocenteCursoEndpoints();
+app.MapTipoPersonaEndpoints();
 //Modulos 
 
 app.MapGet("/modulos/{id}", (int id) =>

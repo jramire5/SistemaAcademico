@@ -1,5 +1,7 @@
 ﻿using Domain.Model;
+using Domain.Model.Dtos;
 using Microsoft.EntityFrameworkCore;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Domain.Services;
 
@@ -33,11 +35,45 @@ public class PersonaService
         return await context.Personas.FindAsync(id);
     }
 
-    public async Task<IEnumerable<Persona>> GetAll()
+    public async Task<IEnumerable<PersonaDto>> GetAll()
     {
         using var context = new AcademiaContext();
 
-        return await context.Personas.ToListAsync();
+        List<Persona> lista=await context.Personas.Include(p=>p.Plan).ThenInclude(pl=>pl.Especialidad).Include(p=>p.TipoPersona).ToListAsync();
+
+        List<PersonaDto> listadto = new List<PersonaDto>();
+        foreach (var item in lista)
+        {
+            listadto.Add(new PersonaDto()
+            {
+                id_persona = item.id_persona,
+                nombre=item.nombre,
+                desc_plan = $"{item.Plan?.desc_plan}-{item.Plan?.Especialidad?.desc_especialidad}",
+                desc_tipo_persona = item.TipoPersona.descripcion
+            });
+        }
+        return listadto;
+        
+    }
+    public async Task<IEnumerable<PersonaDto>> GetAll(int tipoPersona)
+    {
+        using var context = new AcademiaContext();
+
+        List<Persona> lista = await context.Personas.Include(p => p.Plan).ThenInclude(pl => pl.Especialidad).Include(p => p.TipoPersona).Where(p=>p.tipo_persona== tipoPersona).ToListAsync();
+
+        List<PersonaDto> listadto = new List<PersonaDto>();
+        foreach (var item in lista)
+        {
+            listadto.Add(new PersonaDto()
+            {
+                id_persona = item.id_persona,
+                nombre = item.nombre,
+                desc_plan = $"{item.Plan?.desc_plan}-{item.Plan?.Especialidad?.desc_especialidad}",
+                desc_tipo_persona = item.TipoPersona.descripcion
+            });
+        }
+        return listadto;
+
     }
 
     public async Task Update(Persona persona)
