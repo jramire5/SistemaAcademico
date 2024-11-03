@@ -51,6 +51,12 @@
     <Compile Update="View\Comision\ComisionLista.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="View\Modulo\ModuloDetalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Modulo\ModuloLista.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="View\Plan\PlanLista.cs">
       <SubType>Form</SubType>
     </Compile>
