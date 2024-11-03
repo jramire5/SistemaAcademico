@@ -10,6 +10,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddHttpLogging(o => { });
 
+/*Servicios para DI*/
 builder.Services.AddScoped<CursoService>();
 builder.Services.AddScoped<ComisionService>();
 builder.Services.AddScoped<EspecialidadService>();
@@ -21,6 +22,10 @@ builder.Services.AddScoped<PersonaService>();
 builder.Services.AddScoped<UsuarioService>();
 builder.Services.AddScoped<DocenteCursoService>();
 builder.Services.AddScoped<TipoPersonaService>();
+builder.Services.AddScoped<AutenticacionService>();
+builder.Services.AddScoped<ModuloService>();
+builder.Services.AddScoped<ModuloUsuarioService>();
+
 
 var app = builder.Build();
 
@@ -46,100 +51,8 @@ app.MapPersonaEndpoints();
 app.MapUsuarioEndpoints();
 app.MapDocenteCursoEndpoints();
 app.MapTipoPersonaEndpoints();
-//Modulos 
-
-app.MapGet("/modulos/{id}", (int id) =>
-{
-    ModuloService moduloService = new ModuloService();
-
-    return moduloService.Get(id);
-})
-.WithName("GetModulo")
-.WithOpenApi();
-
-app.MapGet("/modulos", () =>
-{
-    ModuloService moduloService = new ModuloService();
-
-    return moduloService.GetAll();
-})
-.WithName("GetAllModulos")
-.WithOpenApi();
-
-app.MapPost("/modulos", (Modulo modulo) =>
-{
-    ModuloService moduloService = new ModuloService();
-
-    moduloService.Add(modulo);
-})
-.WithName("AddModulo")
-.WithOpenApi();
-
-app.MapPut("/modulos", (Modulo modulo) =>
-{
-    ModuloService moduloService = new ModuloService();
-
-    moduloService.Update(modulo);
-})
-.WithName("UpdateModulo")
-.WithOpenApi();
-
-app.MapDelete("/modulos/{id}", (int id) =>
-{
-    ModuloService moduloService = new ModuloService();
-
-    moduloService.Delete(id);
-})
-.WithName("DeleteModulo")
-.WithOpenApi();
-
-//Fin Modulos
-
-// Inicio ModuloUsuario
-
-app.MapGet("/modulosusuarios", (ModuloUsuarioService moduloUsuarioService) =>
-{
-    return Results.Ok(moduloUsuarioService.GetAll());
-})
-.WithName("GetAllModuloUsuarios")
-.WithOpenApi();
-
-app.MapGet("/modulosusuarios/{id}", (int id, ModuloUsuarioService moduloUsuarioService) =>
-{
-    var moduloUsuario = moduloUsuarioService.Get(id);
-    if (moduloUsuario == null)
-    {
-        return Results.NotFound();
-    }
-    return Results.Ok(moduloUsuario);
-})
-.WithName("GetModuloUsuario")
-.WithOpenApi();
-
-app.MapPost("/modulosusuarios", (ModuloUsuario moduloUsuario, ModuloUsuarioService moduloUsuarioService) =>
-{
-    moduloUsuarioService.Add(moduloUsuario);
-    return Results.Created($"/modulosusuarios/{moduloUsuario.IdModuloUsuario}", moduloUsuario);
-})
-.WithName("AddModuloUsuario")
-.WithOpenApi();
-
-app.MapPut("/modulosusuarios", (ModuloUsuario moduloUsuario, ModuloUsuarioService moduloUsuarioService) =>
-{
-    moduloUsuarioService.Update(moduloUsuario);
-    return Results.NoContent();
-})
-.WithName("UpdateModuloUsuario")
-.WithOpenApi();
-
-app.MapDelete("/modulosusuarios/{id}", (int id, ModuloUsuarioService moduloUsuarioService) =>
-{
-    moduloUsuarioService.Delete(id);
-    return Results.NoContent();
-})
-.WithName("DeleteModuloUsuario")
-.WithOpenApi();
-
-//Fin ModuloUsuario
+app.MapAutenticacionEndpoints();
+app.MapModuloEndpoints();
+app.MapModuloUsuarioEndpoints();
 
 app.Run();

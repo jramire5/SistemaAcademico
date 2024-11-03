@@ -37,8 +37,8 @@
             comisionToolStripMenuItem = new ToolStripMenuItem();
             cursosToolStripMenuItem = new ToolStripMenuItem();
             docenteCursosToolStripMenuItem = new ToolStripMenuItem();
-            materiasToolStripMenuItem = new ToolStripMenuItem();
             alumnoInscripciónToolStripMenuItem = new ToolStripMenuItem();
+            materiasToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -109,17 +109,17 @@
             docenteCursosToolStripMenuItem.Text = "Docente Cursos";
             docenteCursosToolStripMenuItem.Click += docenteCursosToolStripMenuItem_Click;
             // 
-            // materiasToolStripMenuItem
-            // 
-            materiasToolStripMenuItem.Name = "materiasToolStripMenuItem";
-            materiasToolStripMenuItem.Size = new Size(32, 19);
-            // 
             // alumnoInscripciónToolStripMenuItem
             // 
             alumnoInscripciónToolStripMenuItem.Name = "alumnoInscripciónToolStripMenuItem";
             alumnoInscripciónToolStripMenuItem.Size = new Size(150, 24);
             alumnoInscripciónToolStripMenuItem.Text = "Alumno Inscripción";
             alumnoInscripciónToolStripMenuItem.Click += alumnoInscripciónToolStripMenuItem_Click;
+            // 
+            // materiasToolStripMenuItem
+            // 
+            materiasToolStripMenuItem.Name = "materiasToolStripMenuItem";
+            materiasToolStripMenuItem.Size = new Size(32, 19);
             // 
             // MenuPrincipal
             // 
@@ -133,6 +133,7 @@
             Name = "MenuPrincipal";
             Text = "Gestión Académica (SGA)";
             WindowState = FormWindowState.Maximized;
+            Load += formMain_Shown;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
