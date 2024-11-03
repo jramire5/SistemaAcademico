@@ -1,5 +1,5 @@
 ﻿using Domain.Model;
-using WindowsForms.APIServices;
+using WindowsForms.ApiServices;
 
 namespace WindowsForms;
 

@@ -31,6 +31,9 @@
             menuStrip1 = new MenuStrip();
             personasToolStripMenuItem = new ToolStripMenuItem();
             usuariosToolStripMenuItem = new ToolStripMenuItem();
+            usuariosToolStripMenuItem1 = new ToolStripMenuItem();
+            modulosToolStripMenuItem = new ToolStripMenuItem();
+            modulosUsuarioToolStripMenuItem = new ToolStripMenuItem();
             materiasToolStripMenuItem1 = new ToolStripMenuItem();
             planToolStripMenuItem = new ToolStripMenuItem();
             especialidadToolStripMenuItem = new ToolStripMenuItem();
@@ -62,10 +65,31 @@
             // 
             // usuariosToolStripMenuItem
             // 
+            usuariosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { usuariosToolStripMenuItem1, modulosToolStripMenuItem, modulosUsuarioToolStripMenuItem });
             usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
             usuariosToolStripMenuItem.Size = new Size(79, 24);
             usuariosToolStripMenuItem.Text = "Usuarios";
-            usuariosToolStripMenuItem.Click += usuariosToolStripMenuItem_Click;
+            // 
+            // usuariosToolStripMenuItem1
+            // 
+            usuariosToolStripMenuItem1.Name = "usuariosToolStripMenuItem1";
+            usuariosToolStripMenuItem1.Size = new Size(224, 26);
+            usuariosToolStripMenuItem1.Text = "Usuarios";
+            usuariosToolStripMenuItem1.Click += usuariosToolStripMenuItem1_Click;
+            // 
+            // modulosToolStripMenuItem
+            // 
+            modulosToolStripMenuItem.Name = "modulosToolStripMenuItem";
+            modulosToolStripMenuItem.Size = new Size(224, 26);
+            modulosToolStripMenuItem.Text = "Modulos";
+            modulosToolStripMenuItem.Click += modulosToolStripMenuItem_Click;
+            // 
+            // modulosUsuarioToolStripMenuItem
+            // 
+            modulosUsuarioToolStripMenuItem.Name = "modulosUsuarioToolStripMenuItem";
+            modulosUsuarioToolStripMenuItem.Size = new Size(224, 26);
+            modulosUsuarioToolStripMenuItem.Text = "Modulos Usuario";
+            modulosUsuarioToolStripMenuItem.Click += modulosUsuarioToolStripMenuItem_Click;
             // 
             // materiasToolStripMenuItem1
             // 
@@ -153,5 +177,8 @@
         private ToolStripMenuItem cursosToolStripMenuItem;
         private ToolStripMenuItem docenteCursosToolStripMenuItem;
         private ToolStripMenuItem alumnoInscripciónToolStripMenuItem;
+        private ToolStripMenuItem usuariosToolStripMenuItem1;
+        private ToolStripMenuItem modulosToolStripMenuItem;
+        private ToolStripMenuItem modulosUsuarioToolStripMenuItem;
     }
 }

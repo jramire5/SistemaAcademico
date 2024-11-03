@@ -1,6 +1,6 @@
 ﻿namespace WindowsForms;
 
-partial class ModuloLista
+partial class ModuloUsuarioLista
 {
     /// <summary>
     /// Required designer variable.

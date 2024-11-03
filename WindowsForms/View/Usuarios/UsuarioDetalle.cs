@@ -1,5 +1,5 @@
 ﻿using Domain.Model;
-using WindowsForms.APIServices;
+using WindowsForms.ApiServices;
 
 namespace WindowsForms;
 
@@ -51,11 +51,11 @@ public partial class UsuarioDetalle : Form
 
         if (txtid_usuario.Text == "0" || txtid_usuario.Text.Length == 0)
         {
-            await UsuarioAPIClient.AddAsync(Usuario);
+            await UsuarioApiClient.AddAsync(Usuario);
         }
         else
         {
-            await UsuarioAPIClient.UpdateAsync(Usuario);
+            await UsuarioApiClient.UpdateAsync(Usuario);
         }
         this.Close();
     }

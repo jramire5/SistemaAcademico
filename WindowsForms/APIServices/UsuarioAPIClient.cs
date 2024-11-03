@@ -3,15 +3,14 @@ using Domain.Model.Dtos;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
 
-
-namespace WindowsForms.APIServices;
+namespace WindowsForms.ApiServices;
 
 //Revisar si no seria mejor usar metodos estaticos        
 
-public class UsuarioAPIClient
+public class UsuarioApiClient
 {
     private static HttpClient client = new HttpClient();
-    static UsuarioAPIClient()
+    static UsuarioApiClient()
     {
         client.BaseAddress = new Uri("http://localhost:5183/");
         client.DefaultRequestHeaders.Accept.Clear();

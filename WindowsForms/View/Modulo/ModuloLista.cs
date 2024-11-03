@@ -10,7 +10,7 @@ public partial class ModuloLista : Form
         InitializeComponent();
     }
 
-    private void EspecialidadLista_Load(object sender, EventArgs e)
+    private void Lista_Load(object sender, EventArgs e)
     {
         this.GetAllAndLoad();
     }

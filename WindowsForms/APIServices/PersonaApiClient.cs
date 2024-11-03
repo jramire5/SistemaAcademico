@@ -3,7 +3,7 @@ using Domain.Model.Dtos;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
 
-namespace WindowsForms.APIServices;
+namespace WindowsForms.ApiServices;
 
 //Revisar si no seria mejor usar metodos estaticos        
 

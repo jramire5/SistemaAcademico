@@ -21,11 +21,6 @@ public partial class MenuPrincipal : Form
         PersonasLista personasLista = new PersonasLista();
         personasLista.ShowDialog();
     }
-    private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
-    {
-        UsuarioLista listado = new UsuarioLista();
-        listado.ShowDialog();
-    }
     private void materiasToolStripMenuItem_Click(object sender, EventArgs e)
     {
         MateriaLista listado = new MateriaLista();
@@ -64,6 +59,24 @@ public partial class MenuPrincipal : Form
     private void alumnoInscripciónToolStripMenuItem_Click(object sender, EventArgs e)
     {
         AlumnoInscripcionLista listado = new AlumnoInscripcionLista();
+        listado.ShowDialog();
+    }
+
+    private void usuariosToolStripMenuItem1_Click(object sender, EventArgs e)
+    {
+        UsuarioLista listado = new UsuarioLista();
+        listado.ShowDialog();
+    }
+
+    private void modulosToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+        ModuloLista listado = new ModuloLista();
+        listado.ShowDialog();
+    }
+
+    private void modulosUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+        ModuloUsuarioLista listado = new ModuloUsuarioLista();
         listado.ShowDialog();
     }
 }

@@ -1,27 +1,24 @@
 ﻿using Domain.Model;
-
 using WindowsForms.ApiServices;
 
 namespace WindowsForms;
 
-public partial class EspecialidadLista : Form
+public partial class ModuloUsuarioLista : Form
 {
-    public EspecialidadLista()
+    public ModuloUsuarioLista()
     {
         InitializeComponent();
     }
 
-    private void EspecialidadLista_Load(object sender, EventArgs e)
+    private void Lista_Load(object sender, EventArgs e)
     {
         this.GetAllAndLoad();
     }
     private void btn_agregar_Click(object sender, EventArgs e)
     {
-        EspecialidadDetalle detalle = new EspecialidadDetalle();
+        ModuloUsuarioDetalle detalle = new ModuloUsuarioDetalle();
 
-        Especialidad nuevoRegistro = new Especialidad();
-
-        detalle.Especialidad = nuevoRegistro;
+        detalle.Entidad = new ModuloUsuario();
 
         detalle.ShowDialog();
 
@@ -31,16 +28,16 @@ public partial class EspecialidadLista : Form
     private async void btn_modificar_click(object sender, EventArgs e)
     {
 
-        EspecialidadDetalle detalle = new EspecialidadDetalle();
+        ModuloUsuarioDetalle detalle = new ModuloUsuarioDetalle();
 
         int id;
 
-        id = this.SelectedItem().id_especialidad;
+        id = this.SelectedItem().IdModuloUsuario;
 
-        Especialidad registroModifica = await EspecialidadApiClient.GetAsync(id);
+        ModuloUsuario registroModifica = await ModuloUsuarioApiClient.GetAsync(id);
 
         // personaDetalle.editMode = true;
-        detalle.Especialidad = registroModifica;
+        detalle.Entidad = registroModifica;
 
         detalle.ShowDialog();
 
@@ -51,18 +48,17 @@ public partial class EspecialidadLista : Form
     {
         int id;
 
-        id = this.SelectedItem().id_especialidad;
-        await EspecialidadApiClient.DeleteAsync(id);
+        id = this.SelectedItem().IdModuloUsuario;
+        await ModuloUsuarioApiClient.DeleteAsync(id);
 
         this.GetAllAndLoad();
     }
 
     private async void GetAllAndLoad()
     {
-        EspecialidadApiClient clienteApi = new EspecialidadApiClient();
 
         this.EspecialidadGrid.DataSource = null;
-        this.EspecialidadGrid.DataSource = await EspecialidadApiClient.GetAllAsync();
+        this.EspecialidadGrid.DataSource = await ModuloUsuarioApiClient.GetAllAsync();
 
         if (this.EspecialidadGrid.Rows.Count > 0)
         {
@@ -77,11 +73,11 @@ public partial class EspecialidadLista : Form
         }
     }
 
-    private Especialidad SelectedItem()
+    private ModuloUsuario SelectedItem()
     {
-        Especialidad selectedItem;
+        ModuloUsuario selectedItem;
 
-        selectedItem = (Especialidad)EspecialidadGrid.SelectedRows[0].DataBoundItem;
+        selectedItem = (ModuloUsuario)EspecialidadGrid.SelectedRows[0].DataBoundItem;
 
         return selectedItem;
     }

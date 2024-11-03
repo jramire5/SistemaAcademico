@@ -1,7 +1,7 @@
 ﻿using Domain.Model;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
-namespace WindowsForms.APIServices;
+namespace WindowsForms.ApiServices;
 
 public class EspecialidadApiClient
 {

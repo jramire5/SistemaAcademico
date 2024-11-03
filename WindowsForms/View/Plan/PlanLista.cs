@@ -1,6 +1,6 @@
 ﻿using Domain.Model;
 using Domain.Model.Dtos;
-using WindowsForms.APIServices;
+using WindowsForms.ApiServices;
 
 namespace WindowsForms;
 

@@ -1,6 +1,6 @@
 ﻿using Domain.Model.Dtos;
 using Domain.Model;
-using WindowsForms.APIServices;
+using WindowsForms.ApiServices;
 
 namespace WindowsForms.View.Usuarios;
 
@@ -33,7 +33,7 @@ public partial class UsuarioLista : Form
 
         int id = this.SelectedItem().id_usuario;
         // personaDetalle.editMode = true;
-        detalle.Usuario = await UsuarioAPIClient.GetAsync(id); 
+        detalle.Usuario = await UsuarioApiClient.GetAsync(id); 
 
         detalle.ShowDialog();
 
@@ -45,7 +45,7 @@ public partial class UsuarioLista : Form
         int id;
 
         id = this.SelectedItem().id_usuario;
-        await UsuarioAPIClient.DeleteAsync(id);
+        await UsuarioApiClient.DeleteAsync(id);
 
         this.GetAllAndLoad();
     }
@@ -53,7 +53,7 @@ public partial class UsuarioLista : Form
     private async void GetAllAndLoad()
     { 
         this.Grid.DataSource = null;
-        this.Grid.DataSource = await UsuarioAPIClient.GetAllAsync();
+        this.Grid.DataSource = await UsuarioApiClient.GetAllAsync();
 
         if (this.Grid.Rows.Count > 0)
         {
