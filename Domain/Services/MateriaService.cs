@@ -1,58 +1,73 @@
 ﻿using Domain.Model;
+using Microsoft.EntityFrameworkCore;
 
 namespace Domain.Services;
 
 public class MateriaService
 {
-    public void Add(Materia materia)
+    public async Task Add(Materia materia)
     {
         using var context = new AcademiaContext();
 
         context.Materia.Add(materia);
-        context.SaveChanges();
+        await context.SaveChangesAsync();
     }
 
-    public void Delete(int id)
+    public async Task Delete(int id)
     {
         using var context = new AcademiaContext();
 
-        Materia? materiaToDelete = context.Materia.Find(id);
+        Materia? materiaToDelete = await context.Materia.FindAsync(id);
 
         if (materiaToDelete != null)
         {
             context.Materia.Remove(materiaToDelete);
-            context.SaveChanges();
+            await context.SaveChangesAsync();
         }
     }
 
-    public Materia? Get(int id)
+    public async Task<Materia?> Get(int id)
     {
         using var context = new AcademiaContext();
 
-        return context.Materia.Find(id);
+        return await context.Materia.FindAsync(id);
     }
 
-    public IEnumerable<Materia> GetAll()
+    public async Task<IEnumerable<MateriaDto>> GetAll()
     {
         using var context = new AcademiaContext();
 
-        return context.Materia.ToList();
+        List<Materia> materias= await context.Materia.Include(m=>m.Plan).ToListAsync();
+
+        List<MateriaDto> listadto = new List<MateriaDto>();
+        foreach (var item in materias)
+        {
+            listadto.Add(new MateriaDto()
+            {
+                id_materia=item.id_materia,
+                desc_materia=item.desc_materia,
+                hs_semanales=item.hs_semanales,
+                hs_totales = item.hs_totales,
+                plan=item.Plan.desc_plan
+            });
+        }
+        return listadto;
     }
 
-    public void Update(Materia materia)
+    public async Task Update(Materia materia)
     {
         using var context = new AcademiaContext();
 
-        Materia? materiaToUpdate = context.Materia.Find(materia.IdMateria);
+        Materia? materiaToUpdate = await context.Materia.FindAsync(materia.id_materia);
 
         if (materiaToUpdate != null)
         {
-            materiaToUpdate.IdMateria = materia.IdMateria;
-            materiaToUpdate.DescMateria = materia.DescMateria;
-            materiaToUpdate.HsSemanales = materia.HsSemanales;
-            materiaToUpdate.HsTotales = materia.HsTotales;
-            materiaToUpdate.IdPlan = materia.IdPlan;
-            context.SaveChanges();
+            materiaToUpdate.id_materia = materia.id_materia;
+            materiaToUpdate.desc_materia = materia.desc_materia;
+            materiaToUpdate.hs_semanales = materia.hs_semanales;
+            materiaToUpdate.hs_totales = materia.hs_totales;
+            materiaToUpdate.id_plan = materia.id_plan;
+            await context.SaveChangesAsync();
         }
     }
 }

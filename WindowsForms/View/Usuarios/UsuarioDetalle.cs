@@ -1,40 +1,67 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using Domain.Model;
+using WindowsForms.ApiServices;
 
-namespace WindowsForms.View.Usuario
+namespace WindowsForms;
+
+public partial class UsuarioDetalle : Form
 {
-    public partial class UsuarioDetalle : Form
+    private Usuario usuario;
+
+    public Usuario Usuario
     {
-        public UsuarioDetalle()
+        get { return usuario; }
+        set
         {
-            InitializeComponent();
+            usuario = value;
+            this.SetUsuario();
         }
+    }
+    public UsuarioDetalle()
+    {
+        InitializeComponent();
+    }
+    private async void SetUsuario()
+    {
 
-        private void UsuarioDetalle_Load(object sender, EventArgs e)
+        this.txtid_usuario.Text = this.Usuario.id_usuario.ToString();
+        this.txtnombre_usuario.Text = this.Usuario.nombre_usuario;
+        this.txtclave.Text = this.Usuario.clave;
+        this.txtnombre.Text = this.Usuario.nombre;
+        this.txtapellido.Text = this.Usuario.apellido;
+        this.txtemail.Text = this.Usuario.email;
+        this.chkcambia_clave.Checked = this.Usuario.cambia_clave;
+        this.chkhabilitado.Checked = this.Usuario.habilitado;
+
+        this.cmbid_persona.DataSource = await PersonaApiClient.GetAllAsync();
+        this.cmbid_persona.DisplayMember = "nombre";
+        this.cmbid_persona.ValueMember = "id_persona";
+        this.cmbid_persona.SelectedValue = this.Usuario.id_persona;  
+
+    }
+    private async void Aceptar_Click(object sender, EventArgs e)
+    {
+        this.Usuario.nombre_usuario = this.txtnombre_usuario.Text;
+        this.Usuario.clave = this.txtclave.Text;
+        this.Usuario.nombre = this.txtnombre.Text;
+        this.Usuario.apellido = this.txtapellido.Text;
+        this.Usuario.email = this.txtemail.Text;
+        this.Usuario.cambia_clave = this.chkcambia_clave.Checked;
+        this.Usuario.habilitado = this.chkhabilitado.Checked;
+        this.Usuario.id_persona = (int?)this.cmbid_persona.SelectedValue; 
+
+        if (txtid_usuario.Text == "0" || txtid_usuario.Text.Length == 0)
         {
-
+            await UsuarioApiClient.AddAsync(Usuario);
         }
-
-        private void lblid_usuario_Click(object sender, EventArgs e)
+        else
         {
-
+            await UsuarioApiClient.UpdateAsync(Usuario);
         }
+        this.Close();
+    }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboPersona_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+    private void btnCancelar_Click(object sender, EventArgs e)
+    {
+        this.Close();
     }
 }

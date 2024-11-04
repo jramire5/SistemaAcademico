@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Domain.Model;
 
@@ -17,13 +13,16 @@ public class Persona
 
     public string email { get; set; }
 
-    public int telefono { get; set; }
+    public string telefono { get; set; }
 
     public DateTime fecha_nacimiento { get; set; }
 
     public int legajo { get; set; }
-
+    [ForeignKey("Plan")]
     public int? id_plan {  get; set; }
 
+    [ForeignKey("TipoPersona")]
     public int? tipo_persona { get; set; }
+    public virtual TipoPersona TipoPersona { get; set; }
+    public virtual Plan Plan { get; set; }
 }

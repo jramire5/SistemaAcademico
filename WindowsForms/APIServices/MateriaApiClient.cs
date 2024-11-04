@@ -1,14 +1,14 @@
 ﻿using Domain.Model;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
-namespace WindowsForms.APIServices;
+namespace WindowsForms.ApiServices;
 
 public class MateriaApiClient
 {
     private static HttpClient client = new HttpClient();
     static MateriaApiClient()
     {
-        client.BaseAddress = new Uri("http://localhost:5183/");
+        client.BaseAddress = new Uri(ApiConfigService.GetApiUrl());
         client.DefaultRequestHeaders.Accept.Clear();
         client.DefaultRequestHeaders.Accept.Add(
             new MediaTypeWithQualityHeaderValue("application/json"));
@@ -26,20 +26,20 @@ public class MateriaApiClient
         return materia;
     }
 
-    public static async Task<IEnumerable<Materia>> GetAllAsync()
+    public static async Task<IEnumerable<MateriaDto>> GetAllAsync()
     {
-        IEnumerable<Materia> materias = null;
+        IEnumerable<MateriaDto> materias = null;
         HttpResponseMessage response = await client.GetAsync("materias");
         if (response.IsSuccessStatusCode)
         {
-            materias = await response.Content.ReadAsAsync<IEnumerable<Materia>>();
+            materias = await response.Content.ReadAsAsync<IEnumerable<MateriaDto>>();
         }
         return materias;
     }
 
-    public async static Task AddAsync(Materia persona)
+    public async static Task AddAsync(Materia materia)
     {
-        HttpResponseMessage response = await client.PostAsJsonAsync("materias", persona);
+        HttpResponseMessage response = await client.PostAsJsonAsync("materias", materia);
         response.EnsureSuccessStatusCode();
     }
 

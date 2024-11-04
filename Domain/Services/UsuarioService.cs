@@ -1,57 +1,79 @@
 ﻿using Domain.Model;
+using Domain.Model.Dtos;
+using Microsoft.EntityFrameworkCore;
 
 namespace Domain.Services;
 
 public class UsuarioService 
 {
-    public void Add(Usuario usuario)
+    public async Task Add(Usuario usuario)
     {
         using var context = new AcademiaContext();
 
         context.Add(usuario);
-        context.SaveChanges();
+        await context.SaveChangesAsync();
     }
 
-    public void Delete(int id)
+    public async Task Delete(int id)
     {
         using var context = new AcademiaContext();
 
-        Usuario? usuarioToDelete = context.Usuarios.Find(id);
+        Usuario? usuarioToDelete = await context.Usuarios.FindAsync(id);
 
         if (usuarioToDelete != null)
         {
             context.Usuarios.Remove(usuarioToDelete);
-            context.SaveChanges();
+            await context.SaveChangesAsync();
         }
     }
 
-    public Usuario? Get(int id)
+    public async Task<Usuario?> Get(int id)
     {
         using var context = new AcademiaContext();
 
-        return context.Usuarios.Find(id);
+        return await context.Usuarios.FindAsync(id);
     }
 
-    public IEnumerable<Usuario> GetAll()
+    public async Task<IEnumerable<UsuarioDto>> GetAll()
     {
         using var context = new AcademiaContext();
 
-        return context.Usuarios.ToList();
+        List<Usuario> lista = await context.Usuarios.ToListAsync();
+
+        List<UsuarioDto> listadto = new List<UsuarioDto>();
+        foreach (var item in lista)
+        {
+            listadto.Add(new UsuarioDto()
+            {
+                id_usuario=item.id_usuario,
+                nombre_usuario = item.nombre_usuario,            
+                nombre = item.nombre,
+                apellido = item.apellido,
+                email = item.email
+            });
+        }
+        return listadto;
+
     }
 
-    public void Update(Usuario usuario)
+    public async Task Update(Usuario usuario)
     {
         using var context = new AcademiaContext();
 
-        Usuario? usuarioToUpdate = context.Usuarios.Find(usuario.id_usuario);
+        Usuario? usuarioToUpdate = await context.Usuarios.FindAsync(usuario.id_usuario);
 
         if (usuarioToUpdate != null)
         {
-            usuarioToUpdate.nombre_usuario = usuario.nombre_usuario;
-            usuarioToUpdate.id_persona = usuario.id_persona;
+            usuarioToUpdate.nombre_usuario = usuario.nombre_usuario;            
             usuarioToUpdate.clave = usuario.clave;
             usuarioToUpdate.cambia_clave = usuario.cambia_clave;
-            context.SaveChanges();
+            usuarioToUpdate.nombre = usuario.nombre;
+            usuarioToUpdate.apellido = usuario.apellido;
+            usuarioToUpdate.email = usuario.email;
+            usuarioToUpdate.cambia_clave = usuario.cambia_clave;
+            usuarioToUpdate.habilitado = usuario.habilitado;
+            usuarioToUpdate.id_persona = usuario.id_persona;
+            await context.SaveChangesAsync();
         }
     }
 }

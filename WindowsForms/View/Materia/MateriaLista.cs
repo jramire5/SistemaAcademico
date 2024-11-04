@@ -1,25 +1,89 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using Domain.Model;
 
-namespace WindowsForms
+using WindowsForms.ApiServices;
+
+namespace WindowsForms;
+
+public partial class MateriaLista : Form
 {
-    public partial class MateriaLista : Form
+    public MateriaLista()
     {
-        public MateriaLista()
+        InitializeComponent();
+    }
+
+    private void MateriaLista_Load(object sender, EventArgs e)
+    {
+        this.GetAllAndLoad();
+    }
+    private void btn_agregar_Click(object sender, EventArgs e)
+    {
+        MateriaDetalle materiaDetalle = new MateriaDetalle();
+
+        Materia materiaNueva = new Materia();
+
+        materiaDetalle.Materia = materiaNueva;
+
+        materiaDetalle.ShowDialog();
+
+        this.GetAllAndLoad();
+    }
+
+    private async void btn_modificar_click(object sender, EventArgs e)
+    {
+
+        MateriaDetalle materiaDetalle = new MateriaDetalle();
+
+        int id;
+
+        id = this.SelectedItem().id_materia;
+
+        Materia materia = await MateriaApiClient.GetAsync(id);
+
+        // personaDetalle.editMode = true;
+        materiaDetalle.Materia = materia;
+
+        materiaDetalle.ShowDialog();
+
+        this.GetAllAndLoad();
+    }
+
+    private async void btn_eliminar_click(object sender, EventArgs e)
+    {
+        int id;
+
+        id = this.SelectedItem().id_materia;
+        await MateriaApiClient.DeleteAsync(id);
+
+        this.GetAllAndLoad();
+    }
+
+    private async void GetAllAndLoad()
+    {
+        MateriaApiClient clienteApi = new MateriaApiClient();
+
+        this.MateriasGrid.DataSource = null;
+        this.MateriasGrid.DataSource = await MateriaApiClient.GetAllAsync();
+
+        if (this.MateriasGrid.Rows.Count > 0)
         {
-            InitializeComponent();
+            this.MateriasGrid.Rows[0].Selected = true;
+            this.btnEliminar.Enabled = true;
+            this.btnModificar.Enabled = true;
         }
-
-        private void MateriaLista_Load(object sender, EventArgs e)
+        else
         {
-
+            this.btnEliminar.Enabled = false;
+            this.btnModificar.Enabled = false;
         }
     }
+
+    private MateriaDto SelectedItem()
+    {
+        MateriaDto materia;
+
+        materia = (MateriaDto)MateriasGrid.SelectedRows[0].DataBoundItem;
+
+        return materia;
+    }
+
 }

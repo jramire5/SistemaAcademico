@@ -1,47 +1,42 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Domain.Model;
-namespace Domain.Services
+﻿using Domain.Model;
+using Microsoft.EntityFrameworkCore;
+namespace Domain.Services;
+
+public class ModuloService
 {
-    public class ModuloService
+    public async Task Add (Modulo modulo)
     {
-        public void Add (Modulo modulo)
-        {
-            using var context = new AcademiaContext();
-            context.Modulos.Add(modulo);
-            context.SaveChanges();
-        }
-        public Modulo Get(int id)
-        {
-            using var context = new AcademiaContext();
-            return context.Modulos.Find(id);
-        }
+        using var context = new AcademiaContext();
+        context.Modulos.Add(modulo);
+        await context.SaveChangesAsync();
+    }
+    public async Task<Modulo> Get(int id)
+    {
+        using var context = new AcademiaContext();
+        return await context.Modulos.FindAsync(id);
+    }
 
-        public IEnumerable<Modulo> GetAll()
-        {
-            using var context = new AcademiaContext();
+    public async Task<IEnumerable<Modulo>> GetAll()
+    {
+        using var context = new AcademiaContext();
 
-            return context.Modulos.ToList();
-        }
+        return await context.Modulos.ToListAsync();
+    }
 
-        public void Update(Modulo modulo)
+    public async Task Update(Modulo modulo)
+    {
+        using var context = new AcademiaContext();
+        context.Modulos.Update(modulo);
+        await context.SaveChangesAsync();
+    }
+    public async Task Delete(int id)
+    {
+        using var context = new AcademiaContext();
+        Modulo moduloABorrar = await context.Modulos.FindAsync(id);
+        if (moduloABorrar != null)
         {
-            using var context = new AcademiaContext();
-            context.Modulos.Update(modulo);
-            context.SaveChanges();
-        }
-        public void Delete(int id)
-        {
-            using var context = new AcademiaContext();
-            Modulo moduloABorrar = context.Modulos.Find(id);
-            if (moduloABorrar != null)
-            {
-                context.Modulos.Remove(moduloABorrar);
-                context.SaveChanges();
-            }
+            context.Modulos.Remove(moduloABorrar);
+            await context.SaveChangesAsync();
         }
     }
 }

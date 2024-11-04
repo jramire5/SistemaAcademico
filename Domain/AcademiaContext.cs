@@ -1,31 +1,47 @@
-﻿using Domain.Model;
+﻿using Domain.EfConfigs;
+using Domain.Model;
 using Microsoft.EntityFrameworkCore;
-using System.Reflection.Metadata;
 
 namespace Domain
 {
     
     internal class AcademiaContext : DbContext
     {
-        String connectionString = "server=localhost;port=3306;user=root;password=root;database=academia;";
+        String connectionString = "server=localhost;port=3306;user=root;password=root2;database=academia;";
         internal DbSet<Persona> Personas { get; set; }
         internal DbSet<Usuario> Usuarios { get; set; }
-
         internal DbSet<Materia> Materia { get; set; }
-        
+        public DbSet<Curso> Cursos { get; set; }
+        public DbSet<Comision> Comisiones { get; set; }
+        public DbSet<Plan> Planes { get; set; }
+        public DbSet<AlumnoInscripcion> AlumnosInscripciones { get; set; }
+        public DbSet<Especialidad> Especialidades { get; set; }
         internal DbSet<Modulo> Modulos { get; set; }
-
         internal DbSet<ModuloUsuario> moduloUsuarios { get; set; }
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Persona>().HasKey(p => p.id_persona);
-            modelBuilder.Entity<Usuario>().HasKey(p => p.id_usuario);
+        public DbSet<DocenteCurso> DocenteCurso { get; set; }
+        public DbSet<TipoPersona> TipoPersona { get; set; }
+        public DbSet<Condicion> Condicion { get; set; }
+        public DbSet<Cargo> Cargo { get; set; }
 
-            modelBuilder.Entity<Materia>().HasKey(p => p.IdMateria);
-            modelBuilder.Entity<Materia>().Property("DescMateria").HasMaxLength(50);
-            
-            modelBuilder.Entity<Modulo>().HasKey(p => p.Id_modulo);
-            modelBuilder.Entity<ModuloUsuario>().HasKey(p => p.IdModuloUsuario);
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {      
+            modelBuilder.ApplyConfiguration(new AlumnoInscripcionConfig());
+            modelBuilder.ApplyConfiguration(new ComisionConfig());
+            modelBuilder.ApplyConfiguration(new CursoConfig());
+            modelBuilder.ApplyConfiguration(new EspecialidadConfig());
+            modelBuilder.ApplyConfiguration(new MateriaConfig());
+            modelBuilder.ApplyConfiguration(new ModuloConfig());
+            modelBuilder.ApplyConfiguration(new ModuloUsuarioConfig());
+            modelBuilder.ApplyConfiguration(new PersonaConfig());
+            modelBuilder.ApplyConfiguration(new PlanConfig());
+            modelBuilder.ApplyConfiguration(new UsuarioConfig());
+            modelBuilder.ApplyConfiguration(new DocenteCursoConfig());
+            modelBuilder.ApplyConfiguration(new TipoPersonaConfig());
+            modelBuilder.ApplyConfiguration(new CondicionConfig());
+            modelBuilder.ApplyConfiguration(new CargoConfig());
+
+
+
         }
         internal AcademiaContext()
         {

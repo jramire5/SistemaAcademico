@@ -1,49 +1,86 @@
 ﻿using Domain.Model;
+using Domain.Model.Dtos;
+using Microsoft.EntityFrameworkCore;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Domain.Services;
 
 public class PersonaService 
 {
-    public void Add(Persona persona)
+    public async Task Add(Persona persona)
     {
         using var context = new AcademiaContext();
 
         context.Personas.Add(persona);
-        context.SaveChanges();
+        await context.SaveChangesAsync();
     }
 
-    public void Delete(int id)
+    public async Task Delete(int id)
     {
         using var context = new AcademiaContext();
 
-        Persona? personaToDelete = context.Personas.Find(id);
+        Persona? personaToDelete = await context.Personas.FindAsync(id);
 
         if (personaToDelete != null)
         {
             context.Personas.Remove(personaToDelete);
-            context.SaveChanges();
+            await context.SaveChangesAsync();
         }
     }
 
-    public Persona? Get(int id)
+    public async Task<Persona?> Get(int id)
     {
         using var context = new AcademiaContext();
 
-        return context.Personas.Find(id);
+        return await context.Personas.FindAsync(id);
     }
 
-    public IEnumerable<Persona> GetAll()
+    public async Task<IEnumerable<PersonaDto>> GetAll()
     {
         using var context = new AcademiaContext();
 
-        return context.Personas.ToList();
+        List<Persona> lista=await context.Personas.Include(p=>p.Plan).ThenInclude(pl=>pl.Especialidad).Include(p=>p.TipoPersona).ToListAsync();
+
+        List<PersonaDto> listadto = new List<PersonaDto>();
+        foreach (var item in lista)
+        {
+            listadto.Add(new PersonaDto()
+            {
+                id_persona = item.id_persona,
+                nombre=item.nombre,
+                desc_plan = $"{item.Plan?.desc_plan}-{item.Plan?.Especialidad?.desc_especialidad}",
+                desc_tipo_persona = item.TipoPersona.descripcion
+            });
+        }
+        return listadto;
+        
+    }
+    public async Task<IEnumerable<PersonaDto>> GetAll(int tipoPersona)
+    {
+        using var context = new AcademiaContext();
+
+        List<Persona> lista = await context.Personas.Include(p => p.Plan).ThenInclude(pl => pl.Especialidad).Include(p => p.TipoPersona).Where(p=>p.tipo_persona== tipoPersona).ToListAsync();
+
+        List<PersonaDto> listadto = new List<PersonaDto>();
+        foreach (var item in lista)
+        {
+            listadto.Add(new PersonaDto()
+            {
+                id_persona = item.id_persona,
+                nombre = item.nombre,
+                desc_plan = $"{item.Plan?.desc_plan}-{item.Plan?.Especialidad?.desc_especialidad}",
+                desc_tipo_persona = item.TipoPersona.descripcion
+            });
+        }
+        return listadto;
+
     }
 
-    public void Update(Persona persona)
+    public async Task Update(Persona persona)
     {
         using var context = new AcademiaContext();
 
-        Persona? personaToUpdate = context.Personas.Find(persona.id_persona);
+        Persona? personaToUpdate =await context.Personas.FindAsync(persona.id_persona);
 
         if (personaToUpdate != null)
         {
@@ -55,7 +92,7 @@ public class PersonaService
             personaToUpdate.email = persona.email;
             personaToUpdate.id_plan = persona.id_plan;
             personaToUpdate.fecha_nacimiento = persona.fecha_nacimiento;
-            context.SaveChanges();
+            await context.SaveChangesAsync();
         }
     }
 }
