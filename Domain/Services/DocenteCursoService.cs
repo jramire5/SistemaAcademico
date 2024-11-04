@@ -49,7 +49,7 @@ public class DocenteCursoService
                 desc_materia = item.Curso.Materia.desc_materia,
                 desc_comision = item.Curso.Comision.desc_comision,
                 anio_calendario = item.Curso.anio_calendario,
-                docente = item.Persona.nombre,
+                docente = $"{item.Persona.nombre} {item.Persona.apellido}",
                 desc_cargo = item.Cargo?.Descripcion ?? string.Empty
             });
         }

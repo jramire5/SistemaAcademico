@@ -35,7 +35,7 @@ public partial class UsuarioDetalle : Form
         this.cmbid_persona.DataSource = await PersonaApiClient.GetAllAsync();
         this.cmbid_persona.DisplayMember = "nombre";
         this.cmbid_persona.ValueMember = "id_persona";
-        this.cmbid_persona.SelectedValue = this.Usuario.id_persona;  
+        this.cmbid_persona.SelectedValue = this.Usuario.id_persona ?? 0;  
 
     }
     private async void Aceptar_Click(object sender, EventArgs e)

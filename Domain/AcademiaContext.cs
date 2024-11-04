@@ -39,9 +39,6 @@ namespace Domain
             modelBuilder.ApplyConfiguration(new TipoPersonaConfig());
             modelBuilder.ApplyConfiguration(new CondicionConfig());
             modelBuilder.ApplyConfiguration(new CargoConfig());
-
-
-
         }
         internal AcademiaContext()
         {
