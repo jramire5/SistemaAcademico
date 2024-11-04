@@ -10,10 +10,13 @@ public class DocenteCurso
     [ForeignKey("Persona")]
 
     public int id_docente { get; set; }
-
-    public int? cargo { get; set; }
+    [ForeignKey("Cargo")]
+    public int? id_cargo { get; set; }
 
     public virtual Curso Curso { get; set; }
     public virtual Persona Persona { get; set; }
+
+    public virtual Cargo Cargo { get; set; }
+
 
 }

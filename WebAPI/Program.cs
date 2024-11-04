@@ -25,6 +25,8 @@ builder.Services.AddScoped<TipoPersonaService>();
 builder.Services.AddScoped<AutenticacionService>();
 builder.Services.AddScoped<ModuloService>();
 builder.Services.AddScoped<ModuloUsuarioService>();
+builder.Services.AddScoped<CondicionService>();
+builder.Services.AddScoped<CargoService>();
 
 
 var app = builder.Build();
@@ -54,5 +56,7 @@ app.MapTipoPersonaEndpoints();
 app.MapAutenticacionEndpoints();
 app.MapModuloEndpoints();
 app.MapModuloUsuarioEndpoints();
+app.MapCondicionEndpoints();
+app.MapCargoEndpoints();
 
 app.Run();

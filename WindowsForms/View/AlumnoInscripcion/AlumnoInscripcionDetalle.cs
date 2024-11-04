@@ -24,18 +24,21 @@ public partial class AlumnoInscripcionDetalle : Form
     {
 
         this.txtid_inscripcion.Text=this.Entidad.id_inscripcion.ToString();
-        this.txtcondicion.Text = this.Entidad.condicion;
         this.txtnota.Text = this.Entidad.nota.ToString();
+
+        this.cmbCondicion.DataSource = await CondicionApiClient.GetAllAsync();
+        this.cmbCondicion.DisplayMember = "Descripcion";
+        this.cmbCondicion.ValueMember = "Id_Condicion";
+        this.cmbCondicion.SelectedValue = this.Entidad.id_condicion;
 
         this.cmbid_curso.DataSource = await CursoApiClient.GetDropDownValuesAsync();
         this.cmbid_curso.DisplayMember = "desc_materia_comi_anio";
         this.cmbid_curso.ValueMember = "id_curso";
+        this.cmbid_curso.SelectedValue = this.Entidad.id_curso;
 
-        this.cmbid_alumno.DataSource = await PersonaApiClient.GetAllAsync();
+        this.cmbid_alumno.DataSource = await PersonaApiClient.GetAlumnosAsync();
         this.cmbid_alumno.DisplayMember = "nombre";
         this.cmbid_alumno.ValueMember = "id_persona";
-
-        this.cmbid_curso.SelectedValue = this.Entidad.id_curso;
         this.cmbid_alumno.SelectedValue = this.Entidad.id_alumno;
 
     }
@@ -44,7 +47,7 @@ public partial class AlumnoInscripcionDetalle : Form
         // PropiedadApiClient propiedadApi = new PropiedadApiClient();
         //if (this.ValidateCliente())
         //   this.Materia.id_materia = int.Parse(this.txtId.Text);
-        this.Entidad.condicion = this.txtcondicion.Text;
+        this.Entidad.id_condicion = (int)this.cmbCondicion.SelectedValue;
         this.Entidad.nota = int.Parse(this.txtnota.Text);
         this.Entidad.id_alumno = (int)this.cmbid_alumno.SelectedValue;
         this.Entidad.id_curso = (int)this.cmbid_curso.SelectedValue;

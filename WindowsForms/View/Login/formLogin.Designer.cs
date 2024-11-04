@@ -56,7 +56,7 @@ partial class formLogin
         lnkOlvidaPass.TabIndex = 1;
         lnkOlvidaPass.TabStop = true;
         lnkOlvidaPass.Text = "Olvidé mi contraseña";
-        lnkOlvidaPass.Click += lnkOlvidaPass_Click;
+        lnkOlvidaPass.Visible = false;
         // 
         // label1
         // 

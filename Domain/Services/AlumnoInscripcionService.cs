@@ -70,7 +70,7 @@ public class AlumnoInscripcionService
         {
             inscripcionToUpdate.id_alumno = alumnoInscripcion.id_alumno;
             inscripcionToUpdate.id_curso = alumnoInscripcion.id_curso;
-            inscripcionToUpdate.condicion = alumnoInscripcion.condicion;
+            inscripcionToUpdate.id_condicion = alumnoInscripcion.id_condicion;
             inscripcionToUpdate.nota = alumnoInscripcion.nota;
             await context.SaveChangesAsync();
         }

@@ -40,6 +40,26 @@ public class PersonaApiClient
         }
         return personas;
     }
+    public static async Task<IEnumerable<PersonaDto>> GetDocentesAsync()
+    {
+        IEnumerable<PersonaDto> personas = null;
+        HttpResponseMessage response = await client.GetAsync("docentes");
+        if (response.IsSuccessStatusCode)
+        {
+            personas = await response.Content.ReadAsAsync<IEnumerable<PersonaDto>>();
+        }
+        return personas;
+    }
+    public static async Task<IEnumerable<PersonaDto>> GetAlumnosAsync()
+    {
+        IEnumerable<PersonaDto> personas = null;
+        HttpResponseMessage response = await client.GetAsync("alumnos");
+        if (response.IsSuccessStatusCode)
+        {
+            personas = await response.Content.ReadAsAsync<IEnumerable<PersonaDto>>();
+        }
+        return personas;
+    }
 
     public async static Task AddAsync(Persona persona)
     {

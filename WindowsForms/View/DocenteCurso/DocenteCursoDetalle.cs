@@ -28,15 +28,16 @@ public partial class DocenteCursoDetalle : Form
         this.cmbid_curso.DataSource = await CursoApiClient.GetDropDownValuesAsync();
         this.cmbid_curso.DisplayMember = "desc_materia_comi_anio";
         this.cmbid_curso.ValueMember = "id_curso";
-
-        this.cmbid_docente.DataSource = await PersonaApiClient.GetAllAsync();
+        this.cmbid_curso.SelectedValue = this.Entidad.id_curso;
+        this.cmbid_docente.DataSource = await PersonaApiClient.GetDocentesAsync();
         this.cmbid_docente.DisplayMember = "nombre";
         this.cmbid_docente.ValueMember = "id_persona";
-
-        this.cmbid_curso.SelectedValue = this.Entidad.id_curso;
         this.cmbid_docente.SelectedValue = this.Entidad.id_docente;
 
-        this.txtcargo.Text = this.Entidad.cargo.ToString();
+        this.cmbid_cargo.DataSource = await CargoApiClient.GetAllAsync();
+        this.cmbid_cargo.DisplayMember = "Descripcion";
+        this.cmbid_cargo.ValueMember = "Id_Cargo";
+        this.cmbid_cargo.SelectedValue = this.Entidad.id_cargo ?? 0;
 
     }
     private async void Aceptar_Click(object sender, EventArgs e)
@@ -44,7 +45,7 @@ public partial class DocenteCursoDetalle : Form
         this.Entidad.id_curso = (int)this.cmbid_curso.SelectedValue;
         this.Entidad.id_docente = (int)this.cmbid_docente.SelectedValue;
 
-        this.Entidad.cargo = int.Parse(this.txtcargo.Text);
+        this.Entidad.id_cargo = (int?)this.cmbid_cargo.SelectedValue;
         //  this.propiedad.FechaAlta = this.txtFechaAlta.Value;
 
         if (txtid_id_dictado.Text == "0" || txtid_id_dictado.Text.Length == 0)

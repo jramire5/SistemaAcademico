@@ -2,7 +2,6 @@
 using Newtonsoft.Json;
 namespace WindowsForms.ApiServices;
 
-
 public static class ApiConfigService
 {
     private const string ConfigFilePath = "config.json";
@@ -11,7 +10,7 @@ public static class ApiConfigService
 
     public static ApiConfig GetApiConfig()
     {     
-        // Check if the configuration has already been loaded
+        // la configuración ya está levantada?
         if (_cachedConfig == null)
         {
             if (File.Exists(ConfigFilePath))
@@ -20,12 +19,10 @@ public static class ApiConfigService
                 _cachedConfig = JsonConvert.DeserializeObject<ApiConfig>(json);
             }
             else
-            {
-                _cachedConfig = new ApiConfig(); // Optionally initialize to default values
-            }
+                _cachedConfig = new ApiConfig();
         }
 
-        return _cachedConfig; // Return the cached configuration
+        return _cachedConfig; // configuracion en cache
     }
 
     public static string GetApiUrl(){

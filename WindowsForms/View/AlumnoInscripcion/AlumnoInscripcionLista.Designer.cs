@@ -74,7 +74,7 @@ partial class AlumnoInscripcionLista
         btnEliminar.UseVisualStyleBackColor = true;
         btnEliminar.Click += btn_eliminar_click;
         // 
-        // ComisionLista
+        // AlumnoInscripcionLista
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
@@ -84,9 +84,9 @@ partial class AlumnoInscripcionLista
         Controls.Add(btnAceptar);
         Controls.Add(Grid);
         Margin = new Padding(3, 4, 3, 4);
-        Name = "ComisionLista";
+        Name = "AlumnoInscripcionLista";
         StartPosition = FormStartPosition.CenterParent;
-        Text = "Comisión Lista";
+        Text = "Inscripciones Lista";
         Load += Lista_Load;
         ((System.ComponentModel.ISupportInitialize)Grid).EndInit();
         ResumeLayout(false);

@@ -41,8 +41,8 @@ public partial class PersonaDetalle : Form
         this.cmbPlan.DisplayMember = "desc_plan_especialidad";
         this.cmbPlan.ValueMember = "id_plan";
 
-        this.cmbPlan.SelectedValue = this.Persona.id_plan;
-        this.cmbtipo_persona.SelectedValue = this.Persona.tipo_persona;
+        this.cmbPlan.SelectedValue = this.Persona.id_plan ?? 0;
+        this.cmbtipo_persona.SelectedValue = this.Persona.tipo_persona ?? 0;
 
         if (this.Persona.fecha_nacimiento == DateTime.MinValue)
             this.datetimeFechaNacimiento.Value = DateTime.Now;
@@ -62,8 +62,8 @@ public partial class PersonaDetalle : Form
         this.persona.telefono = txtTelefono.Text;
         this.persona.fecha_nacimiento = datetimeFechaNacimiento.Value;
 
-        this.persona.tipo_persona = (int)this.cmbtipo_persona.SelectedValue;
-        this.persona.id_plan = (int)this.cmbPlan.SelectedValue;
+        this.persona.tipo_persona = (int?)this.cmbtipo_persona.SelectedValue;
+        this.persona.id_plan = (int?)this.cmbPlan.SelectedValue;
 
         if (txtid_persona.Text == "" || txtid_persona.Text.Length == 0 || txtid_persona.Text == "0")
         {

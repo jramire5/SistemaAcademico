@@ -20,14 +20,11 @@ namespace Domain
         internal DbSet<ModuloUsuario> moduloUsuarios { get; set; }
         public DbSet<DocenteCurso> DocenteCurso { get; set; }
         public DbSet<TipoPersona> TipoPersona { get; set; }
-        
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-       
-           // modelBuilder.Entity<Usuario>().HasKey(p => p.id_usuario);    
-            //modelBuilder.Entity<Modulo>().HasKey(p => p.Id_modulo);
-          //  modelBuilder.Entity<ModuloUsuario>().HasKey(p => p.IdModuloUsuario);
+        public DbSet<Condicion> Condicion { get; set; }
+        public DbSet<Cargo> Cargo { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {      
             modelBuilder.ApplyConfiguration(new AlumnoInscripcionConfig());
             modelBuilder.ApplyConfiguration(new ComisionConfig());
             modelBuilder.ApplyConfiguration(new CursoConfig());
@@ -40,6 +37,11 @@ namespace Domain
             modelBuilder.ApplyConfiguration(new UsuarioConfig());
             modelBuilder.ApplyConfiguration(new DocenteCursoConfig());
             modelBuilder.ApplyConfiguration(new TipoPersonaConfig());
+            modelBuilder.ApplyConfiguration(new CondicionConfig());
+            modelBuilder.ApplyConfiguration(new CargoConfig());
+
+
+
         }
         internal AcademiaContext()
         {

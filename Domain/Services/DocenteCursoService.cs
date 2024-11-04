@@ -38,18 +38,19 @@ public class DocenteCursoService
     {
         using var context = new AcademiaContext();
 
-        List<DocenteCurso> lista = await context.DocenteCurso.Include(d=>d.Curso).ThenInclude(d => d.Comision).Include(d => d.Curso).ThenInclude(d=>d.Materia).Include(d=>d.Persona).ToListAsync();
+        List<DocenteCurso> lista = await context.DocenteCurso.Include(d=>d.Curso).ThenInclude(d => d.Comision).Include(d => d.Curso).ThenInclude(d=>d.Materia).Include(d=>d.Persona).Include(d=>d.Cargo).ToListAsync();
 
         List<DocenteCursoDto> listadto = new List<DocenteCursoDto>();
         foreach (var item in lista)
         {
             listadto.Add(new DocenteCursoDto()
             {
-                id_dictado=item.id_dictado,
-                desc_materia=item.Curso.Materia.desc_materia,
-                desc_comision=item.Curso.Comision.desc_comision,    
-                anio_calendario=item.Curso.anio_calendario,
-                docente=item.Persona.nombre
+                id_dictado = item.id_dictado,
+                desc_materia = item.Curso.Materia.desc_materia,
+                desc_comision = item.Curso.Comision.desc_comision,
+                anio_calendario = item.Curso.anio_calendario,
+                docente = item.Persona.nombre,
+                desc_cargo = item.Cargo?.Descripcion ?? string.Empty
             });
         }
         return listadto;
@@ -66,7 +67,7 @@ public class DocenteCursoService
             docenteCursoToUpdate.id_dictado = docenteCurso.id_dictado;
             docenteCursoToUpdate.id_curso = docenteCurso.id_curso;
             docenteCursoToUpdate.id_docente = docenteCurso.id_docente;
-            docenteCursoToUpdate.cargo = docenteCurso.cargo;
+            docenteCursoToUpdate.id_cargo = docenteCurso.id_cargo;
         
             await context.SaveChangesAsync();
         }

@@ -7,4 +7,5 @@ public class DocenteCursoDto
     public int anio_calendario { get; set; }
     public string docente { get; set; }
 
+    public string desc_cargo { get; set; }
 }

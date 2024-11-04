@@ -32,12 +32,12 @@
             txtid_id_dictado = new TextBox();
             btnAceptar = new Button();
             btnCancelar = new Button();
-            txtcargo = new TextBox();
             label2 = new Label();
             label5 = new Label();
             cmbid_docente = new ComboBox();
             cmbid_curso = new ComboBox();
             label4 = new Label();
+            cmbid_cargo = new ComboBox();
             SuspendLayout();
             // 
             // label1
@@ -77,17 +77,10 @@
             btnCancelar.UseVisualStyleBackColor = true;
             btnCancelar.Click += btnCancelar_Click;
             // 
-            // txtcargo
-            // 
-            txtcargo.Location = new Point(135, 164);
-            txtcargo.Name = "txtcargo";
-            txtcargo.Size = new Size(289, 27);
-            txtcargo.TabIndex = 4;
-            // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(34, 171);
+            label2.Location = new Point(34, 179);
             label2.Name = "label2";
             label2.Size = new Size(49, 20);
             label2.TabIndex = 4;
@@ -127,16 +120,24 @@
             label4.TabIndex = 14;
             label4.Text = "Curso";
             // 
+            // cmbid_cargo
+            // 
+            cmbid_cargo.FormattingEnabled = true;
+            cmbid_cargo.Location = new Point(135, 171);
+            cmbid_cargo.Name = "cmbid_cargo";
+            cmbid_cargo.Size = new Size(289, 28);
+            cmbid_cargo.TabIndex = 15;
+            // 
             // DocenteCursoDetalle
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(532, 314);
+            Controls.Add(cmbid_cargo);
             Controls.Add(label4);
             Controls.Add(cmbid_curso);
             Controls.Add(cmbid_docente);
             Controls.Add(label5);
-            Controls.Add(txtcargo);
             Controls.Add(label2);
             Controls.Add(btnCancelar);
             Controls.Add(btnAceptar);
@@ -155,7 +156,6 @@
         private TextBox txtid_id_dictado;
         private Button btnAceptar;
         private Button btnCancelar;
-        private TextBox txtcargo;
         private Label label2;
         private TextBox txths_semanales;
         private TextBox txths_totales;
@@ -163,5 +163,6 @@
         private Label label5;
         private ComboBox cmbid_docente;
         private ComboBox cmbid_curso;
+        private ComboBox cmbid_cargo;
     }
 }

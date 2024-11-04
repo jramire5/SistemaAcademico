@@ -32,7 +32,6 @@
             txtid_inscripcion = new TextBox();
             btnAceptar = new Button();
             btnCancelar = new Button();
-            txtcondicion = new TextBox();
             label2 = new Label();
             label5 = new Label();
             cmbid_alumno = new ComboBox();
@@ -40,6 +39,7 @@
             label3 = new Label();
             cmbid_curso = new ComboBox();
             label4 = new Label();
+            cmbCondicion = new ComboBox();
             SuspendLayout();
             // 
             // label1
@@ -78,13 +78,6 @@
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
             btnCancelar.Click += btnCancelar_Click;
-            // 
-            // txtcondicion
-            // 
-            txtcondicion.Location = new Point(135, 162);
-            txtcondicion.Name = "txtcondicion";
-            txtcondicion.Size = new Size(289, 27);
-            txtcondicion.TabIndex = 4;
             // 
             // label2
             // 
@@ -145,18 +138,26 @@
             label4.TabIndex = 14;
             label4.Text = "Curso";
             // 
+            // cmbCondicion
+            // 
+            cmbCondicion.FormattingEnabled = true;
+            cmbCondicion.Location = new Point(135, 161);
+            cmbCondicion.Name = "cmbCondicion";
+            cmbCondicion.Size = new Size(289, 28);
+            cmbCondicion.TabIndex = 15;
+            // 
             // AlumnoInscripcionDetalle
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(532, 340);
+            Controls.Add(cmbCondicion);
             Controls.Add(cmbid_curso);
             Controls.Add(label4);
             Controls.Add(txtnota);
             Controls.Add(label3);
             Controls.Add(cmbid_alumno);
             Controls.Add(label5);
-            Controls.Add(txtcondicion);
             Controls.Add(label2);
             Controls.Add(btnCancelar);
             Controls.Add(btnAceptar);
@@ -175,7 +176,6 @@
         private TextBox txtid_inscripcion;
         private Button btnAceptar;
         private Button btnCancelar;
-        private TextBox txtcondicion;
         private Label label2;
         private TextBox txths_semanales;
         private Label label3;
@@ -185,5 +185,6 @@
         private ComboBox cmbid_alumno;
         private TextBox txtnota;
         private ComboBox cmbid_curso;
+        private ComboBox cmbCondicion;
     }
 }

@@ -8,7 +8,7 @@ public class AlumnoInscripcionConfig:IEntityTypeConfiguration<AlumnoInscripcion>
     public void Configure(EntityTypeBuilder<AlumnoInscripcion> builder)
     {
         builder.HasKey(p => p.id_inscripcion );
-        builder.Property(p=>p.condicion).HasMaxLength(50).IsRequired();
+        builder.Property(p=>p.id_condicion).IsRequired();
         builder.Property(p => p.id_alumno).IsRequired();
         builder.Property(p => p.id_curso).IsRequired();
         builder.Property(p => p.nota).IsRequired();

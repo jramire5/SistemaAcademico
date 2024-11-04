@@ -12,6 +12,11 @@ public partial class formLogin : Form
 
     private async void btnIngresar_Click(object sender, EventArgs e)
     {
+        if (string.IsNullOrEmpty(this.txtUsuario.Text) || string.IsNullOrEmpty(this.txtPass.Text))
+        {
+            MessageBox.Show("Por favor introdusca tanto el usuario como la contraseña.", "Error de inicio de sesión.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return;
+        }
         //la propiedad Text de los TextBox contiene el texto escrito en ellos
         if (await AutenticacionApiClient.Login(new UsuarioLoginDto() { nombre_usuario = this.txtUsuario.Text, clave = this.txtPass.Text }))
         {
@@ -24,10 +29,5 @@ public partial class formLogin : Form
         }
     }
 
-    private void lnkOlvidaPass_Click(object sender, EventArgs e)
-    {
-        MessageBox.Show("Es Ud. un usuario muy descuidado, haga memoria", "Olvidé mi contraseña",
-  MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-    }
+  
 }

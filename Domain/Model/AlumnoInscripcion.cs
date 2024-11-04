@@ -8,11 +8,13 @@ public class AlumnoInscripcion
     [ForeignKey("Persona")]
     public int id_alumno { get; set; }
     [ForeignKey("Curso")]
-    public int id_curso { get; set; }   
-    public string condicion { get; set; }
+    public int id_curso { get; set; }
+    [ForeignKey("Condicion")]
+    public int id_condicion { get; set; }
     public int nota { get; set; }
 
     // Navegación
     public virtual Persona Persona { get; set; }
     public virtual Curso Curso { get; set; }
+    public virtual Condicion Condicion { get; set; }
 }
