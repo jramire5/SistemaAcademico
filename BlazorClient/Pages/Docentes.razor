@@ -1,0 +1,51 @@
+﻿@page "/docentesCursos"
+@using Domain.Model.Dtos
+@inject HttpClient Http
+
+<PageTitle>Docentes</PageTitle>
+
+<h1>Docentes Cursos</h1>
+
+
+@if (docentesCurso == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Dictado</th>
+                <th>Materia</th>
+                <th>Comision</th>
+                <th>Año calendario</th>
+                <th>Docente</th>
+                <th>Cargo</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var docentesC in docentesCurso)
+            {
+                <tr>
+                    <td>@docentesC.id_dictado</td>
+                    <td>@docentesC.desc_materia</td>
+                    <td>@docentesC.desc_comision</td>
+                    <td>@docentesC.anio_calendario</td>
+                    <td>@docentesC.docente</td>
+                    <td>@docentesC.desc_cargo</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private DocenteCursoDto[]? docentesCurso;
+
+    protected override async Task OnInitializedAsync()
+    {
+        docentesCurso = await Http.GetFromJsonAsync<DocenteCursoDto[]>("docente-cursos");
+       // docentesCurso = new List<DocenteCursoDto>().ToArray();
+    }  
+}

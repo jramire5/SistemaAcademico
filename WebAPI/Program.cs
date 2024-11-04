@@ -1,6 +1,7 @@
 using Domain.Services;
 using Domain.Model;
 using WebAPI.EndPoints;
+using Microsoft.AspNetCore.Cors.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddHttpLogging(o => { });
+builder.Services.AddCors();
 
 /*Servicios para DI*/
 builder.Services.AddScoped<CursoService>();
@@ -58,5 +60,12 @@ app.MapModuloEndpoints();
 app.MapModuloUsuarioEndpoints();
 app.MapCondicionEndpoints();
 app.MapCargoEndpoints();
+
+app.UseCors(x => x.AllowAnyOrigin()
+.AllowAnyMethod()
+.AllowAnyHeader()
+.SetIsOriginAllowed((host) => true)
+.WithExposedHeaders("Content-Dispositon")
+);
 
 app.Run();
