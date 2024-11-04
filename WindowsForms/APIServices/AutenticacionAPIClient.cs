@@ -8,10 +8,10 @@ namespace WindowsForms.ApiServices;
 
 //Revisar si no seria mejor usar metodos estaticos        
 
-public class AutenticacionAPIClient
+public class AutenticacionApiClient
 {
     private static HttpClient client = new HttpClient();
-    static AutenticacionAPIClient()
+    static AutenticacionApiClient()
     {
         client.BaseAddress = new Uri("http://localhost:5183/");
         client.DefaultRequestHeaders.Accept.Clear();

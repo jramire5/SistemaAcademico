@@ -1,3 +1,6 @@
+using Domain.Model.Dtos;
+using WindowsForms.ApiServices;
+
 namespace WindowsForms;
 
 public partial class formLogin : Form
@@ -7,10 +10,10 @@ public partial class formLogin : Form
         InitializeComponent();
     }
 
-    private void btnIngresar_Click(object sender, EventArgs e)
+    private async void btnIngresar_Click(object sender, EventArgs e)
     {
         //la propiedad Text de los TextBox contiene el texto escrito en ellos
-        if (this.txtUsuario.Text == "Admin" && this.txtPass.Text == "admin")
+        if (await AutenticacionApiClient.Login(new UsuarioLoginDto() { nombre_usuario = this.txtUsuario.Text, clave = this.txtPass.Text }))
         {
             this.DialogResult = DialogResult.OK;
         }

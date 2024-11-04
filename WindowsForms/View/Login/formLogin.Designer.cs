@@ -79,6 +79,7 @@ partial class formLogin
         // 
         txtPass.Location = new Point(190, 179);
         txtPass.Name = "txtPass";
+        txtPass.PasswordChar = '*';
         txtPass.Size = new Size(239, 27);
         txtPass.TabIndex = 4;
         // 
