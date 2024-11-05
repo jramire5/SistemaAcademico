@@ -1,0 +1,52 @@
+﻿@page "/Cursos"
+@using Domain.Model.Dtos
+@inject HttpClient Http
+
+<PageTitle>Cursos</PageTitle>
+
+<h1>Cursos</h1>
+
+
+@if (CursosLista == null)
+{
+    <p><em>Cargando Cursos...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id Curso</th>
+                <th>Año calendario</th>
+                <th>Cupo</th>
+                <th>Materia</th>
+                <th>Comisión</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var curso in CursosLista)
+            {
+                <tr>
+                    <td>@curso.id_curso</td>
+                    <td>@curso.anio_calendario</td>
+                    <td>@curso.cupo</td>
+                    <td>@curso.materia_desc</td>
+                    <td>@curso.comision_desc</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+@if (CursosLista != null && CursosLista.Count()>0)
+{
+    <BlazorClient.Components.BtnBajarReporte ReportId="PLANES" ReportName="Planes"></BlazorClient.Components.BtnBajarReporte>
+}
+@code {
+    private CursoDto[]? CursosLista;
+
+    protected override async Task OnInitializedAsync()
+    {
+        CursosLista = await Http.GetFromJsonAsync<CursoDto[]>("cursos");
+       // docentesCurso = new List<DocenteCursoDto>().ToArray();
+    }  
+}

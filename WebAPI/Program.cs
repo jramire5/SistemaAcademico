@@ -2,8 +2,11 @@ using Domain.Services;
 using Domain.Model;
 using WebAPI.EndPoints;
 using Microsoft.AspNetCore.Cors.Infrastructure;
+using WebAPI.Reportes;
+using QuestPDF.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
+
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -12,6 +15,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddHttpLogging(o => { });
 builder.Services.AddCors();
 
+QuestPDF.Settings.License=LicenseType.Community;
 /*Servicios para DI*/
 builder.Services.AddScoped<CursoService>();
 builder.Services.AddScoped<ComisionService>();
@@ -29,7 +33,7 @@ builder.Services.AddScoped<ModuloService>();
 builder.Services.AddScoped<ModuloUsuarioService>();
 builder.Services.AddScoped<CondicionService>();
 builder.Services.AddScoped<CargoService>();
-
+builder.Services.AddScoped<ReportRunner>();
 
 var app = builder.Build();
 
@@ -60,6 +64,7 @@ app.MapModuloEndpoints();
 app.MapModuloUsuarioEndpoints();
 app.MapCondicionEndpoints();
 app.MapCargoEndpoints();
+app.MapReportesEndpoints();
 
 app.UseCors(x => x.AllowAnyOrigin()
 .AllowAnyMethod()

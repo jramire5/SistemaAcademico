@@ -1,0 +1,48 @@
+﻿@page "/Planes"
+@using Domain.Model.Dtos
+@inject HttpClient Http
+
+<PageTitle>Planes</PageTitle>
+
+<h1>Planes</h1>
+
+
+@if (planesLista == null)
+{
+    <p><em>Cargando Planes...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id Plan</th>
+                <th>Plan</th>
+                <th>Especialidad</th>              
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var plan in planesLista)
+            {
+                <tr>
+                    <td>@plan.id_plan</td>
+                    <td>@plan.desc_plan</td>
+                    <td>@plan.desc_especialidad</td>                 
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+@if (planesLista != null && planesLista.Count() > 0)
+{
+    <BlazorClient.Components.BtnBajarReporte ReportId="PLANES" ReportName="Planes"></BlazorClient.Components.BtnBajarReporte>
+}
+
+@code {
+    private PlanDto[]? planesLista;
+
+    protected override async Task OnInitializedAsync()
+    {
+        planesLista = await Http.GetFromJsonAsync<PlanDto[]>("planes");
+    }  
+}
