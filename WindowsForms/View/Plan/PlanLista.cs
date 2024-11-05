@@ -69,6 +69,9 @@ public partial class PlanLista : Form
             this.PlanGrid.Rows[0].Selected = true;
             this.btnEliminar.Enabled = true;
             this.btnModificar.Enabled = true;
+            this.PlanGrid.Columns[0].HeaderText = "Id";
+            this.PlanGrid.Columns[1].HeaderText = "Año Plan";
+            this.PlanGrid.Columns[2].HeaderText = "Especialidad";
         }
         else
         {

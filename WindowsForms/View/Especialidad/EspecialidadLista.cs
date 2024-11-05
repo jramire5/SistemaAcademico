@@ -69,6 +69,8 @@ public partial class EspecialidadLista : Form
             this.EspecialidadGrid.Rows[0].Selected = true;
             this.btnEliminar.Enabled = true;
             this.btnModificar.Enabled = true;
+            this.EspecialidadGrid.Columns[0].HeaderText = "Id";
+            this.EspecialidadGrid.Columns[1].HeaderText = "Descripción";
         }
         else
         {

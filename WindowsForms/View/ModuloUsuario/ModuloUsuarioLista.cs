@@ -65,6 +65,7 @@ public partial class ModuloUsuarioLista : Form
             this.EspecialidadGrid.Rows[0].Selected = true;
             this.btnEliminar.Enabled = true;
             this.btnModificar.Enabled = true;
+            this.btnModificar.Enabled = true;
         }
         else
         {

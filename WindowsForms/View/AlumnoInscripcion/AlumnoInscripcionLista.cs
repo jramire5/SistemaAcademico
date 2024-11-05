@@ -9,6 +9,7 @@ public partial class AlumnoInscripcionLista : Form
     public AlumnoInscripcionLista()
     {
         InitializeComponent();
+
     }
 
     private void Lista_Load(object sender, EventArgs e)
@@ -65,7 +66,14 @@ public partial class AlumnoInscripcionLista : Form
             this.Grid.Rows[0].Selected = true;
             this.btnEliminar.Enabled = true;
             this.btnModificar.Enabled = true;
-        }
+            // Establezco nombre de columnas más user friendly
+            this.Grid.Columns[0].HeaderText = "Id";
+            this.Grid.Columns[1].HeaderText = "Alumno";
+            this.Grid.Columns[2].HeaderText = "Materia";
+            this.Grid.Columns[3].HeaderText = "Comisión";
+            this.Grid.Columns[4].HeaderText = "Año Calendario";
+
+      }
         else
         {
             this.btnEliminar.Enabled = false;
