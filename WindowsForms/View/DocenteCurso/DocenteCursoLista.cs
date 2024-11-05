@@ -65,6 +65,13 @@ public partial class DocenteCursoLista : Form
             this.Grid.Rows[0].Selected = true;
             this.btnEliminar.Enabled = true;
             this.btnModificar.Enabled = true;
+            this.Grid.Columns[0].HeaderText = "Id";
+            this.Grid.Columns[1].HeaderText = "Materia";
+            this.Grid.Columns[2].HeaderText = "Comisión";
+            this.Grid.Columns[3].HeaderText = "Año";
+            this.Grid.Columns[4].HeaderText = "Docente";
+            this.Grid.Columns[5].HeaderText = "Cargo";
+
         }
         else
         {

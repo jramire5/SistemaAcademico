@@ -67,6 +67,11 @@ public partial class ComisionLista : Form
             this.Grid.Rows[0].Selected = true;
             this.btnEliminar.Enabled = true;
             this.btnModificar.Enabled = true;
+            this.Grid.Columns[0].HeaderText = "Id";
+            this.Grid.Columns[1].HeaderText = "Comisión";
+            this.Grid.Columns[2].HeaderText = "Año Especialidad";
+            this.Grid.Columns[3].HeaderText = "Plan";
+
         }
         else
         {

@@ -67,6 +67,13 @@ public partial class CursosLista : Form
             this.EspecialidadGrid.Rows[0].Selected = true;
             this.btnEliminar.Enabled = true;
             this.btnModificar.Enabled = true;
+
+            this.EspecialidadGrid.Columns[0].HeaderText = "Id";
+            this.EspecialidadGrid.Columns[1].HeaderText = "Año";
+            this.EspecialidadGrid.Columns[2].HeaderText = "Cupo";
+            this.EspecialidadGrid.Columns[3].HeaderText = "Materia";
+            this.EspecialidadGrid.Columns[4].HeaderText = "Comisión";
+
         }
         else
         {

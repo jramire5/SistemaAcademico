@@ -69,6 +69,11 @@ public partial class MateriaLista : Form
             this.MateriasGrid.Rows[0].Selected = true;
             this.btnEliminar.Enabled = true;
             this.btnModificar.Enabled = true;
+            this.MateriasGrid.Columns[0].HeaderText = "Id";
+            this.MateriasGrid.Columns[1].HeaderText = "Descripción";
+            this.MateriasGrid.Columns[2].HeaderText = "Horas Semanales";
+            this.MateriasGrid.Columns[3].HeaderText = "Horas Totales";
+            this.MateriasGrid.Columns[4].HeaderText = "Plan";
         }
         else
         {
