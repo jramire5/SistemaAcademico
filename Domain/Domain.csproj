@@ -14,6 +14,7 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.20" />
 	  <PackageReference Include="MySql.EntityFrameworkCore" Version="8.0.0" />
 	  <PackageReference Include="MySqlConnector" Version="2.3.5" />
+	  <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 	  <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.1" />
   </ItemGroup>
 
