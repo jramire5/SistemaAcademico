@@ -28,21 +28,22 @@ partial class ModuloUsuarioLista
     /// </summary>
     private void InitializeComponent()
     {
-        EspecialidadGrid = new DataGridView();
+        Grid = new DataGridView();
         btnAceptar = new Button();
         btnModificar = new Button();
         btnEliminar = new Button();
-        ((System.ComponentModel.ISupportInitialize)EspecialidadGrid).BeginInit();
+        ((System.ComponentModel.ISupportInitialize)Grid).BeginInit();
         SuspendLayout();
         // 
-        // EspecialidadGrid
+        // Grid
         // 
-        EspecialidadGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        EspecialidadGrid.Location = new Point(60, 58);
-        EspecialidadGrid.Name = "EspecialidadGrid";
-        EspecialidadGrid.RowHeadersWidth = 51;
-        EspecialidadGrid.Size = new Size(797, 350);
-        EspecialidadGrid.TabIndex = 0;
+        Grid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+        Grid.Location = new Point(60, 58);
+        Grid.Name = "Grid";
+        Grid.RowHeadersWidth = 51;
+        Grid.Size = new Size(797, 350);
+        Grid.TabIndex = 0;
+        Grid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         // 
         // btnAceptar
         // 
@@ -74,7 +75,7 @@ partial class ModuloUsuarioLista
         btnEliminar.UseVisualStyleBackColor = true;
         btnEliminar.Click += btn_eliminar_click;
         // 
-        // ModuloLista
+        // ModuloUsuarioLista
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
@@ -82,19 +83,19 @@ partial class ModuloUsuarioLista
         Controls.Add(btnEliminar);
         Controls.Add(btnModificar);
         Controls.Add(btnAceptar);
-        Controls.Add(EspecialidadGrid);
+        Controls.Add(Grid);
         Margin = new Padding(3, 4, 3, 4);
-        Name = "ModuloLista";
+        Name = "ModuloUsuarioLista";
         StartPosition = FormStartPosition.CenterParent;
         Text = "Modulo Lista";
         Load += Lista_Load;
-        ((System.ComponentModel.ISupportInitialize)EspecialidadGrid).EndInit();
+        ((System.ComponentModel.ISupportInitialize)Grid).EndInit();
         ResumeLayout(false);
     }
 
     #endregion
 
-    private DataGridView EspecialidadGrid;
+    private DataGridView Grid;
     private Button btnAceptar;
     private Button btnModificar;
     private Button btnEliminar;

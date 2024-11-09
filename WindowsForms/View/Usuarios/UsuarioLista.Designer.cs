@@ -81,6 +81,7 @@
             Grid.Location = new Point(27, 30);
             Grid.Name = "Grid";
             Grid.RowHeadersWidth = 51;
+            Grid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             Grid.Size = new Size(828, 281);
             Grid.TabIndex = 7;
             // 

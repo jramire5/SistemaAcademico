@@ -57,17 +57,16 @@ public partial class ModuloLista : Form
     private async void GetAllAndLoad()
     {
 
-        this.EspecialidadGrid.DataSource = null;
-        this.EspecialidadGrid.DataSource = await ModuloApiClient.GetAllAsync();
+        this.Grid.DataSource = null;
+        this.Grid.DataSource = await ModuloApiClient.GetAllAsync();
 
-        if (this.EspecialidadGrid.Rows.Count > 0)
+        if (this.Grid.Rows.Count > 0)
         {
-            this.EspecialidadGrid.Rows[0].Selected = true;
+            this.Grid.Rows[0].Selected = true;
             this.btnEliminar.Enabled = true;
             this.btnModificar.Enabled = true;
-            this.EspecialidadGrid.Columns[0].HeaderText = "Id";
-            this.EspecialidadGrid.Columns[1].HeaderText = "Descripción";
-
+            this.Grid.Columns[0].HeaderText = "Id";
+            this.Grid.Columns[1].HeaderText = "Descripción";
         }
         else
         {
@@ -80,7 +79,7 @@ public partial class ModuloLista : Form
     {
         Modulo selectedItem;
 
-        selectedItem = (Modulo)EspecialidadGrid.SelectedRows[0].DataBoundItem;
+        selectedItem = (Modulo)Grid.SelectedRows[0].DataBoundItem;
 
         return selectedItem;
     }

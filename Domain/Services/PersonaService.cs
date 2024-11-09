@@ -1,7 +1,6 @@
 ﻿using Domain.Model;
 using Domain.Model.Dtos;
 using Microsoft.EntityFrameworkCore;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Domain.Services;
 
@@ -47,7 +46,7 @@ public class PersonaService
             listadto.Add(new PersonaDto()
             {
                 id_persona = item.id_persona,
-                nombre=item.nombre,
+                nombre=$"{item.apellido} {item.nombre}",
                 desc_plan = $"{item.Plan?.desc_plan}-{item.Plan?.Especialidad?.desc_especialidad}",
                 desc_tipo_persona = item.TipoPersona.descripcion
             });
@@ -67,7 +66,7 @@ public class PersonaService
             listadto.Add(new PersonaDto()
             {
                 id_persona = item.id_persona,
-                nombre = item.nombre,
+                nombre = $"{item.apellido} {item.nombre}",
                 desc_plan = $"{item.Plan?.desc_plan}-{item.Plan?.Especialidad?.desc_especialidad}",
                 desc_tipo_persona = item.TipoPersona.descripcion
             });

@@ -29,7 +29,16 @@ public class PersonaApiClient
         }
         return persona;
     }
+    public static async Task<IEnumerable<PersonaDto>> GetDropDownValuesAsync()
+    {
+        List<PersonaDto>? personas = (await GetAllAsync())?.ToList();  
+        
+        if(personas is null)
+            personas=new List<PersonaDto>(); 
 
+        personas.Insert(0,new PersonaDto() { id_persona = 0, nombre = "Sin Selección" });//Agrega valor sin selección 
+        return personas;
+    }
     public static async Task<IEnumerable<PersonaDto>> GetAllAsync()
     {
         IEnumerable<PersonaDto> personas = null;

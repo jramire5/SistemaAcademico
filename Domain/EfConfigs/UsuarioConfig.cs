@@ -10,8 +10,8 @@ public class UsuarioConfig : IEntityTypeConfiguration<Usuario>
         builder.HasKey(p => p.id_usuario);
         builder.Property(p => p.nombre_usuario).HasMaxLength(50).IsRequired();
         builder.Property(p => p.clave).HasMaxLength(50).IsRequired();
-        builder.Property(p => p.nombre).HasMaxLength(50).IsRequired();
-        builder.Property(p => p.apellido).HasMaxLength(50).IsRequired();
+        builder.Property(p => p.nombre).HasMaxLength(50);
+        builder.Property(p => p.apellido).HasMaxLength(50);
         builder.Property(p => p.email).HasMaxLength(50).IsRequired();
 
 

@@ -59,20 +59,20 @@ public partial class CursosLista : Form
     {
         CursoApiClient clienteApi = new CursoApiClient();
 
-        this.EspecialidadGrid.DataSource = null;
-        this.EspecialidadGrid.DataSource = await CursoApiClient.GetAllAsync();
+        this.Grid.DataSource = null;
+        this.Grid.DataSource = await CursoApiClient.GetAllAsync();
 
-        if (this.EspecialidadGrid.Rows.Count > 0)
+        if (this.Grid.Rows.Count > 0)
         {
-            this.EspecialidadGrid.Rows[0].Selected = true;
+            this.Grid.Rows[0].Selected = true;
             this.btnEliminar.Enabled = true;
             this.btnModificar.Enabled = true;
 
-            this.EspecialidadGrid.Columns[0].HeaderText = "Id";
-            this.EspecialidadGrid.Columns[1].HeaderText = "Año";
-            this.EspecialidadGrid.Columns[2].HeaderText = "Cupo";
-            this.EspecialidadGrid.Columns[3].HeaderText = "Materia";
-            this.EspecialidadGrid.Columns[4].HeaderText = "Comisión";
+            this.Grid.Columns[0].HeaderText = "Id";
+            this.Grid.Columns[1].HeaderText = "Año";
+            this.Grid.Columns[2].HeaderText = "Cupo";
+            this.Grid.Columns[3].HeaderText = "Materia";
+            this.Grid.Columns[4].HeaderText = "Comisión";
 
         }
         else
@@ -86,7 +86,7 @@ public partial class CursosLista : Form
     {
         CursoDto selectedItem;
 
-        selectedItem = (CursoDto)EspecialidadGrid.SelectedRows[0].DataBoundItem;
+        selectedItem = (CursoDto)Grid.SelectedRows[0].DataBoundItem;
 
         return selectedItem;
     }

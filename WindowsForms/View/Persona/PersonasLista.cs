@@ -63,8 +63,8 @@ public partial class PersonasLista : Form
         if (this.personaDataGrid.Rows.Count > 0)
         {
             this.personaDataGrid.Rows[0].Selected = true;
-              this.btn_eliminar.Enabled = true;
-              this.btn_modificar.Enabled = true;
+            this.btn_eliminar.Enabled = true;
+            this.btn_modificar.Enabled = true;
             this.personaDataGrid.Columns[0].HeaderText = "Id";
             this.personaDataGrid.Columns[1].HeaderText = "Nombre";
             this.personaDataGrid.Columns[2].HeaderText = "Plan";

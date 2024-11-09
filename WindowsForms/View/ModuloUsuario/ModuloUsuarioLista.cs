@@ -57,12 +57,12 @@ public partial class ModuloUsuarioLista : Form
     private async void GetAllAndLoad()
     {
 
-        this.EspecialidadGrid.DataSource = null;
-        this.EspecialidadGrid.DataSource = await ModuloUsuarioApiClient.GetAllAsync();
+        this.Grid.DataSource = null;
+        this.Grid.DataSource = await ModuloUsuarioApiClient.GetAllAsync();
 
-        if (this.EspecialidadGrid.Rows.Count > 0)
+        if (this.Grid.Rows.Count > 0)
         {
-            this.EspecialidadGrid.Rows[0].Selected = true;
+            this.Grid.Rows[0].Selected = true;
             this.btnEliminar.Enabled = true;
             this.btnModificar.Enabled = true;
             this.btnModificar.Enabled = true;
@@ -78,7 +78,7 @@ public partial class ModuloUsuarioLista : Form
     {
         ModuloUsuario selectedItem;
 
-        selectedItem = (ModuloUsuario)EspecialidadGrid.SelectedRows[0].DataBoundItem;
+        selectedItem = (ModuloUsuario)Grid.SelectedRows[0].DataBoundItem;
 
         return selectedItem;
     }

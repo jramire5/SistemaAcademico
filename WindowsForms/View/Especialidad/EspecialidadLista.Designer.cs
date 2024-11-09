@@ -43,6 +43,7 @@ partial class EspecialidadLista
         EspecialidadGrid.RowHeadersWidth = 51;
         EspecialidadGrid.Size = new Size(797, 350);
         EspecialidadGrid.TabIndex = 0;
+        EspecialidadGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         // 
         // btnAceptar
         // 

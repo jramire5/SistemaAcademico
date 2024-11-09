@@ -7,7 +7,7 @@ namespace Domain
     
     internal class AcademiaContext : DbContext
     {
-        String connectionString = "server=localhost;port=3306;user=root;password=root;database=academia;";
+        String connectionString = "server=localhost;port=3306;user=root;password=root2;database=academia;";
         internal DbSet<Persona> Personas { get; set; }
         internal DbSet<Usuario> Usuarios { get; set; }
         internal DbSet<Materia> Materia { get; set; }

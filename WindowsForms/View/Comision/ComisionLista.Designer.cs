@@ -43,6 +43,7 @@ partial class ComisionLista
         Grid.RowHeadersWidth = 51;
         Grid.Size = new Size(797, 350);
         Grid.TabIndex = 0;
+        Grid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         // 
         // btnAceptar
         // 

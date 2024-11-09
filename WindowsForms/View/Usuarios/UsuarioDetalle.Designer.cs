@@ -150,7 +150,7 @@ partial class UsuarioDetalle
         // 
         // txtnombre
         // 
-        txtnombre.Location = new Point(208, 142);
+        txtnombre.Location = new Point(210, 179);
         txtnombre.Margin = new Padding(3, 4, 3, 4);
         txtnombre.Name = "txtnombre";
         txtnombre.Size = new Size(174, 27);
@@ -159,7 +159,7 @@ partial class UsuarioDetalle
         // label1
         // 
         label1.AutoSize = true;
-        label1.Location = new Point(56, 149);
+        label1.Location = new Point(58, 186);
         label1.Name = "label1";
         label1.Size = new Size(64, 20);
         label1.TabIndex = 38;
@@ -167,7 +167,7 @@ partial class UsuarioDetalle
         // 
         // txtapellido
         // 
-        txtapellido.Location = new Point(208, 177);
+        txtapellido.Location = new Point(210, 214);
         txtapellido.Margin = new Padding(3, 4, 3, 4);
         txtapellido.Name = "txtapellido";
         txtapellido.Size = new Size(174, 27);
@@ -176,7 +176,7 @@ partial class UsuarioDetalle
         // label3
         // 
         label3.AutoSize = true;
-        label3.Location = new Point(56, 184);
+        label3.Location = new Point(58, 221);
         label3.Name = "label3";
         label3.Size = new Size(66, 20);
         label3.TabIndex = 40;
@@ -184,7 +184,7 @@ partial class UsuarioDetalle
         // 
         // txtemail
         // 
-        txtemail.Location = new Point(208, 212);
+        txtemail.Location = new Point(210, 249);
         txtemail.Margin = new Padding(3, 4, 3, 4);
         txtemail.Name = "txtemail";
         txtemail.Size = new Size(174, 27);
@@ -193,7 +193,7 @@ partial class UsuarioDetalle
         // label4
         // 
         label4.AutoSize = true;
-        label4.Location = new Point(56, 219);
+        label4.Location = new Point(58, 256);
         label4.Name = "label4";
         label4.Size = new Size(46, 20);
         label4.TabIndex = 42;
@@ -221,15 +221,16 @@ partial class UsuarioDetalle
         // cmbid_persona
         // 
         cmbid_persona.FormattingEnabled = true;
-        cmbid_persona.Location = new Point(210, 246);
+        cmbid_persona.Location = new Point(208, 141);
         cmbid_persona.Name = "cmbid_persona";
         cmbid_persona.Size = new Size(172, 28);
         cmbid_persona.TabIndex = 7;
+        cmbid_persona.SelectedValueChanged += cmbid_persona_SelectedValueChanged;
         // 
         // label6
         // 
         label6.AutoSize = true;
-        label6.Location = new Point(56, 254);
+        label6.Location = new Point(56, 149);
         label6.Name = "label6";
         label6.Size = new Size(60, 20);
         label6.TabIndex = 46;

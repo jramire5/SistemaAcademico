@@ -38,7 +38,7 @@ public class UsuarioService
     {
         using var context = new AcademiaContext();
 
-        List<Usuario> lista = await context.Usuarios.ToListAsync();
+        List<Usuario> lista = await context.Usuarios.Include(u=>u.Persona).ToListAsync();
 
         List<UsuarioDto> listadto = new List<UsuarioDto>();
         foreach (var item in lista)
@@ -47,9 +47,9 @@ public class UsuarioService
             {
                 id_usuario=item.id_usuario,
                 nombre_usuario = item.nombre_usuario,            
-                nombre = item.nombre,
-                apellido = item.apellido,
-                email = item.email
+                nombre = !string.IsNullOrEmpty(item.nombre) ? item.nombre: item.Persona.nombre,
+                apellido = !string.IsNullOrEmpty(item.apellido) ? item.apellido : item.Persona.apellido,
+                email = !string.IsNullOrEmpty(item.email) ? item.email : item.Persona.email,
             });
         }
         return listadto;

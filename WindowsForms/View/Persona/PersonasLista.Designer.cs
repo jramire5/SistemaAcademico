@@ -42,6 +42,7 @@
             personaDataGrid.Name = "personaDataGrid";
             personaDataGrid.Size = new Size(754, 290);
             personaDataGrid.TabIndex = 0;
+            personaDataGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             // 
             // btn_agregar
             // 

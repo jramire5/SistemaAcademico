@@ -43,6 +43,7 @@
             MateriasGrid.RowHeadersWidth = 51;
             MateriasGrid.Size = new Size(797, 350);
             MateriasGrid.TabIndex = 0;
+            MateriasGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             // 
             // btnAceptar
             // 

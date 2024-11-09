@@ -41,6 +41,7 @@ partial class PlanLista
         PlanGrid.Location = new Point(60, 58);
         PlanGrid.Name = "PlanGrid";
         PlanGrid.RowHeadersWidth = 51;
+        PlanGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         PlanGrid.Size = new Size(797, 350);
         PlanGrid.TabIndex = 0;
         // 
