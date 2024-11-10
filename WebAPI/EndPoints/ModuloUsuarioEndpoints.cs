@@ -18,7 +18,11 @@ public static class ModuloUsuarioEndpoints
             var moduloUsuario = await moduloUsuarioService.Get(id);
             return moduloUsuario is not null ? Results.Ok(moduloUsuario) : Results.NotFound();
         });
-
+        routes.MapGet("/menu-items/{idusuario}", async (int idusuario, ModuloUsuarioService moduloUsuarioService) =>
+        {
+            var moduloUsuario = await moduloUsuarioService.GetMenuItems(idusuario);
+            return Results.Ok(moduloUsuario);
+        });
         routes.MapGet("/modulo-usuarios", async (ModuloUsuarioService moduloUsuarioService) =>
         {
             var moduloUsuario = await moduloUsuarioService.GetAll();

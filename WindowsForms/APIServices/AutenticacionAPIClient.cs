@@ -22,11 +22,12 @@ public class AutenticacionApiClient
 
     public static async Task<bool> Login(UsuarioLoginDto loginDto)
     {
-
+        Usuario usuarioAutenticado;
         HttpResponseMessage response = await client.PostAsJsonAsync("login", loginDto);
         if (response.IsSuccessStatusCode)
         {
-            
+            usuarioAutenticado = await response.Content.ReadAsAsync<Usuario>();
+            UsuarioAutenticado.idUsuarioAutenticado = usuarioAutenticado.id_usuario;//Setea el id del usuario autenticado.
         }
         return response.IsSuccessStatusCode;
     }

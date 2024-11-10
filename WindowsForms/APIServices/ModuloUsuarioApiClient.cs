@@ -25,7 +25,16 @@ public class ModuloUsuarioApiClient
         }
         return moduloUsuario;
     }
-
+    public static async Task<IEnumerable<MenuItemDto>> GetMenuItemsAsync(int idusuario)
+    {
+        IEnumerable<MenuItemDto> modulos = null;
+        HttpResponseMessage response = await client.GetAsync("menu-items/" + idusuario);
+        if (response.IsSuccessStatusCode)
+        {
+            modulos = await response.Content.ReadAsAsync<IEnumerable<MenuItemDto>>();
+        }
+        return modulos;
+    }
     public static async Task<IEnumerable<ModuloUsuarioDto>> GetAllAsync()
     {
         IEnumerable<ModuloUsuarioDto> modulos = null;

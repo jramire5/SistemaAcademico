@@ -26,7 +26,11 @@ public class UsuarioService
             await context.SaveChangesAsync();
         }
     }
-
+    public async Task<Usuario?> GetByName(string userName)
+    {
+        using var context = new AcademiaContext();
+        return await context.Usuarios.Where(u => u.nombre_usuario == userName).FirstOrDefaultAsync();
+    }
     public async Task<Usuario?> Get(int id)
     {
         using var context = new AcademiaContext();
