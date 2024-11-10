@@ -1,4 +1,5 @@
 ﻿using Domain.Model;
+using Domain.Model.Dtos;
 using Microsoft.EntityFrameworkCore;
 
 namespace Domain.Services;
@@ -6,15 +7,32 @@ namespace Domain.Services;
 public class ModuloUsuarioService
 {
 
-    // Obtener todos los registros de ModuloUsuario
-    public async Task<IEnumerable<ModuloUsuario>> GetAll()
+    // Obtener todos los registros de ModuloUsuario 
+    public async Task<IEnumerable<ModuloUsuarioDto>> GetAll()
     {
         using var _context = new AcademiaContext();
 
-        return await _context.Set<ModuloUsuario>()
+        List<ModuloUsuario> lista = await _context.Set<ModuloUsuario>()
             .Include(mu => mu.Modulo)  // Incluir la relación con Modulo
             .Include(mu => mu.Usuario) // Incluir la relación con Usuario
             .ToListAsync();
+
+        List<ModuloUsuarioDto> listadto = new List<ModuloUsuarioDto>();
+        foreach (var item in lista)
+        {
+            listadto.Add(new ModuloUsuarioDto()
+            {
+                IdModuloUsuario=item.IdModuloUsuario,
+                nombre_usuario = item.Usuario.nombre_usuario,
+                nombre_modulo = item.Modulo.descripcion_modulo,
+                Alta =item.Alta,
+                Baja = item.Baja,
+                Modificacion=item.Modificacion,
+                Consulta=item.Consulta
+            });
+        }
+        return listadto;
+
     }
 
     // Obtener un ModuloUsuario por ID
