@@ -7,9 +7,9 @@ public class ModuloUsuario
     public int IdModuloUsuario { get; set; } // Primary Key
 
     [ForeignKey("Modulo")]
-    public int IdModulo { get; set; } // Foreign key to Modulo
+    public int IdModulo { get; set; } 
     [ForeignKey("Usuario")]
-    public int IdUsuario { get; set; } // Foreign key to Usuario
+    public int IdUsuario { get; set; } 
 
     // Permisos
     public bool Alta { get; set; }
@@ -17,6 +17,6 @@ public class ModuloUsuario
     public bool Modificacion { get; set; }
     public bool Consulta { get; set; }
 
-    public Modulo Modulo { get; set; } // Navigation property for the Modulo entity
-    public Usuario Usuario { get; set; } // Navigation property for the Usuario entity
+    public virtual Modulo Modulo { get; set; } 
+    public virtual Usuario Usuario { get; set; } 
 }

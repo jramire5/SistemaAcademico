@@ -38,16 +38,16 @@ partial class ModuloUsuarioLista
         // Grid
         // 
         Grid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        Grid.Location = new Point(60, 58);
+        Grid.Location = new Point(52, 58);
         Grid.Name = "Grid";
         Grid.RowHeadersWidth = 51;
-        Grid.Size = new Size(797, 350);
-        Grid.TabIndex = 0;
         Grid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        Grid.Size = new Size(1052, 350);
+        Grid.TabIndex = 0;
         // 
         // btnAceptar
         // 
-        btnAceptar.Location = new Point(377, 458);
+        btnAceptar.Location = new Point(759, 443);
         btnAceptar.Name = "btnAceptar";
         btnAceptar.Size = new Size(94, 29);
         btnAceptar.TabIndex = 1;
@@ -57,7 +57,7 @@ partial class ModuloUsuarioLista
         // 
         // btnModificar
         // 
-        btnModificar.Location = new Point(494, 458);
+        btnModificar.Location = new Point(882, 443);
         btnModificar.Name = "btnModificar";
         btnModificar.Size = new Size(94, 29);
         btnModificar.TabIndex = 2;
@@ -67,7 +67,7 @@ partial class ModuloUsuarioLista
         // 
         // btnEliminar
         // 
-        btnEliminar.Location = new Point(618, 458);
+        btnEliminar.Location = new Point(1010, 443);
         btnEliminar.Name = "btnEliminar";
         btnEliminar.Size = new Size(94, 29);
         btnEliminar.TabIndex = 3;
@@ -79,7 +79,7 @@ partial class ModuloUsuarioLista
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(914, 600);
+        ClientSize = new Size(1157, 600);
         Controls.Add(btnEliminar);
         Controls.Add(btnModificar);
         Controls.Add(btnAceptar);
@@ -87,7 +87,7 @@ partial class ModuloUsuarioLista
         Margin = new Padding(3, 4, 3, 4);
         Name = "ModuloUsuarioLista";
         StartPosition = FormStartPosition.CenterParent;
-        Text = "Modulo Lista";
+        Text = "Modulo Usuario Lista";
         Load += Lista_Load;
         ((System.ComponentModel.ISupportInitialize)Grid).EndInit();
         ResumeLayout(false);

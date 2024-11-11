@@ -1,4 +1,5 @@
 ﻿using Domain.Model;
+using Domain.Model.Dtos;
 using WindowsForms.ApiServices;
 
 namespace WindowsForms;
@@ -66,19 +67,23 @@ public partial class ModuloUsuarioLista : Form
             this.btnEliminar.Enabled = true;
             this.btnModificar.Enabled = true;
             this.btnModificar.Enabled = true;
+
         }
         else
         {
             this.btnEliminar.Enabled = false;
             this.btnModificar.Enabled = false;
         }
+        this.Grid.Columns[0].HeaderText = "Id Modulo Usuario";
+        this.Grid.Columns[1].HeaderText = "Usuario";
+        this.Grid.Columns[2].HeaderText = "Modulo";
     }
 
-    private ModuloUsuario SelectedItem()
+    private ModuloUsuarioDto SelectedItem()
     {
-        ModuloUsuario selectedItem;
+        ModuloUsuarioDto selectedItem;
 
-        selectedItem = (ModuloUsuario)Grid.SelectedRows[0].DataBoundItem;
+        selectedItem = (ModuloUsuarioDto)Grid.SelectedRows[0].DataBoundItem;
 
         return selectedItem;
     }

@@ -1,4 +1,5 @@
 ﻿using Domain.Model;
+using Domain.Model.Dtos;
 using System.Net.Http.Headers;
 
 namespace WindowsForms.ApiServices;
@@ -25,13 +26,13 @@ public class ModuloUsuarioApiClient
         return moduloUsuario;
     }
 
-    public static async Task<IEnumerable<ModuloUsuario>> GetAllAsync()
+    public static async Task<IEnumerable<ModuloUsuarioDto>> GetAllAsync()
     {
-        IEnumerable<ModuloUsuario> modulos = null;
+        IEnumerable<ModuloUsuarioDto> modulos = null;
         HttpResponseMessage response = await client.GetAsync("modulo-usuarios");
         if (response.IsSuccessStatusCode)
         {
-            modulos = await response.Content.ReadAsAsync<IEnumerable<ModuloUsuario>>();
+            modulos = await response.Content.ReadAsAsync<IEnumerable<ModuloUsuarioDto>>();
         }
         return modulos;
     }
