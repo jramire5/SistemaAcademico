@@ -23,10 +23,10 @@ public partial class MateriaDetalle : Form
     private async void SetMateria()
     {
 
-        this.txtId.Text=this.Materia.id_materia.ToString();
+        this.txtId.Text = this.Materia.id_materia.ToString();
         this.txtdesc_materia.Text = this.Materia.desc_materia;
         this.txths_semanales.Text = this.Materia.hs_semanales.ToString();
-        this.txths_totales.Text=this.Materia.hs_totales.ToString();
+        this.txths_totales.Text = this.Materia.hs_totales.ToString();
 
         this.cmbplan.DataSource = await PlanApiClient.GetDropDownValuesAsync();
         this.cmbplan.DisplayMember = "desc_plan_especialidad";
@@ -39,7 +39,7 @@ public partial class MateriaDetalle : Form
     {
         // PropiedadApiClient propiedadApi = new PropiedadApiClient();
         //if (this.ValidateCliente())
-     //   this.Materia.id_materia = int.Parse(this.txtId.Text);
+        //   this.Materia.id_materia = int.Parse(this.txtId.Text);
         this.Materia.desc_materia = this.txtdesc_materia.Text;
         this.Materia.hs_semanales = int.Parse(this.txths_semanales.Text);
         this.Materia.hs_totales = int.Parse(this.txths_totales.Text);
@@ -63,4 +63,6 @@ public partial class MateriaDetalle : Form
     {
         this.Close();
     }
+
+
 }

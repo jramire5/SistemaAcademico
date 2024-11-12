@@ -348,3 +348,9 @@ Migrations/20240320012154_InitialCreate.cs
 Migrations/20240320012154_InitialCreate.Designer.cs
 Migrations/ApplicationIdentityDb/20240319214137_initial.cs
 Migrations/ApplicationIdentityDb/20240319214137_initial.Designer.cs
+/WebAPI/dbconfig.json
+/WebAPI/dbconfig.json
+/WebAPI/dbconfig.json
+/WindowsForms/WindowsForms.csproj
+/WindowsForms/WindowsForms.csproj.user
+/.gitignore
