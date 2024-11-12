@@ -354,3 +354,4 @@ Migrations/ApplicationIdentityDb/20240319214137_initial.Designer.cs
 /WindowsForms/WindowsForms.csproj
 /WindowsForms/WindowsForms.csproj.user
 /.gitignore
+/WindowsForms/Properties
