@@ -11,10 +11,7 @@ public partial class UsuarioLista : Form
     public UsuarioLista()
     {
         InitializeComponent();
-
-        btn_agregar.Enabled=UsuarioAutenticadoService.AccedeAAlta(this.Name);
-        btn_modificar.Enabled = UsuarioAutenticadoService.AccedeAModificar(this.Name);
-        btn_eliminar.Enabled = UsuarioAutenticadoService.AccedeABaja(this.Name);
+        btn_agregar.Enabled=UsuarioAutenticadoService.AccedeAAlta(this.Name);     
     }
 
 private void Lista_Load(object sender, EventArgs e)
@@ -72,10 +69,9 @@ private void Lista_Load(object sender, EventArgs e)
 
         if (this.Grid.Rows.Count > 0)
         {
-            this.Grid.Rows[0].Selected = true;
-            this.btn_eliminar.Enabled = true;
-            this.btn_modificar.Enabled = true;
-   
+            this.Grid.Rows[0].Selected = true;        
+            btn_modificar.Enabled = UsuarioAutenticadoService.AccedeAModificar(this.Name);
+            btn_eliminar.Enabled = UsuarioAutenticadoService.AccedeABaja(this.Name);
         }
         else
         {

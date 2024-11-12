@@ -38,16 +38,16 @@ partial class NotaLista
         // Grid
         // 
         Grid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-        Grid.Location = new Point(60, 58);
+        Grid.Location = new Point(37, 58);
         Grid.Name = "Grid";
         Grid.RowHeadersWidth = 51;
         Grid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-        Grid.Size = new Size(797, 350);
+        Grid.Size = new Size(1061, 350);
         Grid.TabIndex = 0;
         // 
         // btn_agregar
         // 
-        btn_agregar.Location = new Point(377, 458);
+        btn_agregar.Location = new Point(754, 458);
         btn_agregar.Name = "btn_agregar";
         btn_agregar.Size = new Size(94, 29);
         btn_agregar.TabIndex = 1;
@@ -57,7 +57,7 @@ partial class NotaLista
         // 
         // btn_modificar
         // 
-        btn_modificar.Location = new Point(494, 458);
+        btn_modificar.Location = new Point(876, 458);
         btn_modificar.Name = "btn_modificar";
         btn_modificar.Size = new Size(94, 29);
         btn_modificar.TabIndex = 2;
@@ -67,7 +67,7 @@ partial class NotaLista
         // 
         // btn_eliminar
         // 
-        btn_eliminar.Location = new Point(618, 458);
+        btn_eliminar.Location = new Point(994, 458);
         btn_eliminar.Name = "btn_eliminar";
         btn_eliminar.Size = new Size(94, 29);
         btn_eliminar.TabIndex = 3;
@@ -79,7 +79,7 @@ partial class NotaLista
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
-        ClientSize = new Size(914, 600);
+        ClientSize = new Size(1127, 527);
         Controls.Add(btn_eliminar);
         Controls.Add(btn_modificar);
         Controls.Add(btn_agregar);

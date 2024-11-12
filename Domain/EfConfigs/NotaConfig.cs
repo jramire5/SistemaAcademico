@@ -9,8 +9,7 @@ public class NotaConfig : IEntityTypeConfiguration<Nota>
     {
         builder.HasKey(p => p.id_nota);
         builder.Property(p => p.id_dictado).IsRequired();
-        builder.Property(p => p.id_alumno).IsRequired();
+        builder.Property(p => p.id_inscripcion).IsRequired();
         builder.Property(p => p.descripcion).HasMaxLength(50).IsRequired();
-        builder.Property(p => p.nota).IsRequired();
     } 
 }

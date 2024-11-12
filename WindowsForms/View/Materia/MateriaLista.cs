@@ -10,9 +10,7 @@ public partial class MateriaLista : Form
     public MateriaLista()
     {
         InitializeComponent();
-        btn_agregar.Enabled = UsuarioAutenticadoService.AccedeAAlta(this.Name);
-        btn_modificar.Enabled = UsuarioAutenticadoService.AccedeAModificar(this.Name);
-        btn_eliminar.Enabled = UsuarioAutenticadoService.AccedeABaja(this.Name);
+        btn_agregar.Enabled = UsuarioAutenticadoService.AccedeAAlta(this.Name);        
     }
 
     private void MateriaLista_Load(object sender, EventArgs e)
@@ -71,19 +69,19 @@ public partial class MateriaLista : Form
         if (this.MateriasGrid.Rows.Count > 0)
         {
             this.MateriasGrid.Rows[0].Selected = true;
-            this.btn_eliminar.Enabled = true;
-            this.btn_modificar.Enabled = true;
-            this.MateriasGrid.Columns[0].HeaderText = "Id";
-            this.MateriasGrid.Columns[1].HeaderText = "Descripción";
-            this.MateriasGrid.Columns[2].HeaderText = "Horas Semanales";
-            this.MateriasGrid.Columns[3].HeaderText = "Horas Totales";
-            this.MateriasGrid.Columns[4].HeaderText = "Plan";
+            btn_modificar.Enabled = UsuarioAutenticadoService.AccedeAModificar(this.Name);
+            btn_eliminar.Enabled = UsuarioAutenticadoService.AccedeABaja(this.Name);            
         }
         else
         {
             this.btn_eliminar.Enabled = false;
             this.btn_modificar.Enabled = false;
         }
+        this.MateriasGrid.Columns[0].HeaderText = "Id";
+        this.MateriasGrid.Columns[1].HeaderText = "Descripción";
+        this.MateriasGrid.Columns[2].HeaderText = "Horas Semanales";
+        this.MateriasGrid.Columns[3].HeaderText = "Horas Totales";
+        this.MateriasGrid.Columns[4].HeaderText = "Plan";
     }
 
     private MateriaDto SelectedItem()

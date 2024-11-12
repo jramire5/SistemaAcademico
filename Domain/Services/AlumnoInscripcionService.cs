@@ -1,11 +1,6 @@
 ﻿using Domain.Model;
 using Domain.Model.Dtos;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Domain.Services;
 
@@ -50,6 +45,7 @@ public class AlumnoInscripcionService
         {
             listadto.Add(new AlumnoDropDownDto()
             {
+                id_inscripcion=item.id_inscripcion,
                 id_persona = item.id_alumno,
                 nombre = $"{item.Persona.nombre} {item.Persona.apellido}"            
             });

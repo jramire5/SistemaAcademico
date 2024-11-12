@@ -6,11 +6,27 @@ namespace Domain.Services;
 
 public class NotaService
 {
-    public async Task Add(Nota nota)
+    public async Task Add(NotaUpdateDto nota)
     {
         using var context = new AcademiaContext();
 
-        context.Nota.Add(nota);
+        Nota notaNueva= new Nota();
+
+        notaNueva.id_dictado = nota.id_dictado;
+        notaNueva.id_inscripcion = nota.id_inscripcion;
+        notaNueva.descripcion = nota.descripcion;            
+
+        AlumnoInscripcion inscripcionToUpdate = await context.AlumnosInscripciones.FindAsync(nota.id_inscripcion);
+
+        if (inscripcionToUpdate == null)        
+            throw new Exception("Registro inscripción no fue encontrado");
+        
+
+        context.Nota.Add(notaNueva);
+
+        inscripcionToUpdate.nota = nota.nota;
+
+        
         await context.SaveChangesAsync();
     }
 
@@ -33,13 +49,19 @@ public class NotaService
 
         return await context.Nota.FindAsync(id);
     }
+    public async Task<Nota?> GetByInscripcion(int idInscripcion)
+    {
+        using var context = new AcademiaContext();
+
+        return await context.Nota.Where(n => n.id_inscripcion == idInscripcion).FirstOrDefaultAsync();
+    }
 
     public async Task<IEnumerable<NotaDto>> GetAll()
     {
         using var context = new AcademiaContext();
 
         List<Nota> notas= 
-            await context.Nota.Include(n=>n.Persona)//Alumno
+            await context.Nota.Include(n=>n.AlumnoInscripcion).ThenInclude(i=>i.Persona)//Alumno inscripcion ->Persona (Alumno)
             .Include(n=>n.DocenteCurso).ThenInclude(d=>d.Persona)//Docente
             .Include(n => n.DocenteCurso).ThenInclude(d => d.Curso).ThenInclude(c => c.Materia)//Docente->Curso->Materia
             .Include(n => n.DocenteCurso).ThenInclude(d => d.Curso).ThenInclude(c => c.Comision)//Docente->Curso->Comision
@@ -56,27 +78,35 @@ public class NotaService
                 comision = $"{item.DocenteCurso.Curso.Comision.desc_comision}",
                 anio_calendario = item.DocenteCurso.Curso.anio_calendario,
                 nota_descr = item.descripcion,
-                nombre_alumno=$"{item.Persona.nombre} {item.Persona.apellido}",
-                nota = item.nota
+                nombre_alumno=$"{item.AlumnoInscripcion?.Persona.nombre} {item.AlumnoInscripcion?.Persona.apellido}",
+                nota = item.AlumnoInscripcion?.nota ?? 0
             });
         }
         return listadto;
     }
 
-    public async Task Update(Nota nota)
+    public async Task Update(NotaUpdateDto nota)
     {
         using var context = new AcademiaContext();
 
         Nota? notaToUpdate = await context.Nota.FindAsync(nota.id_nota);
+        if (notaToUpdate == null)        
+            throw new Exception("Registro Nota no fue encontrado");
+        
 
-        if (notaToUpdate != null)
-        {
-            notaToUpdate.id_nota = nota.id_nota;
-            notaToUpdate.id_dictado = nota.id_dictado;
-            notaToUpdate.id_alumno = nota.id_alumno;
-            notaToUpdate.descripcion = nota.descripcion;
-            notaToUpdate.nota = nota.nota;
-            await context.SaveChangesAsync();
-        }
+        AlumnoInscripcion inscripcionToUpdate = await context.AlumnosInscripciones.FindAsync(nota.id_inscripcion);
+
+        if (inscripcionToUpdate == null)        
+            throw new Exception("Registro inscripción no fue encontrado");
+        
+
+        notaToUpdate.id_nota = nota.id_nota;
+        notaToUpdate.id_dictado = nota.id_dictado;
+        notaToUpdate.id_inscripcion = nota.id_inscripcion;
+        notaToUpdate.descripcion = nota.descripcion;
+
+        inscripcionToUpdate.nota= nota.nota;
+
+        await context.SaveChangesAsync();        
     }
 }

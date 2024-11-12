@@ -7,7 +7,7 @@ public static class NotaEndpoints
 {
     public static void MapNotaEndpoints(this IEndpointRouteBuilder routes)
     {
-        routes.MapPost("/notas", async (Nota nota, NotaService notaService) =>
+        routes.MapPost("/notas", async (NotaUpdateDto nota, NotaService notaService) =>
         {
             await notaService.Add(nota);
             return Results.Created($"/notas/{nota.id_nota}", nota);
@@ -18,14 +18,19 @@ public static class NotaEndpoints
             var nota = await notaService.Get(id);
             return nota is not null ? Results.Ok(nota) : Results.NotFound();
         });
-
+        routes.MapGet("/notas-inscripcion/{idInscripcion}", async (int idInscripcion, NotaService notaService) =>
+        {
+            var nota = await notaService.GetByInscripcion(idInscripcion);
+            return nota is not null ? Results.Ok(nota) : Results.NotFound();
+        });
+        
         routes.MapGet("/notas", async (NotaService notaService) =>
         {
             var modulo = await notaService.GetAll();
             return Results.Ok(modulo);
         });
 
-        routes.MapPut("/notas", async (Nota nota, NotaService notaService) =>
+        routes.MapPut("/notas", async (NotaUpdateDto nota, NotaService notaService) =>
         {
             await notaService.Update(nota);
             return Results.NoContent();

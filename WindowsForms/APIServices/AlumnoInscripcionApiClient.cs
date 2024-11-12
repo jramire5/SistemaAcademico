@@ -20,7 +20,7 @@ public class AlumnoInscripcionApiClient
     public static async Task<AlumnoInscripcion> GetAsync(int id)
     {
         AlumnoInscripcion alumnoInscripcion = null;
-        HttpResponseMessage response = await client.GetAsync("alumnos-inscripciones/" + id);
+        HttpResponseMessage response = await client.GetAsync("alumnos-inscripcion/" + id);
         if (response.IsSuccessStatusCode)
         {
             alumnoInscripcion = await response.Content.ReadAsAsync<AlumnoInscripcion>();
@@ -43,7 +43,7 @@ public class AlumnoInscripcionApiClient
     public static async Task<IEnumerable<AlumnoInscripcionDto>> GetAllAsync(int? idAlumno)
     {
         IEnumerable<AlumnoInscripcionDto> alumnoInscripciones = null;
-        HttpResponseMessage response = await client.GetAsync("alumnos-inscripciones/" + idAlumno);
+        HttpResponseMessage response = await client.GetAsync($"alumnos-inscripciones/{idAlumno ?? 0}");
         if (response.IsSuccessStatusCode)
         {
             alumnoInscripciones = await response.Content.ReadAsAsync<IEnumerable<AlumnoInscripcionDto>>();

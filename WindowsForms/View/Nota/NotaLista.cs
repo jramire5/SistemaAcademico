@@ -10,9 +10,7 @@ public partial class NotaLista : Form
     public NotaLista()
     {
         InitializeComponent();
-        btn_agregar.Enabled = UsuarioAutenticadoService.AccedeAAlta(this.Name);
-        btn_modificar.Enabled = UsuarioAutenticadoService.AccedeAModificar(this.Name);
-        btn_eliminar.Enabled = UsuarioAutenticadoService.AccedeABaja(this.Name);
+        btn_agregar.Enabled = UsuarioAutenticadoService.AccedeAAlta(this.Name);      
     }
 
     private void Lista_Load(object sender, EventArgs e)
@@ -23,7 +21,7 @@ public partial class NotaLista : Form
     {
         NotaDetalle detalle = new NotaDetalle();
 
-        detalle.Entidad = new Nota();
+        detalle.Entidad = new NotaUpdateDto();
 
         detalle.ShowDialog();
 
@@ -67,21 +65,22 @@ public partial class NotaLista : Form
         if (this.Grid.Rows.Count > 0)
         {
             this.Grid.Rows[0].Selected = true;
-            this.btn_eliminar.Enabled = true;
-            this.btn_modificar.Enabled = true;
-            this.Grid.Columns[0].HeaderText = "Id";
-            this.Grid.Columns[1].HeaderText = "Materia";
-            this.Grid.Columns[2].HeaderText = "Comisión";
-            this.Grid.Columns[3].HeaderText = "Año";
-            this.Grid.Columns[4].HeaderText = "Docente";
-            this.Grid.Columns[5].HeaderText = "Cargo";
-
+            btn_modificar.Enabled = UsuarioAutenticadoService.AccedeAModificar(this.Name);
+            btn_eliminar.Enabled = UsuarioAutenticadoService.AccedeABaja(this.Name);
         }
         else
         {
             this.btn_eliminar.Enabled = false;
             this.btn_modificar.Enabled = false;
         }
+        this.Grid.Columns[0].HeaderText = "Id";
+        this.Grid.Columns[1].HeaderText = "Docente";
+        this.Grid.Columns[2].HeaderText = "Materia";
+        this.Grid.Columns[3].HeaderText = "Comisión";
+        this.Grid.Columns[4].HeaderText = "Año";
+        this.Grid.Columns[5].HeaderText = "Evaluación";
+        this.Grid.Columns[6].HeaderText = "Alumno";
+        this.Grid.Columns[7].HeaderText = "Nota";
     }
 
     private NotaDto SelectedItem()

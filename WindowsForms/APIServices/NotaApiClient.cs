@@ -26,6 +26,17 @@ public class NotaApiClient
         }
         return nota;
     }
+    public static async Task<Nota> GetByInscripcionAsync(int idInscripcion)
+    {
+        Nota nota = null;
+        HttpResponseMessage response = await client.GetAsync("notas-inscripcion/" + idInscripcion);
+        if (response.IsSuccessStatusCode)
+        {
+            nota = await response.Content.ReadAsAsync<Nota>();
+        }
+        return nota;
+    }
+    
 
     public static async Task<IEnumerable<NotaDto>> GetAllAsync()
     {
@@ -38,7 +49,7 @@ public class NotaApiClient
         return notas;
     }
 
-    public async static Task AddAsync(Nota nota)
+    public async static Task AddAsync(NotaUpdateDto nota)
     {
         HttpResponseMessage response = await client.PostAsJsonAsync("notas", nota);
         response.EnsureSuccessStatusCode();
@@ -50,7 +61,7 @@ public class NotaApiClient
         response.EnsureSuccessStatusCode();
     }
 
-    public static async Task UpdateAsync(Nota nota)
+    public static async Task UpdateAsync(NotaUpdateDto nota)
     {
         HttpResponseMessage response = await client.PutAsJsonAsync("notas", nota);
         response.EnsureSuccessStatusCode();

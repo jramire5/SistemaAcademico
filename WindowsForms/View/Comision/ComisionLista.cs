@@ -10,9 +10,7 @@ public partial class ComisionLista : Form
     public ComisionLista()
     {
         InitializeComponent();
-        btn_agregar.Enabled = UsuarioAutenticadoService.AccedeAAlta(this.Name);
-        btn_modificar.Enabled = UsuarioAutenticadoService.AccedeAModificar(this.Name);
-        btn_eliminar.Enabled = UsuarioAutenticadoService.AccedeABaja(this.Name);
+        btn_agregar.Enabled = UsuarioAutenticadoService.AccedeAAlta(this.Name);        
     }
 
     private void Lista_Load(object sender, EventArgs e)
@@ -69,19 +67,18 @@ public partial class ComisionLista : Form
         if (this.Grid.Rows.Count > 0)
         {
             this.Grid.Rows[0].Selected = true;
-            this.btn_eliminar.Enabled = true;
-            this.btn_modificar.Enabled = true;
-            this.Grid.Columns[0].HeaderText = "Id";
-            this.Grid.Columns[1].HeaderText = "Comisión";
-            this.Grid.Columns[2].HeaderText = "Año Especialidad";
-            this.Grid.Columns[3].HeaderText = "Plan";
-
+            btn_modificar.Enabled = UsuarioAutenticadoService.AccedeAModificar(this.Name);
+            btn_eliminar.Enabled = UsuarioAutenticadoService.AccedeABaja(this.Name);         
         }
         else
         {
             this.btn_eliminar.Enabled = false;
             this.btn_modificar.Enabled = false;
         }
+        this.Grid.Columns[0].HeaderText = "Id";
+        this.Grid.Columns[1].HeaderText = "Comisión";
+        this.Grid.Columns[2].HeaderText = "Año Especialidad";
+        this.Grid.Columns[3].HeaderText = "Plan";
     }
 
     private ComisionDto SelectedItem()

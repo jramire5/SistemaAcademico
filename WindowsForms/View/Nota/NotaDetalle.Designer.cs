@@ -34,7 +34,7 @@
             btnCancelar = new Button();
             label2 = new Label();
             label5 = new Label();
-            cmbid_alumno = new ComboBox();
+            cmbid_inscripcion = new ComboBox();
             cmbid_dictado = new ComboBox();
             label4 = new Label();
             txt_descr = new TextBox();
@@ -97,13 +97,14 @@
             label5.TabIndex = 10;
             label5.Text = "Alumno";
             // 
-            // cmbid_alumno
+            // cmbid_inscripcion
             // 
-            cmbid_alumno.FormattingEnabled = true;
-            cmbid_alumno.Location = new Point(135, 178);
-            cmbid_alumno.Name = "cmbid_alumno";
-            cmbid_alumno.Size = new Size(315, 28);
-            cmbid_alumno.TabIndex = 3;
+            cmbid_inscripcion.FormattingEnabled = true;
+            cmbid_inscripcion.Location = new Point(135, 178);
+            cmbid_inscripcion.Name = "cmbid_inscripcion";
+            cmbid_inscripcion.Size = new Size(315, 28);
+            cmbid_inscripcion.TabIndex = 3;
+            cmbid_inscripcion.SelectedValueChanged += cmbid_inscripcion_SelectedValueChanged;
             // 
             // cmbid_dictado
             // 
@@ -125,7 +126,6 @@
             // 
             // txt_descr
             // 
-            txt_descr.Enabled = false;
             txt_descr.Location = new Point(135, 138);
             txt_descr.Name = "txt_descr";
             txt_descr.Size = new Size(315, 27);
@@ -133,7 +133,6 @@
             // 
             // txt_nota
             // 
-            txt_nota.Enabled = false;
             txt_nota.Location = new Point(135, 220);
             txt_nota.Name = "txt_nota";
             txt_nota.Size = new Size(315, 27);
@@ -158,7 +157,7 @@
             Controls.Add(txt_descr);
             Controls.Add(label4);
             Controls.Add(cmbid_dictado);
-            Controls.Add(cmbid_alumno);
+            Controls.Add(cmbid_inscripcion);
             Controls.Add(label5);
             Controls.Add(label2);
             Controls.Add(btnCancelar);
@@ -168,6 +167,7 @@
             Name = "NotaDetalle";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Nota Detalle";
+            Load += NotaDetalle_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -183,7 +183,7 @@
         private TextBox txths_totales;
         private Label label4;
         private Label label5;
-        private ComboBox cmbid_alumno;
+        private ComboBox cmbid_inscripcion;
         private ComboBox cmbid_dictado;
         private TextBox txt_descr;
         private TextBox txt_nota;

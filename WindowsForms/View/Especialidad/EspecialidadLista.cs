@@ -10,9 +10,7 @@ public partial class EspecialidadLista : Form
     public EspecialidadLista()
     {
         InitializeComponent();
-        btn_agregar.Enabled = UsuarioAutenticadoService.AccedeAAlta(this.Name);
-        btn_modificar.Enabled = UsuarioAutenticadoService.AccedeAModificar(this.Name);
-        btn_eliminar.Enabled = UsuarioAutenticadoService.AccedeABaja(this.Name);
+        btn_agregar.Enabled = UsuarioAutenticadoService.AccedeAAlta(this.Name);       
     }
 
     private void EspecialidadLista_Load(object sender, EventArgs e)
@@ -71,16 +69,16 @@ public partial class EspecialidadLista : Form
         if (this.EspecialidadGrid.Rows.Count > 0)
         {
             this.EspecialidadGrid.Rows[0].Selected = true;
-            this.btn_eliminar.Enabled = true;
-            this.btn_modificar.Enabled = true;
-            this.EspecialidadGrid.Columns[0].HeaderText = "Id";
-            this.EspecialidadGrid.Columns[1].HeaderText = "Descripción";
+            btn_modificar.Enabled = UsuarioAutenticadoService.AccedeAModificar(this.Name);
+            btn_eliminar.Enabled = UsuarioAutenticadoService.AccedeABaja(this.Name);           
         }
         else
         {
             this.btn_eliminar.Enabled = false;
             this.btn_modificar.Enabled = false;
         }
+        this.EspecialidadGrid.Columns[0].HeaderText = "Id";
+        this.EspecialidadGrid.Columns[1].HeaderText = "Descripción";
     }
 
     private Especialidad SelectedItem()

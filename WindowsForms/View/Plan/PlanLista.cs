@@ -10,9 +10,7 @@ public partial class PlanLista : Form
     public PlanLista()
     {
         InitializeComponent();
-        btn_agregar.Enabled = UsuarioAutenticadoService.AccedeAAlta(this.Name);
-        btn_modificar.Enabled = UsuarioAutenticadoService.AccedeAModificar(this.Name);
-        btn_eliminar.Enabled = UsuarioAutenticadoService.AccedeABaja(this.Name);
+        btn_agregar.Enabled = UsuarioAutenticadoService.AccedeAAlta(this.Name);      
     }
 
     private void MateriaLista_Load(object sender, EventArgs e)
@@ -71,17 +69,17 @@ public partial class PlanLista : Form
         if (this.PlanGrid.Rows.Count > 0)
         {
             this.PlanGrid.Rows[0].Selected = true;
-            this.btn_eliminar.Enabled = true;
-            this.btn_modificar.Enabled = true;
-            this.PlanGrid.Columns[0].HeaderText = "Id";
-            this.PlanGrid.Columns[1].HeaderText = "Año Plan";
-            this.PlanGrid.Columns[2].HeaderText = "Especialidad";
+            btn_modificar.Enabled = UsuarioAutenticadoService.AccedeAModificar(this.Name);
+            btn_eliminar.Enabled = UsuarioAutenticadoService.AccedeABaja(this.Name);          
         }
         else
         {
             this.btn_eliminar.Enabled = false;
             this.btn_modificar.Enabled = false;
         }
+        this.PlanGrid.Columns[0].HeaderText = "Id";
+        this.PlanGrid.Columns[1].HeaderText = "Año Plan";
+        this.PlanGrid.Columns[2].HeaderText = "Especialidad";
     }
 
     private PlanDto SelectedItem()

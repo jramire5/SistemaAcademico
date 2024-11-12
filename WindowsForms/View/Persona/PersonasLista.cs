@@ -10,9 +10,7 @@ public partial class PersonasLista : Form
     public PersonasLista()
     {
         InitializeComponent();
-        btn_agregar.Enabled = UsuarioAutenticadoService.AccedeAAlta(this.Name);
-        btn_modificar.Enabled = UsuarioAutenticadoService.AccedeAModificar(this.Name);
-        btn_eliminar.Enabled = UsuarioAutenticadoService.AccedeABaja(this.Name);
+        btn_agregar.Enabled = UsuarioAutenticadoService.AccedeAAlta(this.Name);     
     }
 
     private void btn_agregar_Click(object sender, EventArgs e)
@@ -67,19 +65,18 @@ public partial class PersonasLista : Form
         if (this.personaDataGrid.Rows.Count > 0)
         {
             this.personaDataGrid.Rows[0].Selected = true;
-            this.btn_eliminar.Enabled = true;
-            this.btn_modificar.Enabled = true;
-            this.personaDataGrid.Columns[0].HeaderText = "Id";
-            this.personaDataGrid.Columns[1].HeaderText = "Nombre";
-            this.personaDataGrid.Columns[2].HeaderText = "Plan";
-            this.personaDataGrid.Columns[3].HeaderText = "Tipo de Persona";
-
+            btn_modificar.Enabled = UsuarioAutenticadoService.AccedeAModificar(this.Name);
+            btn_eliminar.Enabled = UsuarioAutenticadoService.AccedeABaja(this.Name);     
         }
         else
         {
                 this.btn_eliminar.Enabled  = false;
                 this.btn_modificar.Enabled = false;
         }
+        this.personaDataGrid.Columns[0].HeaderText = "Id";
+        this.personaDataGrid.Columns[1].HeaderText = "Nombre";
+        this.personaDataGrid.Columns[2].HeaderText = "Plan";
+        this.personaDataGrid.Columns[3].HeaderText = "Tipo de Persona";
     }
 
     private PersonaDto SelectedItem()
