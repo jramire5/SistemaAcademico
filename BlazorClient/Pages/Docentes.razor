@@ -41,11 +41,11 @@ else
 }
 
 @code {
-    private DocenteCursoDto[]? docentesCurso;
+    private DocenteDictadoDto[]? docentesCurso;
 
     protected override async Task OnInitializedAsync()
     {
-        docentesCurso = await Http.GetFromJsonAsync<DocenteCursoDto[]>("docente-cursos");
+        docentesCurso = await Http.GetFromJsonAsync<DocenteDictadoDto[]>("docente-cursos");
        // docentesCurso = new List<DocenteCursoDto>().ToArray();
     }  
 }

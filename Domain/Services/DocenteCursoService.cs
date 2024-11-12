@@ -33,17 +33,39 @@ public class DocenteCursoService
 
         return await context.DocenteCurso.FindAsync(id);
     }
-
-    public async Task<IEnumerable<DocenteCursoDto>> GetAll()
+    public async Task<IEnumerable<DocenteCursoDto>> GetAllByDocente(int idDocente)
     {
         using var context = new AcademiaContext();
 
-        List<DocenteCurso> lista = await context.DocenteCurso.Include(d=>d.Curso).ThenInclude(d => d.Comision).Include(d => d.Curso).ThenInclude(d=>d.Materia).Include(d=>d.Persona).Include(d=>d.Cargo).ToListAsync();
+        List<DocenteCurso> lista = await context.DocenteCurso.Include(d => d.Curso).ThenInclude(d => d.Comision).Include(d => d.Curso).ThenInclude(d => d.Materia).Include(d => d.Persona).Include(d => d.Cargo).Where(dc => dc.id_docente == idDocente || idDocente==0).ToListAsync();
 
         List<DocenteCursoDto> listadto = new List<DocenteCursoDto>();
         foreach (var item in lista)
         {
             listadto.Add(new DocenteCursoDto()
+            {
+                id_dictado = item.id_dictado,
+                id_curso = item.id_curso,
+                desc_materia = item.Curso.Materia.desc_materia,
+                desc_comision = item.Curso.Comision.desc_comision,
+                anio_calendario = item.Curso.anio_calendario,
+                docente = $"{item.Persona.nombre} {item.Persona.apellido}",
+                desc_cargo = item.Cargo?.Descripcion ?? string.Empty
+            });
+        }
+        return listadto;
+
+    }
+    public async Task<IEnumerable<DocenteDictadoDto>> GetAll(int? idDocente)
+    {
+        using var context = new AcademiaContext();
+
+        List<DocenteCurso> lista = await context.DocenteCurso.Include(d=>d.Curso).ThenInclude(d => d.Comision).Include(d => d.Curso).ThenInclude(d=>d.Materia).Include(d=>d.Persona).Include(d=>d.Cargo).Where(p=> idDocente == null || idDocente ==0 || p.Persona.id_persona== idDocente).ToListAsync();
+
+        List<DocenteDictadoDto> listadto = new List<DocenteDictadoDto>();
+        foreach (var item in lista)
+        {
+            listadto.Add(new DocenteDictadoDto()
             {
                 id_dictado = item.id_dictado,
                 desc_materia = item.Curso.Materia.desc_materia,

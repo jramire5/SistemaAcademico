@@ -1,5 +1,6 @@
 ﻿using Domain.Model;
 using WindowsForms.ApiServices;
+using WindowsForms.Servicios;
 
 namespace WindowsForms;
 
@@ -8,6 +9,9 @@ public partial class ModuloLista : Form
     public ModuloLista()
     {
         InitializeComponent();
+        btn_agregar.Enabled = UsuarioAutenticadoService.AccedeAAlta(this.Name);
+        btn_modificar.Enabled = UsuarioAutenticadoService.AccedeAModificar(this.Name);
+        btn_eliminar.Enabled = UsuarioAutenticadoService.AccedeABaja(this.Name);
     }
 
     private void Lista_Load(object sender, EventArgs e)
@@ -63,15 +67,15 @@ public partial class ModuloLista : Form
         if (this.Grid.Rows.Count > 0)
         {
             this.Grid.Rows[0].Selected = true;
-            this.btnEliminar.Enabled = true;
-            this.btnModificar.Enabled = true;
+            this.btn_eliminar.Enabled = true;
+            this.btn_modificar.Enabled = true;
             this.Grid.Columns[0].HeaderText = "Id";
             this.Grid.Columns[1].HeaderText = "Descripción";
         }
         else
         {
-            this.btnEliminar.Enabled = false;
-            this.btnModificar.Enabled = false;
+            this.btn_eliminar.Enabled = false;
+            this.btn_modificar.Enabled = false;
         }
     }
 

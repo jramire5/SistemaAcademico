@@ -1,6 +1,7 @@
 ﻿using Domain.Model;
 using Domain.Model.Dtos;
 using WindowsForms.ApiServices;
+using WindowsForms.Servicios;
 
 namespace WindowsForms;
 
@@ -9,39 +10,42 @@ public partial class PersonasLista : Form
     public PersonasLista()
     {
         InitializeComponent();
+        btn_agregar.Enabled = UsuarioAutenticadoService.AccedeAAlta(this.Name);
+        btn_modificar.Enabled = UsuarioAutenticadoService.AccedeAModificar(this.Name);
+        btn_eliminar.Enabled = UsuarioAutenticadoService.AccedeABaja(this.Name);
     }
 
-      private void btn_agregar_Click(object sender, EventArgs e)
-      {
-          PersonaDetalle personaDetalle = new PersonaDetalle();
-
-          Persona personaNueva = new Persona();
-
-          personaDetalle.Persona = personaNueva;
-
-          personaDetalle.ShowDialog();
-
-          this.GetAllAndLoad();
-      }
-
-       private async void btn_modificar_click(object sender, EventArgs e)
-       {
-
+    private void btn_agregar_Click(object sender, EventArgs e)
+    {
         PersonaDetalle personaDetalle = new PersonaDetalle();
 
-        int id;
+        Persona personaNueva = new Persona();
 
-        id = this.SelectedItem().id_persona;
+        personaDetalle.Persona = personaNueva;
 
-           Persona persona = await PersonaApiClient.GetAsync(id);
+        personaDetalle.ShowDialog();
 
-          // personaDetalle.editMode = true;
-           personaDetalle.Persona = persona;
+        this.GetAllAndLoad();
+    }
 
-           personaDetalle.ShowDialog();
+     private async void btn_modificar_click(object sender, EventArgs e)
+     {
 
-           this.GetAllAndLoad();
-       }
+      PersonaDetalle personaDetalle = new PersonaDetalle();
+
+      int id;
+
+      id = this.SelectedItem().id_persona;
+
+         Persona persona = await PersonaApiClient.GetAsync(id);
+
+        // personaDetalle.editMode = true;
+         personaDetalle.Persona = persona;
+
+         personaDetalle.ShowDialog();
+
+         this.GetAllAndLoad();
+     }
 
      private async void btn_eliminar_click(object sender, EventArgs e)
      {

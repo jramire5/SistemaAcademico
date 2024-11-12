@@ -14,16 +14,21 @@ public static class DocenteCursoEndpoints
             return Results.Created($"/docente-cursos/{docenteCurso.id_dictado}", docenteCurso);
         });
 
-        routes.MapGet("/docente-cursos/{id}", async (int id, DocenteCursoService docenteCursoService) =>
+        routes.MapGet("/docente-curso/{id}", async (int id, DocenteCursoService docenteCursoService) =>
         {
-            var inscripcion = await docenteCursoService.Get(id);
-            return inscripcion is not null ? Results.Ok(inscripcion) : Results.NotFound();
+            var docenteCurso = await docenteCursoService.Get(id);
+            return docenteCurso is not null ? Results.Ok(docenteCurso) : Results.NotFound();
         });
-
-        routes.MapGet("/docente-cursos", async (DocenteCursoService docenteCursoService) =>
+        routes.MapGet("/cursos-pordocente/{iddocente}", async (int iddocente, DocenteCursoService docenteCursoService) =>
         {
-            var inscripciones = await docenteCursoService.GetAll();
-            return Results.Ok(inscripciones);
+            var docenteCursos = await docenteCursoService.GetAllByDocente(iddocente);
+            return docenteCursos is not null ? Results.Ok(docenteCursos) : Results.NotFound();
+        });
+         
+        routes.MapGet("/docente-cursos/{idDocente}", async (int idDocente,DocenteCursoService docenteCursoService) =>
+        {
+            var docenteCursos = await docenteCursoService.GetAll(idDocente);
+            return Results.Ok(docenteCursos);
         });
 
         routes.MapPut("/docente-cursos", async (DocenteCurso docenteCurso, DocenteCursoService docenteCursoService) =>

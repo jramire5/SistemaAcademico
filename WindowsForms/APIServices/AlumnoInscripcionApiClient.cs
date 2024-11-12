@@ -27,11 +27,23 @@ public class AlumnoInscripcionApiClient
         }
         return alumnoInscripcion;
     }
+    public static async Task<IEnumerable<AlumnoDropDownDto>> GetAlumnosEnCursoAsync(int idCurso)
+    {
+        IEnumerable<AlumnoDropDownDto> alumnosEnCurso = null;
+        HttpResponseMessage response = await client.GetAsync("alumnos-inscripciones-curso/" + idCurso);
+        if (response.IsSuccessStatusCode)
+        {
+            alumnosEnCurso = await response.Content.ReadAsAsync<IEnumerable<AlumnoDropDownDto>>();
+        }
+        return alumnosEnCurso;
+    }
 
-    public static async Task<IEnumerable<AlumnoInscripcionDto>> GetAllAsync()
+    
+
+    public static async Task<IEnumerable<AlumnoInscripcionDto>> GetAllAsync(int? idAlumno)
     {
         IEnumerable<AlumnoInscripcionDto> alumnoInscripciones = null;
-        HttpResponseMessage response = await client.GetAsync("alumnos-inscripciones");
+        HttpResponseMessage response = await client.GetAsync("alumnos-inscripciones/" + idAlumno);
         if (response.IsSuccessStatusCode)
         {
             alumnoInscripciones = await response.Content.ReadAsAsync<IEnumerable<AlumnoInscripcionDto>>();

@@ -39,7 +39,31 @@ public class CursoService
 
         return await context.Cursos.FindAsync(id);
     }
+    public async Task<IEnumerable<CursoDto>> GetAllPorPersona(int id_persona)
+    {
+        using var context = new AcademiaContext();
 
+
+        PersonaService personaService = new PersonaService();
+        var persona=await personaService.Get(id_persona);
+
+        List<Curso> cursos = await context.Cursos.Include(c => c.Materia).Include(c => c.Comision).Where(c=>c.Materia.id_plan== persona.id_plan && c.anio_calendario==System.DateTime.Now.Year).ToListAsync();
+
+        List<CursoDto> listadto = new List<CursoDto>();
+        foreach (var item in cursos)
+        {
+            listadto.Add(new CursoDto()
+            {
+                id_curso = item.id_curso,
+                anio_calendario = item.anio_calendario,
+                cupo = item.cupo,
+                materia_desc = item.Materia.desc_materia,
+                comision_desc = item.Comision.desc_comision
+            });
+        }
+        return listadto;
+
+    }
     public async  Task<IEnumerable<CursoDto>> GetAll()
     {
         using var context = new AcademiaContext();

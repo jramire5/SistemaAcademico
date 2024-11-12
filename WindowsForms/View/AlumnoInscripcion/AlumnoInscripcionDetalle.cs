@@ -1,5 +1,6 @@
 ﻿using Domain.Model;
 using WindowsForms.ApiServices;
+using WindowsForms.Servicios;
 
 namespace WindowsForms;
 
@@ -31,16 +32,30 @@ public partial class AlumnoInscripcionDetalle : Form
         this.cmbCondicion.ValueMember = "Id_Condicion";
         this.cmbCondicion.SelectedValue = this.Entidad.id_condicion;
 
-        this.cmbid_curso.DataSource = await CursoApiClient.GetDropDownValuesAsync();
-        this.cmbid_curso.DisplayMember = "desc_materia_comi_anio";
-        this.cmbid_curso.ValueMember = "id_curso";
+     
+
+        if(UsuarioAutenticadoService.isAlumno())
+        {
+            this.cmbid_alumno.Enabled = false;
+            this.txtnota.Enabled = false;
+
+            this.cmbid_curso.DataSource = await CursoApiClient.GetDropDownValuesByPersonaAsync(UsuarioAutenticadoService.usuarioAutenticado.id_persona ?? 0);
+            this.cmbid_curso.DisplayMember = "desc_materia_comi_anio";
+            this.cmbid_curso.ValueMember = "id_curso";
+        }          
+        else
+        {
+            this.cmbid_alumno.DataSource = await PersonaApiClient.GetAlumnosAsync();
+            this.cmbid_alumno.DisplayMember = "nombre";
+            this.cmbid_alumno.ValueMember = "id_persona";
+            this.cmbid_alumno.SelectedValue = this.Entidad.id_alumno;
+
+            this.cmbid_curso.DataSource = await CursoApiClient.GetDropDownValuesAsync();
+            this.cmbid_curso.DisplayMember = "desc_materia_comi_anio";
+            this.cmbid_curso.ValueMember = "id_curso";
+            
+        }
         this.cmbid_curso.SelectedValue = this.Entidad.id_curso;
-
-        this.cmbid_alumno.DataSource = await PersonaApiClient.GetAlumnosAsync();
-        this.cmbid_alumno.DisplayMember = "nombre";
-        this.cmbid_alumno.ValueMember = "id_persona";
-        this.cmbid_alumno.SelectedValue = this.Entidad.id_alumno;
-
     }
     private async void Aceptar_Click(object sender, EventArgs e)
     {
@@ -49,7 +64,11 @@ public partial class AlumnoInscripcionDetalle : Form
         //   this.Materia.id_materia = int.Parse(this.txtId.Text);
         this.Entidad.id_condicion = (int)this.cmbCondicion.SelectedValue;
         this.Entidad.nota = int.Parse(this.txtnota.Text);
-        this.Entidad.id_alumno = (int)this.cmbid_alumno.SelectedValue;
+        if (UsuarioAutenticadoService.isAlumno())
+            this.Entidad.id_alumno = UsuarioAutenticadoService.usuarioAutenticado.id_persona ?? 0;
+        else
+            this.Entidad.id_alumno = (int)this.cmbid_alumno.SelectedValue;
+       
         this.Entidad.id_curso = (int)this.cmbid_curso.SelectedValue;
         //  this.propiedad.FechaAlta = this.txtFechaAlta.Value;
 

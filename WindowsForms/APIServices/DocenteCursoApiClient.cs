@@ -18,36 +18,35 @@ public class DocenteCursoApiClient
     public static async Task<DocenteCurso> GetAsync(int id)
     {
         DocenteCurso docenteCurso = null;
-        HttpResponseMessage response = await client.GetAsync("docente-cursos/" + id);
+        HttpResponseMessage response = await client.GetAsync("docente-curso/" + id);
         if (response.IsSuccessStatusCode)
         {
             docenteCurso = await response.Content.ReadAsAsync<DocenteCurso>();
         }
         return docenteCurso;
     }
-   /* public static async Task<IEnumerable<PlanDropdownDto>> GetDropDownValuesAsync()
+    public static async Task<IEnumerable<DocenteCursoDropdownDto>> GetDropDownValuesAsync(int byDocente)
     {
-        List<PlanDropdownDto> planesDropDown = null;
-        HttpResponseMessage response = await client.GetAsync("docente-cursos");
+        List<DocenteCursoDropdownDto> docenteCursoDropDown = null;
+        HttpResponseMessage response = await client.GetAsync("cursos-pordocente/"+ byDocente);
         if (response.IsSuccessStatusCode)
         {
-            planesDropDown=new List<PlanDropdownDto>();
-            IEnumerable<PlanDto> planes = await response.Content.ReadAsAsync<IEnumerable<PlanDto>>();
-            foreach (var item in planes)
+            docenteCursoDropDown = new List<DocenteCursoDropdownDto>();
+            IEnumerable<DocenteCursoDto> cursosDocente = await response.Content.ReadAsAsync<IEnumerable<DocenteCursoDto>>();
+            foreach (var item in cursosDocente)
             {
-                planesDropDown.Add(new PlanDropdownDto() { id_plan = item.id_plan, desc_plan_especialidad = $"{item.desc_plan}-{item.desc_especialidad}" });
+                docenteCursoDropDown.Add(new DocenteCursoDropdownDto() { id_dictado = item.id_dictado,id_curso=item.id_curso, desc_docenteCurso = $"{item.anio_calendario}-{item.desc_materia}-{item.desc_comision}" });
             }
         }
-        return planesDropDown;
-    }*/
-
-    public static async Task<IEnumerable<DocenteCursoDto>> GetAllAsync()
+        return docenteCursoDropDown;
+    }
+    public static async Task<IEnumerable<DocenteDictadoDto>> GetAllAsync(int idDocente)
     {
-        IEnumerable<DocenteCursoDto> docenteCursoDto = null;
-        HttpResponseMessage response = await client.GetAsync("docente-cursos");
+        IEnumerable<DocenteDictadoDto> docenteCursoDto = null;
+        HttpResponseMessage response = await client.GetAsync("docente-cursos/"+ idDocente);
         if (response.IsSuccessStatusCode)
         {
-            docenteCursoDto = await response.Content.ReadAsAsync<IEnumerable<DocenteCursoDto>>();
+            docenteCursoDto = await response.Content.ReadAsAsync<IEnumerable<DocenteDictadoDto>>();
         }
         return docenteCursoDto;
     }

@@ -5,9 +5,9 @@ using WindowsForms.Servicios;
 
 namespace WindowsForms;
 
-public partial class ComisionLista : Form
+public partial class NotaLista : Form
 {
-    public ComisionLista()
+    public NotaLista()
     {
         InitializeComponent();
         btn_agregar.Enabled = UsuarioAutenticadoService.AccedeAAlta(this.Name);
@@ -21,11 +21,9 @@ public partial class ComisionLista : Form
     }
     private void btn_agregar_Click(object sender, EventArgs e)
     {
-        ComisionDetalle detalle = new ComisionDetalle();
+        NotaDetalle detalle = new NotaDetalle();
 
-        Comision registroNuevo = new Comision();
-
-        detalle.Entidad  = registroNuevo;
+        detalle.Entidad = new Nota();
 
         detalle.ShowDialog();
 
@@ -35,13 +33,13 @@ public partial class ComisionLista : Form
     private async void btn_modificar_click(object sender, EventArgs e)
     {
 
-        ComisionDetalle detalle = new ComisionDetalle();
+        NotaDetalle detalle = new NotaDetalle();
 
         int id;
 
-        id = this.SelectedItem().id_comision;
+        id = this.SelectedItem().id_nota;
 
-        Comision registroModifica = await ComisionApiClient.GetAsync(id);
+        Nota registroModifica = await NotaApiClient.GetAsync(id);
 
         // personaDetalle.editMode = true;
         detalle.Entidad = registroModifica;
@@ -55,16 +53,16 @@ public partial class ComisionLista : Form
     {
         int id;
 
-        id = this.SelectedItem().id_comision;
-        await ComisionApiClient.DeleteAsync(id);
+        id = this.SelectedItem().id_nota;
+        await NotaApiClient.DeleteAsync(id);
 
         this.GetAllAndLoad();
     }
 
     private async void GetAllAndLoad()
-    {
+    {    
         this.Grid.DataSource = null;
-        this.Grid.DataSource = await ComisionApiClient.GetAllAsync();
+        this.Grid.DataSource = await NotaApiClient.GetAllAsync();
 
         if (this.Grid.Rows.Count > 0)
         {
@@ -72,9 +70,11 @@ public partial class ComisionLista : Form
             this.btn_eliminar.Enabled = true;
             this.btn_modificar.Enabled = true;
             this.Grid.Columns[0].HeaderText = "Id";
-            this.Grid.Columns[1].HeaderText = "Comisión";
-            this.Grid.Columns[2].HeaderText = "Año Especialidad";
-            this.Grid.Columns[3].HeaderText = "Plan";
+            this.Grid.Columns[1].HeaderText = "Materia";
+            this.Grid.Columns[2].HeaderText = "Comisión";
+            this.Grid.Columns[3].HeaderText = "Año";
+            this.Grid.Columns[4].HeaderText = "Docente";
+            this.Grid.Columns[5].HeaderText = "Cargo";
 
         }
         else
@@ -84,11 +84,11 @@ public partial class ComisionLista : Form
         }
     }
 
-    private ComisionDto SelectedItem()
+    private NotaDto SelectedItem()
     {
-        ComisionDto registro;
+        NotaDto registro;
 
-        registro = (ComisionDto)Grid.SelectedRows[0].DataBoundItem;
+        registro = (NotaDto)Grid.SelectedRows[0].DataBoundItem;
 
         return registro;
     }

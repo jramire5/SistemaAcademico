@@ -38,12 +38,30 @@ public class AlumnoInscripcionService
 
         return await context.AlumnosInscripciones.FindAsync(id);
     }
-
-    public async Task<IEnumerable<AlumnoInscripcionDto>> GetAll()
+    public async Task<IEnumerable<AlumnoDropDownDto>> GetAlumnosPorCurso(int idCurso)
     {
         using var context = new AcademiaContext();
 
-        List<AlumnoInscripcion> lista = await context.AlumnosInscripciones.Include(d => d.Curso).ThenInclude(d => d.Comision).Include(d => d.Curso).ThenInclude(d => d.Materia).Include(d => d.Persona).ToListAsync();
+        List<AlumnoInscripcion> lista = await context.AlumnosInscripciones
+            .Include(d => d.Persona).Where(i=>i.id_curso== idCurso).ToListAsync();
+
+        List<AlumnoDropDownDto> listadto = new List<AlumnoDropDownDto>();
+        foreach (var item in lista)
+        {
+            listadto.Add(new AlumnoDropDownDto()
+            {
+                id_persona = item.id_alumno,
+                nombre = $"{item.Persona.nombre} {item.Persona.apellido}"            
+            });
+        }
+        return listadto;
+    }
+
+    public async Task<IEnumerable<AlumnoInscripcionDto>> GetAll(int? idAlumno)
+    {
+        using var context = new AcademiaContext();
+
+        List<AlumnoInscripcion> lista = await context.AlumnosInscripciones.Include(d => d.Curso).ThenInclude(d => d.Comision).Include(d => d.Curso).ThenInclude(d => d.Materia).Include(d => d.Persona).Where(i=> idAlumno==null || idAlumno==0 || i.id_alumno== idAlumno).ToListAsync();
 
         List<AlumnoInscripcionDto> listadto = new List<AlumnoInscripcionDto>();
         foreach (var item in lista)
@@ -54,7 +72,7 @@ public class AlumnoInscripcionService
                 desc_materia = item.Curso.Materia.desc_materia,
                 desc_comision = item.Curso.Comision.desc_comision,
                 anio_calendario = item.Curso.anio_calendario,
-                alumno = item.Persona.nombre
+                alumno = $"{item.Persona.nombre} {item.Persona.apellido}"
             });
         }
         return listadto;

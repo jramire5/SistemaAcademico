@@ -22,6 +22,8 @@ internal class AcademiaContext : DbContext
     public DbSet<TipoPersona> TipoPersona { get; set; }
     public DbSet<Condicion> Condicion { get; set; }
     public DbSet<Cargo> Cargo { get; set; }
+    public DbSet<Nota> Nota { get; set; }
+    
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {      
@@ -39,6 +41,7 @@ internal class AcademiaContext : DbContext
         modelBuilder.ApplyConfiguration(new TipoPersonaConfig());
         modelBuilder.ApplyConfiguration(new CondicionConfig());
         modelBuilder.ApplyConfiguration(new CargoConfig());
+        modelBuilder.ApplyConfiguration(new NotaConfig());
     }
     internal AcademiaContext()
     {

@@ -29,7 +29,7 @@ public class UsuarioService
     public async Task<Usuario?> GetByName(string userName)
     {
         using var context = new AcademiaContext();
-        return await context.Usuarios.Where(u => u.nombre_usuario == userName).FirstOrDefaultAsync();
+        return await context.Usuarios.Where(u => u.nombre_usuario == userName).Include(u=>u.Persona).ThenInclude(p=>p.TipoPersona).FirstOrDefaultAsync();
     }
     public async Task<Usuario?> Get(int id)
     {
@@ -42,18 +42,19 @@ public class UsuarioService
     {
         using var context = new AcademiaContext();
 
-        List<Usuario> lista = await context.Usuarios.Include(u=>u.Persona).ToListAsync();
+        List<Usuario> lista = await context.Usuarios.Include(u=>u.Persona).ThenInclude(p=>p.TipoPersona).ToListAsync();
 
         List<UsuarioDto> listadto = new List<UsuarioDto>();
         foreach (var item in lista)
         {
             listadto.Add(new UsuarioDto()
             {
-                id_usuario=item.id_usuario,
-                nombre_usuario = item.nombre_usuario,            
-                nombre = !string.IsNullOrEmpty(item.nombre) ? item.nombre: item.Persona.nombre,
+                id_usuario = item.id_usuario,
+                nombre_usuario = item.nombre_usuario,
+                nombre = !string.IsNullOrEmpty(item.nombre) ? item.nombre : item.Persona.nombre,
                 apellido = !string.IsNullOrEmpty(item.apellido) ? item.apellido : item.Persona.apellido,
                 email = !string.IsNullOrEmpty(item.email) ? item.email : item.Persona.email,
+                tipo_persona_descr = (item.id_persona is null || item.id_persona == 0) ? string.Empty : item.Persona.TipoPersona.descripcion
             });
         }
         return listadto;

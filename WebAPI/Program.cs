@@ -33,6 +33,7 @@ builder.Services.AddScoped<ModuloService>();
 builder.Services.AddScoped<ModuloUsuarioService>();
 builder.Services.AddScoped<CondicionService>();
 builder.Services.AddScoped<CargoService>();
+builder.Services.AddScoped<NotaService>();
 builder.Services.AddScoped<ReportRunner>();
 
 var app = builder.Build();
@@ -65,6 +66,7 @@ app.MapModuloUsuarioEndpoints();
 app.MapCondicionEndpoints();
 app.MapCargoEndpoints();
 app.MapReportesEndpoints();
+app.MapNotaEndpoints();
 
 app.UseCors(x => x.AllowAnyOrigin()
 .AllowAnyMethod()

@@ -1,7 +1,7 @@
-﻿using Domain.Model;
-using Domain.Model.Dtos;
+﻿using Domain.Model.Dtos;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
+using WindowsForms.Servicios;
 
 
 namespace WindowsForms.ApiServices;
@@ -22,12 +22,13 @@ public class AutenticacionApiClient
 
     public static async Task<bool> Login(UsuarioLoginDto loginDto)
     {
-        Usuario usuarioAutenticado;
+        UsuarioAutenticadoDto usuarioAutenticado;
         HttpResponseMessage response = await client.PostAsJsonAsync("login", loginDto);
         if (response.IsSuccessStatusCode)
         {
-            usuarioAutenticado = await response.Content.ReadAsAsync<Usuario>();
-            UsuarioAutenticado.idUsuarioAutenticado = usuarioAutenticado.id_usuario;//Setea el id del usuario autenticado.
+            usuarioAutenticado = await response.Content.ReadAsAsync<UsuarioAutenticadoDto>();
+
+            UsuarioAutenticadoService.usuarioAutenticado = usuarioAutenticado;//Setea el usuario autenticado.
         }
         return response.IsSuccessStatusCode;
     }

@@ -1,6 +1,6 @@
 ﻿namespace WindowsForms;
 
-partial class ModuloLista
+partial class NotaLista
 {
     /// <summary>
     /// Required designer variable.
@@ -41,41 +41,41 @@ partial class ModuloLista
         Grid.Location = new Point(60, 58);
         Grid.Name = "Grid";
         Grid.RowHeadersWidth = 51;
+        Grid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         Grid.Size = new Size(797, 350);
         Grid.TabIndex = 0;
-        Grid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         // 
-        // btnAceptar
+        // btn_agregar
         // 
         btn_agregar.Location = new Point(377, 458);
-        btn_agregar.Name = "btnAceptar";
+        btn_agregar.Name = "btn_agregar";
         btn_agregar.Size = new Size(94, 29);
         btn_agregar.TabIndex = 1;
         btn_agregar.Text = "Agregar";
         btn_agregar.UseVisualStyleBackColor = true;
         btn_agregar.Click += btn_agregar_Click;
         // 
-        // btnModificar
+        // btn_modificar
         // 
         btn_modificar.Location = new Point(494, 458);
-        btn_modificar.Name = "btnModificar";
+        btn_modificar.Name = "btn_modificar";
         btn_modificar.Size = new Size(94, 29);
         btn_modificar.TabIndex = 2;
         btn_modificar.Text = "Modificar";
         btn_modificar.UseVisualStyleBackColor = true;
         btn_modificar.Click += btn_modificar_click;
         // 
-        // btnEliminar
+        // btn_eliminar
         // 
         btn_eliminar.Location = new Point(618, 458);
-        btn_eliminar.Name = "btnEliminar";
+        btn_eliminar.Name = "btn_eliminar";
         btn_eliminar.Size = new Size(94, 29);
         btn_eliminar.TabIndex = 3;
         btn_eliminar.Text = "Eliminar";
         btn_eliminar.UseVisualStyleBackColor = true;
         btn_eliminar.Click += btn_eliminar_click;
         // 
-        // ModuloLista
+        // NotaLista
         // 
         AutoScaleDimensions = new SizeF(8F, 20F);
         AutoScaleMode = AutoScaleMode.Font;
@@ -85,9 +85,9 @@ partial class ModuloLista
         Controls.Add(btn_agregar);
         Controls.Add(Grid);
         Margin = new Padding(3, 4, 3, 4);
-        Name = "ModuloLista";
+        Name = "NotaLista";
         StartPosition = FormStartPosition.CenterParent;
-        Text = "Modulo Lista";
+        Text = "Notas Lista";
         Load += Lista_Load;
         ((System.ComponentModel.ISupportInitialize)Grid).EndInit();
         ResumeLayout(false);
@@ -95,8 +95,8 @@ partial class ModuloLista
 
     #endregion
 
+    private DataGridView Grid;
     private Button btn_agregar;
     private Button btn_modificar;
     private Button btn_eliminar;
-    private DataGridView Grid;
 }

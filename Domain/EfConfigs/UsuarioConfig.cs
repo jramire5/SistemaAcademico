@@ -13,8 +13,5 @@ public class UsuarioConfig : IEntityTypeConfiguration<Usuario>
         builder.Property(p => p.nombre).HasMaxLength(50);
         builder.Property(p => p.apellido).HasMaxLength(50);
         builder.Property(p => p.email).HasMaxLength(50).IsRequired();
-
-
-    }
- 
+    } 
 }

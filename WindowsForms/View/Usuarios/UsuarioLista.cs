@@ -1,19 +1,23 @@
 ﻿using Domain.Model.Dtos;
 using Domain.Model;
 using WindowsForms.ApiServices;
-using System.Windows.Forms;
-using System.Drawing.Text;
+using WindowsForms.Servicios;
 
-namespace WindowsForms.View.Usuarios;
+
+namespace WindowsForms;
 
 public partial class UsuarioLista : Form
 {
     public UsuarioLista()
     {
         InitializeComponent();
+
+        btn_agregar.Enabled=UsuarioAutenticadoService.AccedeAAlta(this.Name);
+        btn_modificar.Enabled = UsuarioAutenticadoService.AccedeAModificar(this.Name);
+        btn_eliminar.Enabled = UsuarioAutenticadoService.AccedeABaja(this.Name);
     }
 
-    private void Lista_Load(object sender, EventArgs e)
+private void Lista_Load(object sender, EventArgs e)
     {
         this.GetAllAndLoad();
     }
@@ -71,17 +75,19 @@ public partial class UsuarioLista : Form
             this.Grid.Rows[0].Selected = true;
             this.btn_eliminar.Enabled = true;
             this.btn_modificar.Enabled = true;
-            this.Grid.Columns[0].HeaderText = "Id";
-            this.Grid.Columns[1].HeaderText = "Usuario";
-            this.Grid.Columns[2].HeaderText = "Nombre";
-            this.Grid.Columns[3].HeaderText = "Apellido";
-            this.Grid.Columns[4].HeaderText = "Email";
+   
         }
         else
         {
             this.btn_eliminar.Enabled = false;
             this.btn_modificar.Enabled = false;
         }
+        this.Grid.Columns[0].HeaderText = "Id";
+        this.Grid.Columns[1].HeaderText = "Usuario";
+        this.Grid.Columns[2].HeaderText = "Nombre";
+        this.Grid.Columns[3].HeaderText = "Apellido";
+        this.Grid.Columns[4].HeaderText = "Email";
+        this.Grid.Columns[4].HeaderText = "Tipo Usuario";
     }
 
     private bool FilaSeleccionada()=> !((Grid.SelectedRows is null || Grid.SelectedRows.Count==0) && Grid.CurrentCell.RowIndex < 0);

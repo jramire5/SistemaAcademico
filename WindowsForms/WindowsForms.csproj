@@ -70,6 +70,12 @@
     <Compile Update="View\Modulo\ModuloLista.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="View\Nota\NotaDetalle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\Nota\NotaLista.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="View\Plan\PlanLista.cs">
       <SubType>Form</SubType>
     </Compile>

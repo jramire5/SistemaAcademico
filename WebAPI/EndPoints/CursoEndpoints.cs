@@ -20,6 +20,12 @@ public static class CursoEndpoints
             return curso is not null ? Results.Ok(curso) : Results.NotFound();
         });
 
+        
+        routes.MapGet("/cursos-persona/{id_persona}"  , async (int id_persona, CursoService cursoService) =>
+        {
+            var cursos = await cursoService.GetAllPorPersona(id_persona);
+            return cursos is not null ? Results.Ok(cursos) : Results.NotFound();
+        });
         routes.MapGet("/cursos", async (CursoService cursoService) =>
         {
             var cursos = await cursoService.GetAll();

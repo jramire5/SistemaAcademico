@@ -1,6 +1,7 @@
 ﻿using Domain.Model;
 
 using WindowsForms.ApiServices;
+using WindowsForms.Servicios;
 
 namespace WindowsForms;
 
@@ -9,6 +10,9 @@ public partial class MateriaLista : Form
     public MateriaLista()
     {
         InitializeComponent();
+        btn_agregar.Enabled = UsuarioAutenticadoService.AccedeAAlta(this.Name);
+        btn_modificar.Enabled = UsuarioAutenticadoService.AccedeAModificar(this.Name);
+        btn_eliminar.Enabled = UsuarioAutenticadoService.AccedeABaja(this.Name);
     }
 
     private void MateriaLista_Load(object sender, EventArgs e)
@@ -67,8 +71,8 @@ public partial class MateriaLista : Form
         if (this.MateriasGrid.Rows.Count > 0)
         {
             this.MateriasGrid.Rows[0].Selected = true;
-            this.btnEliminar.Enabled = true;
-            this.btnModificar.Enabled = true;
+            this.btn_eliminar.Enabled = true;
+            this.btn_modificar.Enabled = true;
             this.MateriasGrid.Columns[0].HeaderText = "Id";
             this.MateriasGrid.Columns[1].HeaderText = "Descripción";
             this.MateriasGrid.Columns[2].HeaderText = "Horas Semanales";
@@ -77,8 +81,8 @@ public partial class MateriaLista : Form
         }
         else
         {
-            this.btnEliminar.Enabled = false;
-            this.btnModificar.Enabled = false;
+            this.btn_eliminar.Enabled = false;
+            this.btn_modificar.Enabled = false;
         }
     }
 

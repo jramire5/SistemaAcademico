@@ -1,7 +1,6 @@
 ﻿using Domain.Model;
 using Domain.Model.Dtos;
 using Microsoft.EntityFrameworkCore;
-using Mysqlx.Prepare;
 
 namespace Domain.Services;
 
@@ -14,7 +13,7 @@ public class ModuloUsuarioService
         List<ModuloUsuario> lista = await _context.moduloUsuarios
             .Include(mu => mu.Modulo) // Incluir la relación con Modulo
             .Include(mu => mu.Usuario) // Incluir la relación con Usuario
-            .Where(m => m.Modulo.ejecuta != "" && m.Usuario.id_usuario== idUsuario)
+            .Where(m => m.Modulo.ejecuta != "" && m.Usuario.id_usuario== idUsuario && m.Consulta)
             .ToListAsync();
 
         List<MenuItemDto> listadto = new List<MenuItemDto>();
@@ -24,11 +23,8 @@ public class ModuloUsuarioService
             {
                 label = item.Modulo.descripcion_modulo,
                 ejecuta = item.Modulo.ejecuta,
-                secuencia= 0,
-                Alta = item.Alta,
-                Baja = item.Baja,
-                Modificacion = item.Modificacion,
-                Consulta = item.Consulta
+                secuencia= 0         
+           
               /*  IdModuloUsuario = item.IdModuloUsuario,
                 nombre_usuario = item.Usuario.nombre_usuario,
                 nombre_modulo = item.Modulo.descripcion_modulo,
@@ -36,6 +32,39 @@ public class ModuloUsuarioService
                 Baja = item.Baja,
                 Modificacion = item.Modificacion,
                 Consulta = item.Consulta*/
+            });
+        }
+        return listadto;
+
+    }
+    public async Task<List<ModuloUsuarioAutenticadoDto>> GetSeguridadDeModulos(int idUsuario)
+    {
+        using var _context = new AcademiaContext();
+
+        List<ModuloUsuario> lista = await _context.moduloUsuarios
+            .Include(mu => mu.Modulo) // Incluir la relación con Modulo
+            .Include(mu => mu.Usuario) // Incluir la relación con Usuario
+            .Where(m => m.Modulo.ejecuta != "" && m.Usuario.id_usuario == idUsuario)
+            .ToListAsync();
+
+        List<ModuloUsuarioAutenticadoDto> listadto = new List<ModuloUsuarioAutenticadoDto>();
+        foreach (var item in lista)
+        {
+            listadto.Add(new ModuloUsuarioAutenticadoDto()
+            {
+                nombre_modulo_ejecuta= item.Modulo.ejecuta,
+                Alta=item.Alta,
+                Baja=item.Baja,
+                Modificacion=item.Modificacion,
+                Consulta=item.Consulta
+
+                /*  IdModuloUsuario = item.IdModuloUsuario,
+                  nombre_usuario = item.Usuario.nombre_usuario,
+                  nombre_modulo = item.Modulo.descripcion_modulo,
+                  Alta = item.Alta,
+                  Baja = item.Baja,
+                  Modificacion = item.Modificacion,
+                  Consulta = item.Consulta*/
             });
         }
         return listadto;

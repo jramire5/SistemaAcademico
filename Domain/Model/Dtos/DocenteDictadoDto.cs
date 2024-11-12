@@ -1,8 +1,7 @@
 ﻿namespace Domain.Model.Dtos;
-public class DocenteCursoDto
+public class DocenteDictadoDto
 {
     public int id_dictado { get; set; }
-    public int id_curso { get; set; }
     public string desc_materia { get; set; }
     public string desc_comision { get; set; }
     public int anio_calendario { get; set; }
