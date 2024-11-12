@@ -65,9 +65,9 @@ public partial class AlumnoInscripcionDetalle : Form
         {
             //   this.Materia.id_materia = int.Parse(this.txtId.Text);
             this.Entidad.id_condicion = (int)this.cmbCondicion.SelectedValue;
-        this.Entidad.nota = = txtnota.Text.Length == 0 ? 0 : int.Parse(this.txtnota.Text);
+        this.Entidad.nota =  txtnota.Text.Length == 0 ? 0 : int.Parse(this.txtnota.Text);
             if (UsuarioAutenticadoService.isAlumno())
-                this.Entidad.id_alumno =  = UsuarioAutenticadoService.usuarioAutenticado.id_persona ?? 0;
+                this.Entidad.id_alumno =  UsuarioAutenticadoService.usuarioAutenticado.id_persona ?? 0;
             else
                 this.Entidad.id_alumno = (int)this.cmbid_alumno.SelectedValue;
         this.Entidad.id_curso = (int)this.cmbid_curso.SelectedValue;
