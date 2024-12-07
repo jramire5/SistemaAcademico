@@ -10,7 +10,7 @@ public class AlumnoInscripcionService
     {
         using var context = new AcademiaContext();
 
-        context.AlumnosInscripciones.Add(alumnoInscripcion);
+        context.alumnosinscripciones.Add(alumnoInscripcion);
         await context.SaveChangesAsync();
     }
 
@@ -18,11 +18,11 @@ public class AlumnoInscripcionService
     {
         using var context = new AcademiaContext();
 
-        AlumnoInscripcion? inscripcionToDelete = await context.AlumnosInscripciones.FindAsync(id);
+        AlumnoInscripcion? inscripcionToDelete = await context.alumnosinscripciones.FindAsync(id);
 
         if (inscripcionToDelete != null)
         {
-            context.AlumnosInscripciones.Remove(inscripcionToDelete);
+            context.alumnosinscripciones.Remove(inscripcionToDelete);
             await context.SaveChangesAsync();
         }
     }
@@ -31,13 +31,13 @@ public class AlumnoInscripcionService
     {
         using var context = new AcademiaContext();
 
-        return await context.AlumnosInscripciones.FindAsync(id);
+        return await context.alumnosinscripciones.FindAsync(id);
     }
     public async Task<IEnumerable<AlumnoDropDownDto>> GetAlumnosPorCurso(int idCurso)
     {
         using var context = new AcademiaContext();
 
-        List<AlumnoInscripcion> lista = await context.AlumnosInscripciones
+        List<AlumnoInscripcion> lista = await context.alumnosinscripciones
             .Include(d => d.Persona).Where(i=>i.id_curso== idCurso).ToListAsync();
 
         List<AlumnoDropDownDto> listadto = new List<AlumnoDropDownDto>();
@@ -57,7 +57,7 @@ public class AlumnoInscripcionService
     {
         using var context = new AcademiaContext();
 
-        List<AlumnoInscripcion> lista = await context.AlumnosInscripciones.Include(d => d.Curso).ThenInclude(d => d.Comision).Include(d => d.Curso).ThenInclude(d => d.Materia).Include(d => d.Persona).Where(i=> idAlumno==null || idAlumno==0 || i.id_alumno== idAlumno).ToListAsync();
+        List<AlumnoInscripcion> lista = await context.alumnosinscripciones.Include(d => d.Curso).ThenInclude(d => d.Comision).Include(d => d.Curso).ThenInclude(d => d.Materia).Include(d => d.Persona).Where(i=> idAlumno==null || idAlumno==0 || i.id_alumno== idAlumno).ToListAsync();
 
         List<AlumnoInscripcionDto> listadto = new List<AlumnoInscripcionDto>();
         foreach (var item in lista)
@@ -78,7 +78,7 @@ public class AlumnoInscripcionService
     {
         using var context = new AcademiaContext();
 
-        AlumnoInscripcion? inscripcionToUpdate = await context.AlumnosInscripciones.FindAsync(alumnoInscripcion.id_inscripcion);
+        AlumnoInscripcion? inscripcionToUpdate = await context.alumnosinscripciones.FindAsync(alumnoInscripcion.id_inscripcion);
 
         if (inscripcionToUpdate != null)
         {

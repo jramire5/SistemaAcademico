@@ -8,21 +8,21 @@ namespace Domain;
 internal class AcademiaContext : DbContext
 {
     // String connectionString = "server=localhost;port=3306;user=root;password=root2;database=academia;";
-    internal DbSet<Persona> Personas { get; set; }
-    internal DbSet<Usuario> Usuarios { get; set; }
-    internal DbSet<Materia> Materia { get; set; }
-    public DbSet<Curso> Cursos { get; set; }
-    public DbSet<Comision> Comisiones { get; set; }
-    public DbSet<Plan> Planes { get; set; }
-    public DbSet<AlumnoInscripcion> AlumnosInscripciones { get; set; }
-    public DbSet<Especialidad> Especialidades { get; set; }
-    internal DbSet<Modulo> Modulos { get; set; }
-    internal DbSet<ModuloUsuario> moduloUsuarios { get; set; }
-    public DbSet<DocenteCurso> DocenteCurso { get; set; }
-    public DbSet<TipoPersona> TipoPersona { get; set; }
-    public DbSet<Condicion> Condicion { get; set; }
-    public DbSet<Cargo> Cargo { get; set; }
-    public DbSet<Nota> Nota { get; set; }
+    internal DbSet<Persona> personas { get; set; }
+    internal DbSet<Usuario> usuarios { get; set; }
+    internal DbSet<Materia> materia { get; set; }
+    public DbSet<Curso> cursos { get; set; }
+    public DbSet<Comision> comisiones { get; set; }
+    public DbSet<Plan> planes { get; set; }
+    public DbSet<AlumnoInscripcion> alumnosinscripciones { get; set; }
+    public DbSet<Especialidad> especialidades { get; set; }
+    internal DbSet<Modulo> modulos { get; set; }
+    internal DbSet<ModuloUsuario> modulousuarios { get; set; }
+    public DbSet<DocenteCurso> docentecurso { get; set; }
+    public DbSet<TipoPersona> tipopersona { get; set; }
+    public DbSet<Condicion> condicion { get; set; }
+    public DbSet<Cargo> cargo { get; set; }
+    public DbSet<Nota> nota { get; set; }
     
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -49,7 +49,10 @@ internal class AcademiaContext : DbContext
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) =>
+    
         
         optionsBuilder.UseMySQL(DbConfigService.GetDbConnectionString());
+
+
         //optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Initial Catalog=AcademiaDb");
 }

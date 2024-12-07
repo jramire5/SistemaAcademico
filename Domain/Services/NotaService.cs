@@ -16,13 +16,13 @@ public class NotaService
         notaNueva.id_inscripcion = nota.id_inscripcion;
         notaNueva.descripcion = nota.descripcion;            
 
-        AlumnoInscripcion inscripcionToUpdate = await context.AlumnosInscripciones.FindAsync(nota.id_inscripcion);
+        AlumnoInscripcion inscripcionToUpdate = await context.alumnosinscripciones.FindAsync(nota.id_inscripcion);
 
         if (inscripcionToUpdate == null)        
             throw new Exception("Registro inscripción no fue encontrado");
         
 
-        context.Nota.Add(notaNueva);
+        context.nota.Add(notaNueva);
 
         inscripcionToUpdate.nota = nota.nota;
 
@@ -34,11 +34,11 @@ public class NotaService
     {
         using var context = new AcademiaContext();
 
-        Nota? notaToDelete = await context.Nota.FindAsync(id);
+        Nota? notaToDelete = await context.nota.FindAsync(id);
 
         if (notaToDelete != null)
         {
-            context.Nota.Remove(notaToDelete);
+            context.nota.Remove(notaToDelete);
             await context.SaveChangesAsync();
         }
     }
@@ -47,13 +47,13 @@ public class NotaService
     {
         using var context = new AcademiaContext();
 
-        return await context.Nota.FindAsync(id);
+        return await context.nota.FindAsync(id);
     }
     public async Task<Nota?> GetByInscripcion(int idInscripcion)
     {
         using var context = new AcademiaContext();
 
-        return await context.Nota.Where(n => n.id_inscripcion == idInscripcion).FirstOrDefaultAsync();
+        return await context.nota.Where(n => n.id_inscripcion == idInscripcion).FirstOrDefaultAsync();
     }
 
     public async Task<IEnumerable<NotaDto>> GetAll()
@@ -61,7 +61,7 @@ public class NotaService
         using var context = new AcademiaContext();
 
         List<Nota> notas= 
-            await context.Nota.Include(n=>n.AlumnoInscripcion).ThenInclude(i=>i.Persona)//Alumno inscripcion ->Persona (Alumno)
+            await context.nota.Include(n=>n.AlumnoInscripcion).ThenInclude(i=>i.Persona)//Alumno inscripcion ->Persona (Alumno)
             .Include(n=>n.DocenteCurso).ThenInclude(d=>d.Persona)//Docente
             .Include(n => n.DocenteCurso).ThenInclude(d => d.Curso).ThenInclude(c => c.Materia)//Docente->Curso->Materia
             .Include(n => n.DocenteCurso).ThenInclude(d => d.Curso).ThenInclude(c => c.Comision)//Docente->Curso->Comision
@@ -89,12 +89,12 @@ public class NotaService
     {
         using var context = new AcademiaContext();
 
-        Nota? notaToUpdate = await context.Nota.FindAsync(nota.id_nota);
+        Nota? notaToUpdate = await context.nota.FindAsync(nota.id_nota);
         if (notaToUpdate == null)        
             throw new Exception("Registro Nota no fue encontrado");
         
 
-        AlumnoInscripcion inscripcionToUpdate = await context.AlumnosInscripciones.FindAsync(nota.id_inscripcion);
+        AlumnoInscripcion inscripcionToUpdate = await context.alumnosinscripciones.FindAsync(nota.id_inscripcion);
 
         if (inscripcionToUpdate == null)        
             throw new Exception("Registro inscripción no fue encontrado");

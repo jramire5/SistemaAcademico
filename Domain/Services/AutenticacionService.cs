@@ -10,7 +10,7 @@ public class AutenticacionService
     {
         using var context = new AcademiaContext();
 
-        var usuario = await context.Usuarios.Where(u => u.nombre_usuario == loginModel.nombre_usuario).FirstOrDefaultAsync();
+        var usuario = await context.usuarios.Where(u => u.nombre_usuario == loginModel.nombre_usuario).FirstOrDefaultAsync();
 
         if (usuario == null)
         {

@@ -19,7 +19,7 @@ public class ComisionService
     {
         using var context = new AcademiaContext();
 
-        context.Comisiones.Add(comision);
+        context.comisiones.Add(comision);
         await context.SaveChangesAsync();
     }
 
@@ -27,11 +27,11 @@ public class ComisionService
     {
         using var context = new AcademiaContext();
 
-        Comision? comisionToDelete = await context.Comisiones.FindAsync(id);
+        Comision? comisionToDelete = await context.comisiones.FindAsync(id);
 
         if (comisionToDelete != null)
         {
-            context.Comisiones.Remove(comisionToDelete);
+            context.comisiones.Remove(comisionToDelete);
             await context.SaveChangesAsync();
         }
     }
@@ -40,14 +40,14 @@ public class ComisionService
     {
         using var context = new AcademiaContext();
 
-        return await context.Comisiones.FindAsync(id);
+        return await context.comisiones.FindAsync(id);
     }
 
     public async Task<IEnumerable<ComisionDto>> GetAll()
     {
         using var context = new AcademiaContext();
 
-        List<Comision> lista = await context.Comisiones.Include(c=>c.Plan).ThenInclude(p=>p.Especialidad).ToListAsync();
+        List<Comision> lista = await context.comisiones.Include(c=>c.Plan).ThenInclude(p=>p.Especialidad).ToListAsync();
 
         List<ComisionDto> listadto = new List<ComisionDto>();
         foreach (var item in lista)
@@ -69,7 +69,7 @@ public class ComisionService
     {
         using var context = new AcademiaContext();
 
-        Comision? comisionToUpdate = await context.Comisiones.FindAsync(comision.id_comision);
+        Comision? comisionToUpdate = await context.comisiones.FindAsync(comision.id_comision);
 
         if (comisionToUpdate != null)
         {

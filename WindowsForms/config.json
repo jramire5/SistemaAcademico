@@ -1,3 +1,4 @@
 {
-  "ApiUrl": "http://18.226.226.246:8081/"
+  "ApiUrl": "http://18.226.226.246:8081/",
+  "ApiUrlBKP": "http://localhost:5183/"
 }

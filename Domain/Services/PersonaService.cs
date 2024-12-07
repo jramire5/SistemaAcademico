@@ -10,7 +10,7 @@ public class PersonaService
     {
         using var context = new AcademiaContext();
 
-        context.Personas.Add(persona);
+        context.personas.Add(persona);
         await context.SaveChangesAsync();
     }
 
@@ -18,11 +18,11 @@ public class PersonaService
     {
         using var context = new AcademiaContext();
 
-        Persona? personaToDelete = await context.Personas.FindAsync(id);
+        Persona? personaToDelete = await context.personas.FindAsync(id);
 
         if (personaToDelete != null)
         {
-            context.Personas.Remove(personaToDelete);
+            context.personas.Remove(personaToDelete);
             await context.SaveChangesAsync();
         }
     }
@@ -31,14 +31,14 @@ public class PersonaService
     {
         using var context = new AcademiaContext();
 
-        return await context.Personas.FindAsync(id);
+        return await context.personas.FindAsync(id);
     }
 
     public async Task<IEnumerable<PersonaDto>> GetAll()
     {
         using var context = new AcademiaContext();
 
-        List<Persona> lista=await context.Personas.Include(p=>p.Plan).ThenInclude(pl=>pl.Especialidad).Include(p=>p.TipoPersona).ToListAsync();
+        List<Persona> lista=await context.personas.Include(p=>p.Plan).ThenInclude(pl=>pl.Especialidad).Include(p=>p.TipoPersona).ToListAsync();
 
         List<PersonaDto> listadto = new List<PersonaDto>();
         foreach (var item in lista)
@@ -58,7 +58,7 @@ public class PersonaService
     {
         using var context = new AcademiaContext();
 
-        List<Persona> lista = await context.Personas.Include(p => p.Plan).ThenInclude(pl => pl.Especialidad).Include(p => p.TipoPersona).Where(p=>p.tipo_persona== tipoPersona).ToListAsync();
+        List<Persona> lista = await context.personas.Include(p => p.Plan).ThenInclude(pl => pl.Especialidad).Include(p => p.TipoPersona).Where(p=>p.tipo_persona== tipoPersona).ToListAsync();
 
         List<PersonaDto> listadto = new List<PersonaDto>();
         foreach (var item in lista)
@@ -79,7 +79,7 @@ public class PersonaService
     {
         using var context = new AcademiaContext();
 
-        Persona? personaToUpdate =await context.Personas.FindAsync(persona.id_persona);
+        Persona? personaToUpdate =await context.personas.FindAsync(persona.id_persona);
 
         if (personaToUpdate != null)
         {

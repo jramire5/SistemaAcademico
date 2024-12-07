@@ -10,7 +10,7 @@ public class ModuloUsuarioService
     {
         using var _context = new AcademiaContext();
 
-        List<ModuloUsuario> lista = await _context.moduloUsuarios
+        List<ModuloUsuario> lista = await _context.modulousuarios
             .Include(mu => mu.Modulo) // Incluir la relación con Modulo
             .Include(mu => mu.Usuario) // Incluir la relación con Usuario
             .Where(m => m.Modulo.ejecuta != "" && m.Usuario.id_usuario== idUsuario && m.Consulta)
@@ -41,7 +41,7 @@ public class ModuloUsuarioService
     {
         using var _context = new AcademiaContext();
 
-        List<ModuloUsuario> lista = await _context.moduloUsuarios
+        List<ModuloUsuario> lista = await _context.modulousuarios
             .Include(mu => mu.Modulo) // Incluir la relación con Modulo
             .Include(mu => mu.Usuario) // Incluir la relación con Usuario
             .Where(m => m.Modulo.ejecuta != "" && m.Usuario.id_usuario == idUsuario)

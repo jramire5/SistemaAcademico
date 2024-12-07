@@ -1,3 +1,5 @@
 {
-  "connectionString": "server=localhost;port=3306;user=root;password=root2;database=academia;"
+  "connectionString": "server=18.226.226.246;port=3306;user=root;password=root2;database=academia;",
+  "connectionbkp": "server=localhost;port=3306;user=root;password=root2;database=academia;"
+
 }

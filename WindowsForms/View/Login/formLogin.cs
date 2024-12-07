@@ -27,7 +27,5 @@ public partial class formLogin : Form
             MessageBox.Show("Usuario y/o contraseña incorrectos", "Login"
                 , MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-    }
-
-  
+    }  
 }

@@ -9,14 +9,14 @@ public class CondicionService
     {
         using var context = new AcademiaContext();
 
-        return await context.Condicion.FindAsync(id);
+        return await context.condicion.FindAsync(id);
     }
 
     public async Task<IEnumerable<Condicion>> GetAll()
     {
         using var context = new AcademiaContext();
 
-        List<Condicion> lista = await context.Condicion.ToListAsync();
+        List<Condicion> lista = await context.condicion.ToListAsync();
 
         return lista;
 

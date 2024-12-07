@@ -18,11 +18,11 @@ public class DocenteCursoService
     {
         using var context = new AcademiaContext();
 
-        DocenteCurso? docenteCursoToDelete = await context.DocenteCurso.FindAsync(id);
+        DocenteCurso? docenteCursoToDelete = await context.docentecurso.FindAsync(id);
 
         if (docenteCursoToDelete != null)
         {
-            context.DocenteCurso.Remove(docenteCursoToDelete);
+            context.docentecurso.Remove(docenteCursoToDelete);
             await context.SaveChangesAsync();
         }
     }
@@ -31,13 +31,13 @@ public class DocenteCursoService
     {
         using var context = new AcademiaContext();
 
-        return await context.DocenteCurso.FindAsync(id);
+        return await context.docentecurso.FindAsync(id);
     }
     public async Task<IEnumerable<DocenteCursoDto>> GetAllByDocente(int idDocente)
     {
         using var context = new AcademiaContext();
 
-        List<DocenteCurso> lista = await context.DocenteCurso.Include(d => d.Curso).ThenInclude(d => d.Comision).Include(d => d.Curso).ThenInclude(d => d.Materia).Include(d => d.Persona).Include(d => d.Cargo).Where(dc => dc.id_docente == idDocente || idDocente==0).ToListAsync();
+        List<DocenteCurso> lista = await context.docentecurso.Include(d => d.Curso).ThenInclude(d => d.Comision).Include(d => d.Curso).ThenInclude(d => d.Materia).Include(d => d.Persona).Include(d => d.Cargo).Where(dc => dc.id_docente == idDocente || idDocente==0).ToListAsync();
 
         List<DocenteCursoDto> listadto = new List<DocenteCursoDto>();
         foreach (var item in lista)
@@ -60,7 +60,7 @@ public class DocenteCursoService
     {
         using var context = new AcademiaContext();
 
-        List<DocenteCurso> lista = await context.DocenteCurso.Include(d=>d.Curso).ThenInclude(d => d.Comision).Include(d => d.Curso).ThenInclude(d=>d.Materia).Include(d=>d.Persona).Include(d=>d.Cargo).Where(p=> idDocente == null || idDocente ==0 || p.Persona.id_persona== idDocente).ToListAsync();
+        List<DocenteCurso> lista = await context.docentecurso.Include(d=>d.Curso).ThenInclude(d => d.Comision).Include(d => d.Curso).ThenInclude(d=>d.Materia).Include(d=>d.Persona).Include(d=>d.Cargo).Where(p=> idDocente == null || idDocente ==0 || p.Persona.id_persona== idDocente).ToListAsync();
 
         List<DocenteDictadoDto> listadto = new List<DocenteDictadoDto>();
         foreach (var item in lista)
@@ -82,7 +82,7 @@ public class DocenteCursoService
     public async Task Update(DocenteCurso docenteCurso)
     {
         using var context = new AcademiaContext();
-        DocenteCurso? docenteCursoToUpdate = await context.DocenteCurso.FindAsync(docenteCurso.id_dictado);
+        DocenteCurso? docenteCursoToUpdate = await context.docentecurso.FindAsync(docenteCurso.id_dictado);
 
         if (docenteCursoToUpdate != null)
         {

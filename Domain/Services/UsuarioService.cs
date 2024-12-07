@@ -18,31 +18,31 @@ public class UsuarioService
     {
         using var context = new AcademiaContext();
 
-        Usuario? usuarioToDelete = await context.Usuarios.FindAsync(id);
+        Usuario? usuarioToDelete = await context.usuarios.FindAsync(id);
 
         if (usuarioToDelete != null)
         {
-            context.Usuarios.Remove(usuarioToDelete);
+            context.usuarios.Remove(usuarioToDelete);
             await context.SaveChangesAsync();
         }
     }
     public async Task<Usuario?> GetByName(string userName)
     {
         using var context = new AcademiaContext();
-        return await context.Usuarios.Where(u => u.nombre_usuario == userName).Include(u=>u.Persona).ThenInclude(p=>p.TipoPersona).FirstOrDefaultAsync();
+        return await context.usuarios.Where(u => u.nombre_usuario == userName).Include(u=>u.Persona).ThenInclude(p=>p.TipoPersona).FirstOrDefaultAsync();
     }
     public async Task<Usuario?> Get(int id)
     {
         using var context = new AcademiaContext();
 
-        return await context.Usuarios.FindAsync(id);
+        return await context.usuarios.FindAsync(id);
     }
 
     public async Task<IEnumerable<UsuarioDto>> GetAll()
     {
         using var context = new AcademiaContext();
 
-        List<Usuario> lista = await context.Usuarios.Include(u=>u.Persona).ThenInclude(p=>p.TipoPersona).ToListAsync();
+        List<Usuario> lista = await context.usuarios.Include(u=>u.Persona).ThenInclude(p=>p.TipoPersona).ToListAsync();
 
         List<UsuarioDto> listadto = new List<UsuarioDto>();
         foreach (var item in lista)
@@ -65,7 +65,7 @@ public class UsuarioService
     {
         using var context = new AcademiaContext();
 
-        Usuario? usuarioToUpdate = await context.Usuarios.FindAsync(usuario.id_usuario);
+        Usuario? usuarioToUpdate = await context.usuarios.FindAsync(usuario.id_usuario);
 
         if (usuarioToUpdate != null)
         {

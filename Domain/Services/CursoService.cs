@@ -16,7 +16,7 @@ public class CursoService
     {
         using var context = new AcademiaContext();
 
-        context.Cursos.Add(curso);
+        context.cursos.Add(curso);
         await context.SaveChangesAsync();
     }
 
@@ -24,11 +24,11 @@ public class CursoService
     {
         using var context = new AcademiaContext();
 
-        Curso? cursoToDelete = await context.Cursos.FindAsync(id);
+        Curso? cursoToDelete = await context.cursos.FindAsync(id);
 
         if (cursoToDelete != null)
         {
-            context.Cursos.Remove(cursoToDelete);
+            context.cursos.Remove(cursoToDelete);
             await context.SaveChangesAsync();
         }
     }
@@ -37,7 +37,7 @@ public class CursoService
     {
         using var context = new AcademiaContext();
 
-        return await context.Cursos.FindAsync(id);
+        return await context.cursos.FindAsync(id);
     }
     public async Task<IEnumerable<CursoDto>> GetAllPorPersona(int id_persona)
     {
@@ -47,7 +47,7 @@ public class CursoService
         PersonaService personaService = new PersonaService();
         var persona=await personaService.Get(id_persona);
 
-        List<Curso> cursos = await context.Cursos.Include(c => c.Materia).Include(c => c.Comision).Where(c=>c.Materia.id_plan== persona.id_plan && c.anio_calendario==System.DateTime.Now.Year).ToListAsync();
+        List<Curso> cursos = await context.cursos.Include(c => c.Materia).Include(c => c.Comision).Where(c=>c.Materia.id_plan== persona.id_plan && c.anio_calendario==System.DateTime.Now.Year).ToListAsync();
 
         List<CursoDto> listadto = new List<CursoDto>();
         foreach (var item in cursos)
@@ -68,7 +68,7 @@ public class CursoService
     {
         using var context = new AcademiaContext();
 
-        List<Curso> cursos = await context.Cursos.Include(c=>c.Materia).Include(c=>c.Comision).ToListAsync();
+        List<Curso> cursos = await context.cursos.Include(c=>c.Materia).Include(c=>c.Comision).ToListAsync();
 
         List<CursoDto> listadto = new List<CursoDto>();
         foreach (var item in cursos)
@@ -90,7 +90,7 @@ public class CursoService
     {
         using var context = new AcademiaContext();
 
-        Curso? cursoToUpdate = await context.Cursos.FindAsync(curso.id_curso);
+        Curso? cursoToUpdate = await context.cursos.FindAsync(curso.id_curso);
 
         if (cursoToUpdate != null)
         {

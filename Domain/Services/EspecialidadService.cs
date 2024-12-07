@@ -14,7 +14,7 @@ public class EspecialidadService
     {
         using var context = new AcademiaContext();
 
-        context.Especialidades.Add(especialidad);
+        context.especialidades.Add(especialidad);
         await context.SaveChangesAsync();
     }
 
@@ -22,11 +22,11 @@ public class EspecialidadService
     {
         using var context = new AcademiaContext();
 
-        Especialidad? especialidadToDelete = await context.Especialidades.FindAsync(id);
+        Especialidad? especialidadToDelete = await context.especialidades.FindAsync(id);
 
         if (especialidadToDelete != null)
         {
-            context.Especialidades.Remove(especialidadToDelete);
+            context.especialidades.Remove(especialidadToDelete);
             await context.SaveChangesAsync();
         }
     }
@@ -35,21 +35,21 @@ public class EspecialidadService
     {
         using var context = new AcademiaContext();
 
-        return await context.Especialidades.FindAsync(id);
+        return await context.especialidades.FindAsync(id);
     }
 
     public async Task<IEnumerable<Especialidad>> GetAll()
     {
         using var context = new AcademiaContext();
 
-        return await context.Especialidades.ToListAsync();
+        return await context.especialidades.ToListAsync();
     }
 
     public async Task Update(Especialidad especialidad)
     {
         using var context = new AcademiaContext();
 
-        Especialidad? especialidadToUpdate = await context.Especialidades.FindAsync(especialidad.id_especialidad);
+        Especialidad? especialidadToUpdate = await context.especialidades.FindAsync(especialidad.id_especialidad);
 
         if (especialidadToUpdate != null)
         {

@@ -7,35 +7,35 @@ public class ModuloService
     public async Task Add (Modulo modulo)
     {
         using var context = new AcademiaContext();
-        context.Modulos.Add(modulo);
+        context.modulos.Add(modulo);
         await context.SaveChangesAsync();
     }
     public async Task<Modulo> Get(int id)
     {
         using var context = new AcademiaContext();
-        return await context.Modulos.FindAsync(id);
+        return await context.modulos.FindAsync(id);
     }
 
     public async Task<IEnumerable<Modulo>> GetAll()
     {
         using var context = new AcademiaContext();
 
-        return await context.Modulos.ToListAsync();
+        return await context.modulos.ToListAsync();
     }
 
     public async Task Update(Modulo modulo)
     {
         using var context = new AcademiaContext();
-        context.Modulos.Update(modulo);
+        context.modulos.Update(modulo);
         await context.SaveChangesAsync();
     }
     public async Task Delete(int id)
     {
         using var context = new AcademiaContext();
-        Modulo moduloABorrar = await context.Modulos.FindAsync(id);
+        Modulo moduloABorrar = await context.modulos.FindAsync(id);
         if (moduloABorrar != null)
         {
-            context.Modulos.Remove(moduloABorrar);
+            context.modulos.Remove(moduloABorrar);
             await context.SaveChangesAsync();
         }
     }

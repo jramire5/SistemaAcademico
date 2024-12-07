@@ -9,7 +9,7 @@ public class MateriaService
     {
         using var context = new AcademiaContext();
 
-        context.Materia.Add(materia);
+        context.materia.Add(materia);
         await context.SaveChangesAsync();
     }
 
@@ -17,11 +17,11 @@ public class MateriaService
     {
         using var context = new AcademiaContext();
 
-        Materia? materiaToDelete = await context.Materia.FindAsync(id);
+        Materia? materiaToDelete = await context.materia.FindAsync(id);
 
         if (materiaToDelete != null)
         {
-            context.Materia.Remove(materiaToDelete);
+            context.materia.Remove(materiaToDelete);
             await context.SaveChangesAsync();
         }
     }
@@ -30,14 +30,14 @@ public class MateriaService
     {
         using var context = new AcademiaContext();
 
-        return await context.Materia.FindAsync(id);
+        return await context.materia.FindAsync(id);
     }
 
     public async Task<IEnumerable<MateriaDto>> GetAll()
     {
         using var context = new AcademiaContext();
 
-        List<Materia> materias= await context.Materia.Include(m=>m.Plan).ToListAsync();
+        List<Materia> materias= await context.materia.Include(m=>m.Plan).ToListAsync();
 
         List<MateriaDto> listadto = new List<MateriaDto>();
         foreach (var item in materias)
@@ -58,7 +58,7 @@ public class MateriaService
     {
         using var context = new AcademiaContext();
 
-        Materia? materiaToUpdate = await context.Materia.FindAsync(materia.id_materia);
+        Materia? materiaToUpdate = await context.materia.FindAsync(materia.id_materia);
 
         if (materiaToUpdate != null)
         {

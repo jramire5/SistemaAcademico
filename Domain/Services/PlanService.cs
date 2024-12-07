@@ -11,7 +11,7 @@ public class PlanService
     {
         using var context = new AcademiaContext();
 
-        context.Planes.Add(plan);
+        context.planes.Add(plan);
         await context.SaveChangesAsync();
     }
 
@@ -19,11 +19,11 @@ public class PlanService
     {
         using var context = new AcademiaContext();
 
-        Plan? planToDelete = await context.Planes.FindAsync(id);
+        Plan? planToDelete = await context.planes.FindAsync(id);
 
         if (planToDelete != null)
         {
-            context.Planes.Remove(planToDelete);
+            context.planes.Remove(planToDelete);
             await context.SaveChangesAsync();
         }
     }
@@ -32,14 +32,14 @@ public class PlanService
     {
         using var context = new AcademiaContext();
 
-        return await context.Planes.FindAsync(id);
+        return await context.planes.FindAsync(id);
     }
 
     public async  Task<IEnumerable<PlanDto>> GetAll()
     {
         using var context = new AcademiaContext();
 
-        List<Plan> lista = await context.Planes.Include(p=>p.Especialidad).ToListAsync();
+        List<Plan> lista = await context.planes.Include(p=>p.Especialidad).ToListAsync();
 
         List<PlanDto> listadto = new List<PlanDto>();
         foreach (var item in lista)
@@ -58,7 +58,7 @@ public class PlanService
     {
         using var context = new AcademiaContext();
 
-        Plan? planToUpdate = await context.Planes.FindAsync(plan.id_plan);
+        Plan? planToUpdate = await context.planes.FindAsync(plan.id_plan);
 
         if (planToUpdate != null)
         {
