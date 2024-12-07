@@ -42,6 +42,11 @@ public partial class AlumnoInscripcionDetalle : Form
             this.cmbid_curso.DataSource = await CursoApiClient.GetDropDownValuesByPersonaAsync(UsuarioAutenticadoService.usuarioAutenticado.id_persona ?? 0);
             this.cmbid_curso.DisplayMember = "desc_materia_comi_anio";
             this.cmbid_curso.ValueMember = "id_curso";
+
+            this.cmbid_alumno.DataSource = await PersonaApiClient.GetAlumnosAsync();
+            this.cmbid_alumno.DisplayMember = "nombre";
+            this.cmbid_alumno.ValueMember = "id_persona";
+            this.cmbid_alumno.SelectedValue = UsuarioAutenticadoService.usuarioAutenticado.id_persona;
         }          
         else
         {
