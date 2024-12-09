@@ -14,7 +14,7 @@ else
 {
 
     <select @onchange="OnSelectionChange">
-        <option value="0">-- Selecionar un Docente --</option>
+        <option value="0">-- Ver Todos --</option>
         @foreach (var persona in personas)
         {
             <option value="@persona.id_persona">
@@ -22,7 +22,7 @@ else
             </option>
         }
     </select>
-
+}
     @if (docentesCurso == null)
     {
         @if (cargandoDocentes)
@@ -48,7 +48,7 @@ else
                 </tr>
             </thead>
             <tbody>
-                @foreach (var docentesC in docentesCurso)
+            @foreach (var docentesC in docentesCurso?.OrderBy(d=>d.docente).ThenBy(d=>d.anio_calendario))
                 {
                     <tr>
                         <td>@docentesC.id_dictado</td>
@@ -63,9 +63,9 @@ else
         </table>
     }
 
-}
+
 @code {
-    private DocenteDictadoDto[]? docentesCurso;
+    private List<DocenteDictadoDto>? docentesCurso;
     private List<PersonaDto> personas;
     private int selectedPersonaId;
     private bool cargandoDocentes;
@@ -74,7 +74,7 @@ else
     {
         try
         {
-            //  docentesCurso = await Http.GetFromJsonAsync<DocenteDictadoDto[]>("docente-cursos");
+            docentesCurso = await Http.GetFromJsonAsync<List<DocenteDictadoDto>>("docente-cursos/0");
             // Replace "your-api-url" with the actual API endpoint
             var response = await Http.GetFromJsonAsync<List<PersonaDto>>("docentes");
             if (response != null)
@@ -92,11 +92,12 @@ else
     {
         try
         {
+
             cargandoDocentes = true;
             docentesCurso = null;
             selectedPersonaId = int.Parse(e.Value?.ToString() ?? "0");
             Console.WriteLine($"Persona ID: {selectedPersonaId}");
-            docentesCurso = await Http.GetFromJsonAsync<DocenteDictadoDto[]>($"docente-cursos/{selectedPersonaId}");
+            docentesCurso = await Http.GetFromJsonAsync<List<DocenteDictadoDto>>($"docente-cursos/{selectedPersonaId}");
             cargandoDocentes = false;
         }
         catch (Exception ex)
